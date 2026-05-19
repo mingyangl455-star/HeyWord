@@ -55,5 +55,13 @@ const StartScreen = (() => {
     });
   }
 
-  return { init };
+  function show() {
+    const screen = document.getElementById('start-screen');
+    screen.style.display = '';
+    requestAnimationFrame(() => {
+      screen.classList.remove('hide');
+    });
+  }
+
+  return { init, show };
 })();

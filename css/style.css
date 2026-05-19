@@ -82,10 +82,38 @@ body {
 }
 
 .header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: var(--primary);
+}
+
+.btn-home {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--transition-speed) var(--easing),
+    transform var(--transition-speed) var(--easing);
+}
+
+.btn-home:hover {
+  background: rgba(123, 97, 255, 0.12);
+  transform: scale(1.05);
+}
+
+.btn-home:active {
+  transform: scale(0.95);
 }
 
 .header-right {
@@ -472,6 +500,86 @@ body {
     top 0.55s var(--easing),
     opacity 0.55s var(--easing),
     transform 0.55s var(--easing);
+}
+
+/* ---- 返回主页确认 ---- */
+.confirm-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 150;
+  background: rgba(45, 52, 54, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-speed) var(--easing),
+    visibility var(--transition-speed) var(--easing);
+}
+
+.confirm-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.confirm-card {
+  width: 100%;
+  max-width: 300px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px 20px 18px;
+  box-shadow: 0 12px 40px rgba(123, 97, 255, 0.2);
+  text-align: center;
+}
+
+.confirm-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+
+.confirm-desc {
+  font-size: 14px;
+  color: var(--fg-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-confirm-cancel,
+.btn-confirm-ok {
+  flex: 1;
+  padding: 11px 12px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-speed) var(--easing);
+}
+
+.btn-confirm-cancel {
+  background: var(--bg-subtle);
+  color: var(--fg-muted);
+}
+
+.btn-confirm-ok {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.btn-confirm-cancel:active,
+.btn-confirm-ok:active {
+  transform: scale(0.97);
 }
 
 /* ---- 开始界面 ---- */

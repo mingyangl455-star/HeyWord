@@ -340,6 +340,15 @@ const Wheel = (() => {
     }, 400);
   }
 
+  function clearInteraction() {
+    selectedIndices = [];
+    isDragging = false;
+    previewIsError = false;
+    previewBox.textContent = '';
+    _hidePreview();
+    _render();
+  }
+
   canvas.addEventListener('mousedown', _onStart);
   canvas.addEventListener('mousemove', _onMove);
   canvas.addEventListener('mouseup', _onEnd);
@@ -349,5 +358,5 @@ const Wheel = (() => {
   canvas.addEventListener('touchend', _onEnd, { passive: false });
   canvas.addEventListener('touchcancel', _onEnd, { passive: false });
 
-  return { setLetters, setOnWordComplete, showError, showPreviewSuccess };
+  return { setLetters, setOnWordComplete, showError, showPreviewSuccess, clearInteraction };
 })();

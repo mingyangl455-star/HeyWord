@@ -4,13 +4,24 @@
 
 const Game = (() => {
   let currentLevelIndex = 0;
+  let bindingsReady = false;
+
   const levelLabel = document.getElementById('level-label');
   const coinCount = document.getElementById('coin-count');
   const clearedPanel = document.getElementById('level-cleared');
   const btnNextLevel = document.getElementById('btn-next-level');
   const btnHint = document.getElementById('btn-hint');
+  const btnHome = document.getElementById('btn-home');
+  const homeConfirm = document.getElementById('home-confirm');
+  const btnHomeCancel = document.getElementById('btn-home-cancel');
+  const btnHomeOk = document.getElementById('btn-home-ok');
+  const gridContainer = document.getElementById('grid-container');
+  const wordCards = document.getElementById('word-cards');
 
   function init() {
+    if (bindingsReady) return;
+    bindingsReady = true;
+
     Validator.setOnCoinsChange(_updateCoins);
     Wheel.setOnWordComplete(_onWordComplete);
 
@@ -22,12 +33,39 @@ const Game = (() => {
       _goNextLevel();
     });
 
+    btnHome.addEventListener('click', () => {
+      homeConfirm.classList.add('show');
+    });
+
+    btnHomeCancel.addEventListener('click', () => {
+      homeConfirm.classList.remove('show');
+    });
+
+    btnHomeOk.addEventListener('click', () => {
+      homeConfirm.classList.remove('show');
+      returnToHome();
+    });
+  }
+
+  function start() {
+    currentLevelIndex = 0;
+    Validator.reset();
     _loadLevel(0);
+  }
+
+  function returnToHome() {
+    clearedPanel.classList.remove('show');
+    wordCards.innerHTML = '';
+    gridContainer.innerHTML = '';
+    Wheel.clearInteraction();
+    Validator.reset();
+    coinCount.textContent = '10';
+    StartScreen.show();
   }
 
   function _loadLevel(index) {
     if (index >= LEVELS.length) {
-      index = 0; // Loop back for demo
+      index = 0;
     }
 
     currentLevelIndex = index;
@@ -35,6 +73,7 @@ const Game = (() => {
 
     levelLabel.textContent = 'Level ' + levelData.level;
     Validator.setLevel(levelData);
+    _updateCoins(Validator.getCoins());
 
     Grid.loadLevel(levelData, () => {
       _onLevelCleared();
@@ -56,7 +95,6 @@ const Game = (() => {
       case 'extra':
         Wheel.showPreviewSuccess();
         Effects.showToast('+1 Extra Word');
-        // Sparkle from center toward coin counter
         const app = document.getElementById('app');
         const appRect = app.getBoundingClientRect();
         const coinEl = document.getElementById('coin-count');
@@ -102,8 +140,7 @@ const Game = (() => {
 
   function _renderWordCards() {
     const levelData = LEVELS[currentLevelIndex];
-    const container = document.getElementById('word-cards');
-    container.innerHTML = '';
+    wordCards.innerHTML = '';
 
     levelData.grid.words.forEach(w => {
       const card = document.createElement('div');
@@ -120,7 +157,7 @@ const Game = (() => {
         <div class="wc-example-cn">${w.exampleCn}</div>
       `;
 
-      container.appendChild(card);
+      wordCards.appendChild(card);
     });
   }
 
@@ -132,9 +169,10 @@ const Game = (() => {
     coinCount.textContent = count;
   }
 
-  return { init };
+  return { init, start, returnToHome };
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-  StartScreen.init(() => Game.init());
+  Game.init();
+  StartScreen.init(() => Game.start());
 });

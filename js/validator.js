@@ -8,6 +8,13 @@ const Validator = (() => {
   let coins = 10;
   let onCoinsChange = null;
 
+  function reset() {
+    coins = 10;
+    foundExtraWords = new Set();
+    currentLevel = null;
+    if (onCoinsChange) onCoinsChange(coins);
+  }
+
   function setLevel(levelData) {
     currentLevel = levelData;
     foundExtraWords = new Set();
@@ -62,5 +69,5 @@ const Validator = (() => {
     return { type: 'invalid' };
   }
 
-  return { setLevel, validate, getCoins, spendCoins, setOnCoinsChange };
+  return { setLevel, validate, getCoins, spendCoins, setOnCoinsChange, reset };
 })();
