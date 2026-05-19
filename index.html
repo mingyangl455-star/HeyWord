@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Hey Word</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 开始界面 -->
+    <div id="start-screen">
+      <div class="start-inner">
+        <div class="start-mascot-area" aria-hidden="true">
+          <div class="mascot-glow-ring"></div>
+          <div class="mascot-glow-ring mascot-glow-ring--delay"></div>
+          <img src="assets/mascot.png" alt="" class="mascot-img" width="150" height="150">
+        </div>
+        <h1 class="start-title">Hey Word</h1>
+        <p class="start-tagline">连线拼词，点亮灵感</p>
+
+        <button type="button" id="btn-start-game" class="btn-start-game">开始游戏</button>
+
+        <section class="friend-leaderboard" aria-label="好友排行">
+          <h2 class="lb-heading">
+            <span>好友排行</span>
+            <span class="lb-sub">本周闯关</span>
+          </h2>
+          <ol id="leaderboard-list" class="lb-list"></ol>
+        </section>
+      </div>
+    </div>
+
+    <!-- 顶部状态栏 -->
+    <header id="header">
+      <div class="header-left">
+        <span id="level-label">Level 1</span>
+      </div>
+      <div class="header-right">
+        <span class="coin-icon">&#9733;</span>
+        <span id="coin-count">10</span>
+      </div>
+    </header>
+
+    <!-- 中部字谜区 -->
+    <main id="grid-area">
+      <div id="grid-container"></div>
+      <div id="preview-box"></div>
+    </main>
+
+    <!-- 底部操作区 -->
+    <footer id="controls">
+      <span class="controls-spacer" aria-hidden="true"></span>
+      <canvas id="wheel-canvas"></canvas>
+      <button id="btn-hint" class="aux-btn" aria-label="Hint">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+      </button>
+    </footer>
+
+    <!-- 通关结算面板 -->
+    <div id="level-cleared">
+      <div class="cleared-content">
+        <h2>Level Cleared</h2>
+        <div id="word-cards"></div>
+        <button id="btn-next-level">Next</button>
+      </div>
+    </div>
+
+    <!-- 额外词提示 -->
+    <div id="extra-word-toast">+1 Extra Word</div>
+  </div>
+
+  <script src="js/start-screen.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/dictionary.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/wheel.js"></script>
+  <script src="js/validator.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
