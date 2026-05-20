@@ -3,7 +3,10 @@
    ============================================ */
 
 const Grid = (() => {
-  const container = document.getElementById('grid-container');
+  function _container() {
+    return document.getElementById('grid-container');
+  }
+
   let currentLevel = null;
   let cellMap = {};
   let solvedWords = new Set();
@@ -11,24 +14,19 @@ const Grid = (() => {
   let onLevelCleared = null;
 
   function loadLevel(levelData, callback) {
+    const container = _container();
+    if (!container) return;
     currentLevel = levelData;
     cellMap = {};
     solvedWords = new Set();
     solvedCells = new Set();
     onLevelCleared = callback;
 
-    const { cells, words } = levelData.grid;
-
+    const { cells } = levelData.grid;
     container.innerHTML = '';
 
-    // Find bounding box of active cells to compact the grid
     const activeRows = [...new Set(cells.map(c => c.row))].sort((a, b) => a - b);
     const activeCols = [...new Set(cells.map(c => c.col))].sort((a, b) => a - b);
-
-    const rowMap = {};
-    activeRows.forEach((r, i) => rowMap[r] = i);
-    const colMap = {};
-    activeCols.forEach((c, i) => colMap[c] = i);
 
     const gridRows = activeRows.length;
     const gridCols = activeCols.length;
@@ -75,10 +73,33 @@ const Grid = (() => {
     }
   }
 
-  function solveWord(wordObj) {
-    if (solvedWords.has(wordObj.word)) return false;
+  function reset() {
+    currentLevel = null;
+    cellMap = {};
+    solvedWords = new Set();
+    solvedCells = new Set();
+    onLevelCleared = null;
+  }
 
-    solvedWords.add(wordObj.word);
+  function _markCellSolved(cellEl, useHintStyle) {
+    const letter = cellEl.dataset.letter || '';
+    const front = cellEl.querySelector('.cell-front');
+    if (front) front.textContent = letter;
+
+    cellEl.classList.remove('unsolved');
+    cellEl.classList.add('solved');
+    if (useHintStyle) {
+      cellEl.classList.add('hint-revealed');
+    } else {
+      cellEl.classList.remove('hint-revealed');
+    }
+  }
+
+  function solveWord(wordObj) {
+    const key = wordObj.word.toUpperCase();
+    if (solvedWords.has(key)) return false;
+
+    solvedWords.add(key);
 
     wordObj.cellIds.forEach((cellId, idx) => {
       solvedCells.add(cellId);
@@ -86,8 +107,7 @@ const Grid = (() => {
       if (!cellEl) return;
 
       setTimeout(() => {
-        cellEl.classList.remove('unsolved');
-        cellEl.classList.add('solved');
+        _markCellSolved(cellEl, false);
         Effects.popCell(cellEl);
       }, idx * 80);
     });
@@ -100,19 +120,25 @@ const Grid = (() => {
   }
 
   function revealCell(cellId) {
+    if (!currentLevel || !currentLevel.grid) return false;
+
     const cellEl = cellMap[cellId];
     if (!cellEl || cellEl.classList.contains('solved')) return false;
 
     solvedCells.add(cellId);
-    cellEl.classList.remove('unsolved');
-    cellEl.classList.add('solved');
+    _markCellSolved(cellEl, true);
     Effects.popCell(cellEl);
 
     currentLevel.grid.words.forEach(w => {
-      if (solvedWords.has(w.word)) return;
+      const wkey = w.word.toUpperCase();
+      if (solvedWords.has(wkey)) return;
       const allSolved = w.cellIds.every(id => solvedCells.has(id));
       if (allSolved) {
-        solvedWords.add(w.word);
+        solvedWords.add(wkey);
+        w.cellIds.forEach(id => {
+          const el = cellMap[id];
+          if (el) el.classList.remove('hint-revealed');
+        });
       }
     });
 
@@ -121,21 +147,34 @@ const Grid = (() => {
   }
 
   function getRandomUnsolvedCellId() {
+    if (!currentLevel || !currentLevel.grid || !currentLevel.grid.cells) {
+      return null;
+    }
     const unsolved = currentLevel.grid.cells.filter(c => !solvedCells.has(c.id));
     if (unsolved.length === 0) return null;
     return unsolved[Math.floor(Math.random() * unsolved.length)].id;
   }
 
-  function isSolved(word) {
-    return solvedWords.has(word);
+  function isWordSolved(word) {
+    return solvedWords.has(word.toUpperCase());
   }
 
   function _checkCleared() {
-    const allSolved = currentLevel.grid.words.every(w => solvedWords.has(w.word));
+    if (!currentLevel || !currentLevel.grid) return;
+    const allSolved = currentLevel.grid.words.every(w =>
+      solvedWords.has(w.word.toUpperCase())
+    );
     if (allSolved && onLevelCleared) {
       onLevelCleared();
     }
   }
 
-  return { loadLevel, solveWord, revealCell, getRandomUnsolvedCellId, isSolved };
+  return {
+    loadLevel,
+    reset,
+    solveWord,
+    revealCell,
+    getRandomUnsolvedCellId,
+    isWordSolved,
+  };
 })();

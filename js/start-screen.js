@@ -11,26 +11,63 @@ const StartScreen = (() => {
     { name: '你', avatar: '我', color: '#7b61ff', levels: 3, isMe: true },
   ];
 
-  function init(onStart) {
-    _renderLeaderboard();
+  let onStartNew = null;
+  let onContinue = null;
+
+  function init(handlers) {
+    if (typeof handlers === 'function') {
+      onStartNew = handlers;
+      onContinue = handlers;
+    } else if (handlers) {
+      onStartNew = handlers.onStartNew;
+      onContinue = handlers.onContinue;
+    }
 
     const btn = document.getElementById('btn-start-game');
     const screen = document.getElementById('start-screen');
 
     btn.addEventListener('click', () => {
+      const useContinue = Progress.hasProgress();
       screen.classList.add('hide');
-      setTimeout(() => {
-        screen.style.display = 'none';
-        if (typeof onStart === 'function') onStart();
-      }, 320);
+      screen.style.pointerEvents = 'none';
+      screen.style.display = 'none';
+      if (useContinue && typeof onContinue === 'function') {
+        onContinue();
+      } else if (typeof onStartNew === 'function') {
+        onStartNew();
+      }
     });
+
+    updateStartButton();
+    _renderLeaderboard();
+  }
+
+  function updateStartButton() {
+    const labelEl = document.getElementById('btn-start-label');
+    const levelEl = document.getElementById('btn-start-level');
+    if (!labelEl || !levelEl) return;
+
+    if (Progress.hasProgress()) {
+      labelEl.textContent = '继续闯关';
+      levelEl.textContent = 'Level ' + Progress.getNextLevelNumber();
+      levelEl.classList.remove('hidden');
+    } else {
+      labelEl.textContent = '开始游戏';
+      levelEl.textContent = '';
+      levelEl.classList.add('hidden');
+    }
   }
 
   function _renderLeaderboard() {
     const list = document.getElementById('leaderboard-list');
     if (!list) return;
 
-    const sorted = [...FRIENDS].sort((a, b) => b.levels - a.levels);
+    const myCleared = Progress.getClearedCount();
+    const friends = FRIENDS.map(f =>
+      f.isMe ? { ...f, levels: Math.max(f.levels, myCleared) } : f
+    );
+
+    const sorted = [...friends].sort((a, b) => b.levels - a.levels);
 
     list.innerHTML = '';
     sorted.forEach((friend, index) => {
@@ -57,11 +94,14 @@ const StartScreen = (() => {
 
   function show() {
     const screen = document.getElementById('start-screen');
+    updateStartButton();
+    _renderLeaderboard();
     screen.style.display = '';
+    screen.style.pointerEvents = '';
     requestAnimationFrame(() => {
       screen.classList.remove('hide');
     });
   }
 
-  return { init, show };
+  return { init, show, updateStartButton };
 })();

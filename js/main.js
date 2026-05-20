@@ -3,6 +3,8 @@
    ============================================ */
 
 const Game = (() => {
+  const HINT_STAR_COST = 5;
+
   let currentLevelIndex = 0;
   let bindingsReady = false;
 
@@ -20,14 +22,18 @@ const Game = (() => {
 
   function init() {
     if (bindingsReady) return;
-    bindingsReady = true;
 
+    AdHint.init();
     Validator.setOnCoinsChange(_updateCoins);
     Wheel.setOnWordComplete(_onWordComplete);
 
-    btnHint.addEventListener('click', () => {
-      _useHint();
-    });
+    if (btnHint) {
+      btnHint.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        _useHint(e);
+      });
+    }
 
     btnNextLevel.addEventListener('click', () => {
       _goNextLevel();
@@ -45,18 +51,29 @@ const Game = (() => {
       homeConfirm.classList.remove('show');
       returnToHome();
     });
+
+    bindingsReady = true;
   }
 
-  function start() {
-    currentLevelIndex = 0;
+  function startNew() {
+    _enterGame(0);
+  }
+
+  function continueGame() {
+    _enterGame(Progress.getNextLevelIndex());
+  }
+
+  function _enterGame(levelIndex) {
+    currentLevelIndex = levelIndex;
     Validator.reset();
-    _loadLevel(0);
+    _loadLevel(levelIndex);
   }
 
   function returnToHome() {
     clearedPanel.classList.remove('show');
     wordCards.innerHTML = '';
     gridContainer.innerHTML = '';
+    Grid.reset();
     Wheel.clearInteraction();
     Validator.reset();
     coinCount.textContent = '10';
@@ -89,12 +106,25 @@ const Game = (() => {
     switch (result.type) {
       case 'target':
         Wheel.showPreviewSuccess();
-        Grid.solveWord(result.wordObj);
+        if (Grid.solveWord(result.wordObj)) {
+          Validator.addCoins(1);
+          // 获得星星特效：从屏幕中央生成粒子飞向右上角星星
+          const app = document.getElementById('app');
+          const appRect = app.getBoundingClientRect();
+          const coinEl = document.getElementById('coin-count');
+          const coinRect = coinEl.getBoundingClientRect();
+          Effects.spawnSparkles(
+            appRect.left + appRect.width / 2,
+            appRect.top + appRect.height / 2,
+            coinRect.left + coinRect.width / 2,
+            coinRect.top + coinRect.height / 2,
+            5
+          );
+        }
         break;
 
       case 'extra':
         Wheel.showPreviewSuccess();
-        Effects.showToast('+1 Extra Word');
         const app = document.getElementById('app');
         const appRect = app.getBoundingClientRect();
         const coinEl = document.getElementById('coin-count');
@@ -119,19 +149,53 @@ const Game = (() => {
     }
   }
 
-  function _useHint() {
-    if (!Validator.spendCoins(1)) {
-      Effects.showToast('Not enough coins');
+  function _applyHint() {
+    const cellId = Grid.getRandomUnsolvedCellId();
+    if (!cellId) {
+      Effects.showToast('没有可提示的格子');
+      return false;
+    }
+    if (!Grid.revealCell(cellId)) {
+      Effects.showToast('提示失败，请重试');
+      return false;
+    }
+    return true;
+  }
+
+  function _canPayHintWithStars() {
+    if (typeof Validator.canPayHintWithStars === 'function') {
+      return Validator.canPayHintWithStars();
+    }
+    return Validator.getCoins() >= HINT_STAR_COST;
+  }
+
+  function _payHintWithStars() {
+    if (typeof Validator.payHintWithStars === 'function') {
+      return Validator.payHintWithStars();
+    }
+    return Validator.spendCoins(HINT_STAR_COST);
+  }
+
+  function _useHint(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (e && e.stopPropagation) e.stopPropagation();
+
+    if (_canPayHintWithStars()) {
+      if (!_payHintWithStars()) {
+        Effects.showToast('星星不足');
+        return;
+      }
+      _applyHint();
       return;
     }
 
-    const cellId = Grid.getRandomUnsolvedCellId();
-    if (cellId) {
-      Grid.revealCell(cellId);
-    }
+    AdHint.show(() => {
+      _applyHint();
+    });
   }
 
   function _onLevelCleared() {
+    Progress.markLevelCleared(currentLevelIndex);
     _renderWordCards();
     setTimeout(() => {
       clearedPanel.classList.add('show');
@@ -167,12 +231,26 @@ const Game = (() => {
 
   function _updateCoins(count) {
     coinCount.textContent = count;
+    const headerRight = coinCount.parentElement;
+    if (headerRight) {
+      headerRight.classList.remove('pop-pulse');
+      // 触发重绘
+      void headerRight.offsetWidth;
+      headerRight.classList.add('pop-pulse');
+      setTimeout(() => {
+        headerRight.classList.remove('pop-pulse');
+      }, 450);
+    }
   }
 
-  return { init, start, returnToHome };
+  return { init, startNew, continueGame, returnToHome, useHint: _useHint };
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
   Game.init();
-  StartScreen.init(() => Game.start());
+  StartScreen.init({
+    onStartNew: () => Game.startNew(),
+    onContinue: () => Game.continueGame(),
+  });
+  window.Game = Game;
 });

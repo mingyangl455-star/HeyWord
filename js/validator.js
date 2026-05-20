@@ -3,6 +3,8 @@
    ============================================ */
 
 const Validator = (() => {
+  const HINT_STAR_COST = 5;
+
   let currentLevel = null;
   let foundExtraWords = new Set();
   let coins = 10;
@@ -35,6 +37,24 @@ const Validator = (() => {
     return true;
   }
 
+  function getHintStarCost() {
+    return HINT_STAR_COST;
+  }
+
+  function canPayHintWithStars() {
+    return coins >= HINT_STAR_COST;
+  }
+
+  /** @returns {boolean} true if 5 stars were spent */
+  function payHintWithStars() {
+    return spendCoins(HINT_STAR_COST);
+  }
+
+  function addCoins(amount) {
+    coins += amount;
+    if (onCoinsChange) onCoinsChange(coins);
+  }
+
   function _targetWords() {
     return currentLevel.grid.words.map(w => w.word.toUpperCase());
   }
@@ -46,28 +66,39 @@ const Validator = (() => {
 
     if (upper.length < 2) return { type: 'invalid' };
 
-    if (Grid.isSolved(upper)) {
-      return { type: 'duplicate' };
-    }
-
-    const targetWord = currentLevel.grid.words.find(w => w.word === upper);
-    if (targetWord) {
-      return { type: 'target', wordObj: targetWord };
-    }
-
     if (foundExtraWords.has(upper)) {
       return { type: 'duplicate' };
     }
 
+    const targetWord = currentLevel.grid.words.find(
+      w => w.word.toUpperCase() === upper
+    );
+    if (targetWord) {
+      if (Grid.isWordSolved(upper)) {
+        return { type: 'duplicate' };
+      }
+      return { type: 'target', wordObj: targetWord };
+    }
+
     if (Dictionary.isValidExtra(upper, currentLevel.letters, _targetWords())) {
       foundExtraWords.add(upper);
-      coins += 1;
-      if (onCoinsChange) onCoinsChange(coins);
+      addCoins(1);
       return { type: 'extra', word: upper };
     }
 
     return { type: 'invalid' };
   }
 
-  return { setLevel, validate, getCoins, spendCoins, setOnCoinsChange, reset };
+  return {
+    setLevel,
+    validate,
+    getCoins,
+    spendCoins,
+    setOnCoinsChange,
+    reset,
+    getHintStarCost,
+    canPayHintWithStars,
+    payHintWithStars,
+    addCoins,
+  };
 })();
