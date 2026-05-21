@@ -909,8 +909,44 @@ body {
   background: rgba(255, 255, 255, 0.22);
 }
 
+.start-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
 .btn-start-level.hidden {
   display: none;
+}
+
+.btn-new-game {
+  width: 100%;
+  max-width: 280px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  background: #f3f0ff;
+  cursor: pointer;
+  transition: transform 0.2s var(--easing), box-shadow 0.2s var(--easing), background 0.2s var(--easing);
+}
+
+.btn-new-game.hidden {
+  display: none;
+}
+
+.btn-new-game:hover {
+  transform: scale(1.04);
+  background: #ebe6ff;
+  box-shadow: 0 4px 16px rgba(123, 97, 255, 0.2);
+}
+
+.btn-new-game:active {
+  transform: scale(0.97);
 }
 
 .btn-start-game:hover {

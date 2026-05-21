@@ -24,6 +24,7 @@ const StartScreen = (() => {
     }
 
     const btn = document.getElementById('btn-start-game');
+    const btnNew = document.getElementById('btn-new-game');
     const screen = document.getElementById('start-screen');
 
     btn.addEventListener('click', () => {
@@ -38,6 +39,18 @@ const StartScreen = (() => {
       }
     });
 
+    if (btnNew) {
+      btnNew.addEventListener('click', () => {
+        if (!confirm('确定要重新开始新游戏吗？之前闯过的进度不会被删除。')) return;
+        screen.classList.add('hide');
+        screen.style.pointerEvents = 'none';
+        screen.style.display = 'none';
+        if (typeof onStartNew === 'function') {
+          onStartNew();
+        }
+      });
+    }
+
     updateStartButton();
     _renderLeaderboard();
   }
@@ -45,16 +58,19 @@ const StartScreen = (() => {
   function updateStartButton() {
     const labelEl = document.getElementById('btn-start-label');
     const levelEl = document.getElementById('btn-start-level');
+    const btnNew = document.getElementById('btn-new-game');
     if (!labelEl || !levelEl) return;
 
     if (Progress.hasProgress()) {
       labelEl.textContent = '继续闯关';
       levelEl.textContent = 'Level ' + Progress.getNextLevelNumber();
       levelEl.classList.remove('hidden');
+      if (btnNew) btnNew.classList.remove('hidden');
     } else {
       labelEl.textContent = '开始游戏';
       levelEl.textContent = '';
       levelEl.classList.add('hidden');
+      if (btnNew) btnNew.classList.add('hidden');
     }
   }
 
