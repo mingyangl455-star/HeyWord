@@ -19,6 +19,7 @@ const Game = (() => {
   const btnHomeOk = document.getElementById('btn-home-ok');
   const gridContainer = document.getElementById('grid-container');
   const wordCards = document.getElementById('word-cards');
+  const stageBadge = document.getElementById('stage-badge');
 
   function init() {
     if (bindingsReady) return;
@@ -151,14 +152,8 @@ const Game = (() => {
 
   function _applyHint() {
     const cellId = Grid.getRandomUnsolvedCellId();
-    if (!cellId) {
-      Effects.showToast('没有可提示的格子');
-      return false;
-    }
-    if (!Grid.revealCell(cellId)) {
-      Effects.showToast('提示失败，请重试');
-      return false;
-    }
+    if (!cellId) return false;
+    if (!Grid.revealCell(cellId)) return false;
     return true;
   }
 
@@ -194,8 +189,31 @@ const Game = (() => {
     });
   }
 
+  const STAGE_NAMES = [
+    '单词新手',   // 1-10
+    '词汇学徒',   // 11-20
+    '拼词达人',   // 21-30
+    '英语高手',   // 31-40
+    '语言大师',   // 41-50
+  ];
+
   function _onLevelCleared() {
     Progress.markLevelCleared(currentLevelIndex);
+
+    const levelNum = currentLevelIndex + 1;
+    const stageIndex = Math.floor(currentLevelIndex / 10);
+    const isStageEnd = levelNum % 10 === 0 && stageIndex < STAGE_NAMES.length;
+
+    if (stageBadge) {
+      if (isStageEnd) {
+        stageBadge.innerHTML = `<span class="badge-icon">🏅</span> ${STAGE_NAMES[stageIndex]} 达成！`;
+        stageBadge.classList.remove('hidden');
+      } else {
+        stageBadge.classList.add('hidden');
+        stageBadge.innerHTML = '';
+      }
+    }
+
     _renderWordCards();
     setTimeout(() => {
       clearedPanel.classList.add('show');
