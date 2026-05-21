@@ -8,7 +8,7 @@ const Game = (() => {
   let currentLevelIndex = 0;
   let bindingsReady = false;
 
-  const IDLE_TIMEOUT = 10000;
+  const IDLE_TIMEOUT = 6000;
   let idleTimer = null;
   let idleHintTimer = null;
 
