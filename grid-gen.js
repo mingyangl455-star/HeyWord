@@ -6,66 +6,69 @@
 const fs = require('fs');
 
 // ========== 50 关原始单词数据 ==========
+// Level 1: 3字母热身；Level 2-50: 难度递增
 const RAW_LEVELS = [
-  // Stage 1 (1-10): 3字母盘，极简入门
+  // Level 1: 3字母热身
   { letters: ['C','A','T'], words: ['CAT','ACT'] },
-  { letters: ['D','O','G'], words: ['DOG','GOD'] },
-  { letters: ['B','A','T'], words: ['BAT','TAB'] },
-  { letters: ['E','A','R'], words: ['EAR','ARE','ERA'] },
-  { letters: ['T','E','A'], words: ['TEA','EAT','ATE'] },
-  { letters: ['R','A','T'], words: ['RAT','ART','TAR'] },
-  { letters: ['N','O','W'], words: ['NOW','WON','OWN'] },
-  { letters: ['R','U','N'], words: ['RUN','URN'] },
-  { letters: ['A','R','M'], words: ['ARM','RAM','MAR'] },
-  { letters: ['L','I','E'], words: ['LIE','LEI'] },
 
-  // Stage 2 (11-20): 4字母盘，简单交叉
-  { letters: ['S','T','A','R'], words: ['STAR','ART','RAT','TAR'] },
+  // Level 2-10: 4字母入门（避免纯变位词堆叠，主词+少量短词）
+  { letters: ['S','T','A','R'], words: ['STAR','ART'] },
   { letters: ['R','O','S','E'], words: ['ROSE','ORES'] },
-  { letters: ['L','I','S','T'], words: ['LIST','SILT','SLIT','LIT','SIT'] },
-  { letters: ['R','A','T','E'], words: ['RATE','TEAR','TARE','ATE','TEA'] },
-  { letters: ['D','U','S','T'], words: ['DUST','STUD'] },
+  { letters: ['L','I','S','T'], words: ['LIST','SILT','SLIT'] },
   { letters: ['F','I','R','E'], words: ['FIRE','RIFE'] },
-  { letters: ['L','A','N','D'], words: ['LAND','DUAL','LAUD'] },
-  { letters: ['T','I','M','E'], words: ['TIME','EMIT','ITEM','MITE','TIE'] },
   { letters: ['R','O','A','D'], words: ['ROAD','ORAD'] },
-  { letters: ['P','A','L','E'], words: ['PALE','LEAP','PLEA','ALE','LAP'] },
+  { letters: ['T','I','M','E'], words: ['TIME','EMIT','ITEM'] },
+  { letters: ['P','A','L','E'], words: ['PALE','LEAP'] },
+  { letters: ['L','A','N','D'], words: ['LAND','DUAL'] },
+  { letters: ['D','U','S','T'], words: ['DUST','STUD'] },
 
-  // Stage 3 (21-30): 5-6字母盘，中等交叉
-  { letters: ['B','R','E','A','D'], words: ['BREAD','READ','DARE','DEAR'] },
+  // Level 11-20: 4-5字母进阶
+  { letters: ['R','A','T','E'], words: ['RATE','TEAR'] },
+  { letters: ['B','R','E','A','D'], words: ['BREAD','READ','DARE'] },
   { letters: ['C','L','O','U','D'], words: ['CLOUD','LOUD','COLD'] },
-  { letters: ['B','R','I','G','H','T'], words: ['BRIGHT','RIGHT','GRIT'] },
-  { letters: ['S','T','R','E','A','M'], words: ['STREAM','TEAM','STEAM','MATES'] },
-  { letters: ['F','I','E','L','D'], words: ['FIELD','FILED','IDLE','LIED','FILE','LIFE'] },
   { letters: ['G','R','E','E','N'], words: ['GREEN','GENRE'] },
-  { letters: ['S','I','L','V','E','R'], words: ['SILVER','LIVER','SLIVER'] },
-  { letters: ['Y','E','L','L','O','W'], words: ['YELLOW','WELL','YELL'] },
-  { letters: ['O','R','A','N','G','E'], words: ['ORANGE','RANGE','GROAN','ORGAN'] },
+  { letters: ['F','I','E','L','D'], words: ['FIELD','FILED','IDLE'] },
+  { letters: ['O','C','E','A','N'], words: ['OCEAN','CONE','CANE'] },
+  { letters: ['B','R','I','G','H','T'], words: ['BRIGHT','RIGHT'] },
+  { letters: ['S','T','R','E','A','M'], words: ['STREAM','TEAM'] },
+  { letters: ['Y','E','L','L','O','W'], words: ['YELLOW','WELL'] },
+  { letters: ['S','I','L','V','E','R'], words: ['SILVER','LIVER'] },
+
+  // Level 21-30: 5-7字母挑战
+  { letters: ['O','R','A','N','G','E'], words: ['ORANGE','RANGE'] },
   { letters: ['D','I','A','M','O','N','D'], words: ['DIAMOND'] },
+  { letters: ['S','U','N','S','E','T'], words: ['SUNSET','NEST'] },
+  { letters: ['W','I','N','T','E','R'], words: ['WINTER','WRITE'] },
+  { letters: ['S','U','M','M','E','R'], words: ['SUMMER','USER'] },
+  { letters: ['S','P','R','I','N','G'], words: ['SPRING','RINGS'] },
+  { letters: ['B','R','I','D','G','E'], words: ['BRIDGE','BIRD'] },
+  { letters: ['V','I','L','L','A','G','E'], words: ['VILLAGE','GIVE'] },
+  { letters: ['T','H','O','U','G','H','T'], words: ['THOUGHT','OUGHT'] },
+  { letters: ['P','I','C','T','U','R','E'], words: ['PICTURE','PURE'] },
 
-  // Stage 4 (31-40): 6-7字母盘，复杂网格
-  { letters: ['S','U','N','S','E','T'], words: ['SUNSET','NEST','SENT','TENS','NETS'] },
-  { letters: ['C','A','P','T','A','I','N'], words: ['CAPTAIN','PAINT','PIN','CAP','PAN'] },
-  { letters: ['P','I','C','T','U','R','E'], words: ['PICTURE','PURE','CUTE','RITE','TIRE'] },
-  { letters: ['W','I','N','T','E','R'], words: ['WINTER','WRITE','TWIN','WINE','WIRE','TIER'] },
-  { letters: ['S','U','M','M','E','R'], words: ['SUMMER','USER','SURE','RUSE'] },
-  { letters: ['S','P','R','I','N','G'], words: ['SPRING','RINGS','GRINS','GRIP','PINS','SIGN'] },
-  { letters: ['O','C','E','A','N'], words: ['OCEAN','CONE','CANE','ONCE'] },
-  { letters: ['V','I','L','L','A','G','E'], words: ['VILLAGE','GIVE','LIVE','VILE','VEIL'] },
-  { letters: ['B','R','I','D','G','E'], words: ['BRIDGE','BIRD','RIDE','GRID','BIDE','BRIE'] },
-  { letters: ['T','H','O','U','G','H','T'], words: ['THOUGHT','OUGHT','TOUGH','THOU'] },
+  // Level 31-40: 6-7字母高手
+  { letters: ['C','A','P','T','A','I','N'], words: ['CAPTAIN','PAINT'] },
+  { letters: ['W','E','A','T','H','E','R'], words: ['WEATHER','HEAT'] },
+  { letters: ['F','O','R','E','S','T','S'], words: ['FORESTS','FOREST'] },
+  { letters: ['G','A','R','D','E','N','S'], words: ['GARDENS','READS'] },
+  { letters: ['J','O','U','R','N','E','Y'], words: ['JOURNEY','JURY'] },
+  { letters: ['C','H','A','P','T','E','R'], words: ['CHAPTER','CHART'] },
+  { letters: ['D','E','S','T','R','O','Y'], words: ['DESTROY','STORE'] },
+  { letters: ['H','I','S','T','O','R','Y'], words: ['HISTORY','SHORT'] },
+  { letters: ['F','A','S','H','I','O','N'], words: ['FASHION','FANS'] },
+  { letters: ['P','R','O','B','L','E','M'], words: ['PROBLEM','PROBE'] },
 
-  // Stage 5 (41-50): 7-8字母盘，终极挑战
-  { letters: ['W','E','A','T','H','E','R'], words: ['WEATHER','HEAT','EARTH'] },
-  { letters: ['F','O','R','E','S','T','S'], words: ['FORESTS','FOREST','FORTS','RESTS'] },
-  { letters: ['G','A','R','D','E','N','S'], words: ['GARDENS','READS','DARES','GRAND','SAND'] },
-  { letters: ['J','O','U','R','N','E','Y'], words: ['JOURNEY','JURY','ENJOY','OUR'] },
-  { letters: ['C','H','A','P','T','E','R'], words: ['CHAPTER','CHART','PATCH','PEACH'] },
-  { letters: ['D','E','S','T','R','O','Y'], words: ['DESTROY','STORE','STORY'] },
-  { letters: ['H','I','S','T','O','R','Y'], words: ['HISTORY','SHORT','SHIRT'] },
-  { letters: ['F','A','S','H','I','O','N'], words: ['FASHION','FANS','SHIN'] },
-  { letters: ['P','R','O','B','L','E','M'], words: ['PROBLEM','PROBE','ROLE'] },
-  { letters: ['T','R','E','A','S','U','R','E'], words: ['TREASURE','STARE','RATES'] },
+  // Level 41-50: 7-8字母大师
+  { letters: ['T','R','E','A','S','U','R','E'], words: ['TREASURE','STARE'] },
+  { letters: ['T','E','A','C','H','E','R','S'], words: ['TEACHERS','TEACHES'] },
+  { letters: ['Q','U','E','S','T','I','O','N'], words: ['QUESTION','QUEST'] },
+  { letters: ['P','O','S','I','T','I','V','E'], words: ['POSITIVE','VISIT'] },
+  { letters: ['C','O','M','P','L','E','T','E'], words: ['COMPLETE','POET'] },
+  { letters: ['P','R','A','C','T','I','C','E'], words: ['PRACTICE','TRACE'] },
+  { letters: ['I','N','T','E','R','E','S','T'], words: ['INTEREST','ENTER'] },
+  { letters: ['R','E','S','E','A','R','C','H'], words: ['RESEARCH','SEARCH'] },
+  { letters: ['C','H','A','M','P','I','O','N'], words: ['CHAMPION','CHAMP'] },
+  { letters: ['A','D','V','E','N','T','U','R','E'], words: ['ADVENTURE','VENTURE'] },
 ];
 
 // ========== 简化释义词典 ==========
@@ -243,6 +246,13 @@ const DICTIONARY = {
   'TREASURE': { phonetic: '/ˈtreʒər/', meaning: 'n. 宝藏', example: 'The pirates buried their treasure.', exampleCn: '海盗埋藏了他们的宝藏。' },
   'STARE': { phonetic: '/steər/', meaning: 'v. 凝视', example: 'Do not stare at strangers.', exampleCn: '不要盯着陌生人看。' },
   'RATES': { phonetic: '/reɪts/', meaning: 'n. 比率（复数）', example: 'Interest rates are rising.', exampleCn: '利率正在上升。' },
+  'TEACHERS': { phonetic: '/ˈtiːtʃərz/', meaning: 'n. 老师（复数）', example: 'The teachers are in the meeting room.', exampleCn: '老师们正在会议室里。' },
+  'TEACHES': { phonetic: '/ˈtiːtʃɪz/', meaning: 'v. 教（第三人称单数）', example: 'She teaches English at school.', exampleCn: '她在学校教英语。' },
+  'QUEST': { phonetic: '/kwest/', meaning: 'n. 探索，追求', example: 'He went on a quest for knowledge.', exampleCn: '他踏上了求知之旅。' },
+  'POET': { phonetic: '/ˈpəʊɪt/', meaning: 'n. 诗人', example: 'The poet wrote beautiful verses.', exampleCn: '这位诗人写下了优美的诗句。' },
+  'ENTER': { phonetic: '/ˈentər/', meaning: 'v. 进入', example: 'Please enter through the front door.', exampleCn: '请从前门进入。' },
+  'CHAMP': { phonetic: '/tʃæmp/', meaning: 'n. 冠军（口语）', example: 'He is the champ of the tournament.', exampleCn: '他是锦标赛的冠军。' },
+  'VENTURE': { phonetic: '/ˈventʃər/', meaning: 'n. 冒险；v. 敢于', example: 'The business venture was risky.', exampleCn: '这项商业投资有风险。' },
 };
 
 function getWordInfo(word) {

@@ -74,726 +74,6 @@ const LEVELS = [
   {
     "level": 2,
     "letters": [
-      "D",
-      "O",
-      "G"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "D",
-          "id": "d1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "O",
-          "id": "o1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "G",
-          "id": "g1"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "G",
-          "id": "g2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "O",
-          "id": "o2"
-        }
-      ],
-      "words": [
-        {
-          "word": "DOG",
-          "cellIds": [
-            "d1",
-            "o1",
-            "g1"
-          ],
-          "phonetic": "/dɒɡ/",
-          "meaning": "n. 狗",
-          "example": "The dog runs in the park.",
-          "exampleCn": "狗在公园里跑。"
-        },
-        {
-          "word": "GOD",
-          "cellIds": [
-            "g2",
-            "o2",
-            "d1"
-          ],
-          "phonetic": "/ɡɒd/",
-          "meaning": "n. 神，上帝",
-          "example": "Thank God it is Friday.",
-          "exampleCn": "谢天谢地，周五了。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 3,
-    "letters": [
-      "B",
-      "A",
-      "T"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "B",
-          "id": "b1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "A",
-          "id": "a2"
-        }
-      ],
-      "words": [
-        {
-          "word": "BAT",
-          "cellIds": [
-            "b1",
-            "a1",
-            "t1"
-          ],
-          "phonetic": "/bæt/",
-          "meaning": "n. 蝙蝠；球棒",
-          "example": "A bat flew out of the cave.",
-          "exampleCn": "一只蝙蝠飞出了洞穴。"
-        },
-        {
-          "word": "TAB",
-          "cellIds": [
-            "t2",
-            "a2",
-            "b1"
-          ],
-          "phonetic": "/tæb/",
-          "meaning": "n. 标签；账单",
-          "example": "He paid the tab at the bar.",
-          "exampleCn": "他在酒吧付了账单。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 4,
-    "letters": [
-      "E",
-      "A",
-      "R"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "A",
-          "id": "a3"
-        }
-      ],
-      "words": [
-        {
-          "word": "EAR",
-          "cellIds": [
-            "e1",
-            "a1",
-            "r1"
-          ],
-          "phonetic": "/ɪər/",
-          "meaning": "n. 耳朵",
-          "example": "She whispered in his ear.",
-          "exampleCn": "她在他耳边低语。"
-        },
-        {
-          "word": "ARE",
-          "cellIds": [
-            "a2",
-            "r2",
-            "e1"
-          ],
-          "phonetic": "/ɑːr/",
-          "meaning": "v. 是（复数）",
-          "example": "They are good friends.",
-          "exampleCn": "他们是好朋友。"
-        },
-        {
-          "word": "ERA",
-          "cellIds": [
-            "e1",
-            "r3",
-            "a3"
-          ],
-          "phonetic": "/ˈɪərə/",
-          "meaning": "n. 时代，纪元",
-          "example": "We live in a digital era.",
-          "exampleCn": "我们生活在数字时代。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 5,
-    "letters": [
-      "T",
-      "E",
-      "A"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "E",
-          "id": "e3"
-        }
-      ],
-      "words": [
-        {
-          "word": "TEA",
-          "cellIds": [
-            "t1",
-            "e1",
-            "a1"
-          ],
-          "phonetic": "/tiː/",
-          "meaning": "n. 茶",
-          "example": "Would you like a cup of tea?",
-          "exampleCn": "你想喝杯茶吗？"
-        },
-        {
-          "word": "EAT",
-          "cellIds": [
-            "e2",
-            "a2",
-            "t1"
-          ],
-          "phonetic": "/iːt/",
-          "meaning": "v. 吃",
-          "example": "Do not eat too fast.",
-          "exampleCn": "不要吃得太快。"
-        },
-        {
-          "word": "ATE",
-          "cellIds": [
-            "a2",
-            "t1",
-            "e3"
-          ],
-          "phonetic": "/eɪt/",
-          "meaning": "v. eat 的过去式",
-          "example": "She ate an apple.",
-          "exampleCn": "她吃了一个苹果。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 6,
-    "letters": [
-      "R",
-      "A",
-      "T"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "T",
-          "id": "t3"
-        }
-      ],
-      "words": [
-        {
-          "word": "RAT",
-          "cellIds": [
-            "r1",
-            "a1",
-            "t1"
-          ],
-          "phonetic": "/ræt/",
-          "meaning": "n. 老鼠",
-          "example": "A rat ran across the floor.",
-          "exampleCn": "一只老鼠跑过地板。"
-        },
-        {
-          "word": "ART",
-          "cellIds": [
-            "a2",
-            "r1",
-            "t2"
-          ],
-          "phonetic": "/ɑːt/",
-          "meaning": "n. 艺术",
-          "example": "She studies art at college.",
-          "exampleCn": "她在大学学习艺术。"
-        },
-        {
-          "word": "TAR",
-          "cellIds": [
-            "t3",
-            "a2",
-            "r1"
-          ],
-          "phonetic": "/tɑːr/",
-          "meaning": "n. 焦油",
-          "example": "The road was covered with tar.",
-          "exampleCn": "路上铺满了焦油。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 7,
-    "letters": [
-      "N",
-      "O",
-      "W"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "N",
-          "id": "n1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "O",
-          "id": "o1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "W",
-          "id": "w1"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "W",
-          "id": "w2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "O",
-          "id": "o2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "W",
-          "id": "w3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "N",
-          "id": "n2"
-        }
-      ],
-      "words": [
-        {
-          "word": "NOW",
-          "cellIds": [
-            "n1",
-            "o1",
-            "w1"
-          ],
-          "phonetic": "/naʊ/",
-          "meaning": "adv. 现在",
-          "example": "I am busy right now.",
-          "exampleCn": "我现在很忙。"
-        },
-        {
-          "word": "WON",
-          "cellIds": [
-            "w2",
-            "o2",
-            "n1"
-          ],
-          "phonetic": "/wʌn/",
-          "meaning": "v. win 的过去式",
-          "example": "Our team won the game.",
-          "exampleCn": "我们队赢了比赛。"
-        },
-        {
-          "word": "OWN",
-          "cellIds": [
-            "o1",
-            "w3",
-            "n2"
-          ],
-          "phonetic": "/əʊn/",
-          "meaning": "v. 拥有；adj. 自己的",
-          "example": "I own a small car.",
-          "exampleCn": "我有一辆小汽车。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 8,
-    "letters": [
-      "R",
-      "U",
-      "N"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "U",
-          "id": "u1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "N",
-          "id": "n1"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "U",
-          "id": "u2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "N",
-          "id": "n2"
-        }
-      ],
-      "words": [
-        {
-          "word": "RUN",
-          "cellIds": [
-            "r1",
-            "u1",
-            "n1"
-          ],
-          "phonetic": "/rʌn/",
-          "meaning": "v. 跑",
-          "example": "I run every morning.",
-          "exampleCn": "我每天早上跑步。"
-        },
-        {
-          "word": "URN",
-          "cellIds": [
-            "u2",
-            "r1",
-            "n2"
-          ],
-          "phonetic": "/ɜːn/",
-          "meaning": "n. 瓮，骨灰盒",
-          "example": "The ashes are kept in an urn.",
-          "exampleCn": "骨灰保存在瓮中。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 9,
-    "letters": [
-      "A",
-      "R",
-      "M"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "M",
-          "id": "m1"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "M",
-          "id": "m2"
-        },
-        {
-          "row": 1,
-          "col": 2,
-          "letter": "M",
-          "id": "m3"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "A",
-          "id": "a2"
-        }
-      ],
-      "words": [
-        {
-          "word": "ARM",
-          "cellIds": [
-            "a1",
-            "r1",
-            "m1"
-          ],
-          "phonetic": "/ɑːm/",
-          "meaning": "n. 手臂",
-          "example": "He broke his left arm.",
-          "exampleCn": "他摔断了左臂。"
-        },
-        {
-          "word": "RAM",
-          "cellIds": [
-            "r2",
-            "a1",
-            "m2"
-          ],
-          "phonetic": "/ræm/",
-          "meaning": "n. 公羊；v. 撞击",
-          "example": "A ram charged at the fence.",
-          "exampleCn": "一只公羊冲向围栏。"
-        },
-        {
-          "word": "MAR",
-          "cellIds": [
-            "m3",
-            "a2",
-            "r1"
-          ],
-          "phonetic": "/mɑːr/",
-          "meaning": "v. 损坏，毁坏",
-          "example": "The scratch will mar the table.",
-          "exampleCn": "划痕会损坏桌子。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 10,
-    "letters": [
-      "L",
-      "I",
-      "E"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "L",
-          "id": "l1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "I",
-          "id": "i2"
-        }
-      ],
-      "words": [
-        {
-          "word": "LIE",
-          "cellIds": [
-            "l1",
-            "i1",
-            "e1"
-          ],
-          "phonetic": "/laɪ/",
-          "meaning": "v. 躺；说谎",
-          "example": "Do not lie to me.",
-          "exampleCn": "不要对我说谎。"
-        },
-        {
-          "word": "LEI",
-          "cellIds": [
-            "l1",
-            "e2",
-            "i2"
-          ],
-          "phonetic": "/leɪ/",
-          "meaning": "n. （夏威夷）花环",
-          "example": "She wore a lei around her neck.",
-          "exampleCn": "她脖子上戴着花环。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 11,
-    "letters": [
       "S",
       "T",
       "A",
@@ -836,30 +116,6 @@ const LEVELS = [
           "col": 2,
           "letter": "R",
           "id": "r2"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "R",
-          "id": "r4"
         }
       ],
       "words": [
@@ -887,36 +143,12 @@ const LEVELS = [
           "meaning": "n. 艺术",
           "example": "She studies art at college.",
           "exampleCn": "她在大学学习艺术。"
-        },
-        {
-          "word": "RAT",
-          "cellIds": [
-            "r3",
-            "a1",
-            "t2"
-          ],
-          "phonetic": "/ræt/",
-          "meaning": "n. 老鼠",
-          "example": "A rat ran across the floor.",
-          "exampleCn": "一只老鼠跑过地板。"
-        },
-        {
-          "word": "TAR",
-          "cellIds": [
-            "t1",
-            "a3",
-            "r4"
-          ],
-          "phonetic": "/tɑːr/",
-          "meaning": "n. 焦油",
-          "example": "The road was covered with tar.",
-          "exampleCn": "路上铺满了焦油。"
         }
       ]
     }
   },
   {
-    "level": 12,
+    "level": 3,
     "letters": [
       "R",
       "O",
@@ -999,7 +231,7 @@ const LEVELS = [
     }
   },
   {
-    "level": 13,
+    "level": 4,
     "letters": [
       "L",
       "I",
@@ -1067,18 +299,6 @@ const LEVELS = [
           "col": 2,
           "letter": "T",
           "id": "t3"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "I",
-          "id": "i3"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "T",
-          "id": "t4"
         }
       ],
       "words": [
@@ -1120,275 +340,12 @@ const LEVELS = [
           "meaning": "n. 裂缝；v. 切开",
           "example": "There is a slit in the curtain.",
           "exampleCn": "窗帘上有一道裂缝。"
-        },
-        {
-          "word": "LIT",
-          "cellIds": [
-            "l2",
-            "i1",
-            "t3"
-          ],
-          "phonetic": "/lɪt/",
-          "meaning": "v. light 的过去式",
-          "example": "She lit a candle.",
-          "exampleCn": "她点燃了一支蜡烛。"
-        },
-        {
-          "word": "SIT",
-          "cellIds": [
-            "s1",
-            "i3",
-            "t4"
-          ],
-          "phonetic": "/sɪt/",
-          "meaning": "v. 坐",
-          "example": "Please sit down.",
-          "exampleCn": "请坐。"
         }
       ]
     }
   },
   {
-    "level": 14,
-    "letters": [
-      "R",
-      "A",
-      "T",
-      "E"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "A",
-          "id": "a4"
-        }
-      ],
-      "words": [
-        {
-          "word": "RATE",
-          "cellIds": [
-            "r1",
-            "a1",
-            "t1",
-            "e1"
-          ],
-          "phonetic": "/reɪt/",
-          "meaning": "n. 比率；v. 评价",
-          "example": "The exchange rate is rising.",
-          "exampleCn": "汇率正在上涨。"
-        },
-        {
-          "word": "TEAR",
-          "cellIds": [
-            "t2",
-            "e2",
-            "a2",
-            "r1"
-          ],
-          "phonetic": "/tɪər/",
-          "meaning": "n. 眼泪；v. 撕裂",
-          "example": "A tear rolled down her cheek.",
-          "exampleCn": "一滴眼泪从她脸颊滑落。"
-        },
-        {
-          "word": "TARE",
-          "cellIds": [
-            "t3",
-            "a1",
-            "r2",
-            "e3"
-          ],
-          "phonetic": "/teər/",
-          "meaning": "n. 皮重",
-          "example": "Subtract the tare from the gross weight.",
-          "exampleCn": "从毛重中减去皮重。"
-        },
-        {
-          "word": "ATE",
-          "cellIds": [
-            "a3",
-            "t1",
-            "e4"
-          ],
-          "phonetic": "/eɪt/",
-          "meaning": "v. eat 的过去式",
-          "example": "She ate an apple.",
-          "exampleCn": "她吃了一个苹果。"
-        },
-        {
-          "word": "TEA",
-          "cellIds": [
-            "t1",
-            "e4",
-            "a4"
-          ],
-          "phonetic": "/tiː/",
-          "meaning": "n. 茶",
-          "example": "Would you like a cup of tea?",
-          "exampleCn": "你想喝杯茶吗？"
-        }
-      ]
-    }
-  },
-  {
-    "level": 15,
-    "letters": [
-      "D",
-      "U",
-      "S",
-      "T"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "D",
-          "id": "d1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "U",
-          "id": "u1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "S",
-          "id": "s1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "letter": "S",
-          "id": "s2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "U",
-          "id": "u2"
-        }
-      ],
-      "words": [
-        {
-          "word": "DUST",
-          "cellIds": [
-            "d1",
-            "u1",
-            "s1",
-            "t1"
-          ],
-          "phonetic": "/dʌst/",
-          "meaning": "n. 灰尘",
-          "example": "The shelf is covered with dust.",
-          "exampleCn": "架子上布满灰尘。"
-        },
-        {
-          "word": "STUD",
-          "cellIds": [
-            "s2",
-            "t2",
-            "u2",
-            "d1"
-          ],
-          "phonetic": "/stʌd/",
-          "meaning": "n. 种马；耳钉",
-          "example": "He wore diamond studs.",
-          "exampleCn": "他戴着钻石耳钉。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 16,
+    "level": 5,
     "letters": [
       "F",
       "I",
@@ -1471,266 +428,7 @@ const LEVELS = [
     }
   },
   {
-    "level": 17,
-    "letters": [
-      "L",
-      "A",
-      "N",
-      "D"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "L",
-          "id": "l1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "N",
-          "id": "n1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "D",
-          "id": "d1"
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "letter": "D",
-          "id": "d2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "U",
-          "id": "u1"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "U",
-          "id": "u2"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "D",
-          "id": "d3"
-        }
-      ],
-      "words": [
-        {
-          "word": "LAND",
-          "cellIds": [
-            "l1",
-            "a1",
-            "n1",
-            "d1"
-          ],
-          "phonetic": "/lænd/",
-          "meaning": "n. 土地；v. 着陆",
-          "example": "The plane will land soon.",
-          "exampleCn": "飞机即将着陆。"
-        },
-        {
-          "word": "DUAL",
-          "cellIds": [
-            "d2",
-            "u1",
-            "a2",
-            "l1"
-          ],
-          "phonetic": "/ˈdjuːəl/",
-          "meaning": "adj. 双重的",
-          "example": "The phone has dual cameras.",
-          "exampleCn": "这款手机有双摄像头。"
-        },
-        {
-          "word": "LAUD",
-          "cellIds": [
-            "l1",
-            "a3",
-            "u2",
-            "d3"
-          ],
-          "phonetic": "/lɔːd/",
-          "meaning": "v. 赞美",
-          "example": "Critics laud the new film.",
-          "exampleCn": "评论家称赞这部新电影。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 18,
-    "letters": [
-      "T",
-      "I",
-      "M",
-      "E"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "M",
-          "id": "m1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "M",
-          "id": "m2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "M",
-          "id": "m3"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "E",
-          "id": "e4"
-        }
-      ],
-      "words": [
-        {
-          "word": "TIME",
-          "cellIds": [
-            "t1",
-            "i1",
-            "m1",
-            "e1"
-          ],
-          "phonetic": "/taɪm/",
-          "meaning": "n. 时间",
-          "example": "Time flies when you are having fun.",
-          "exampleCn": "开心的时候时间飞逝。"
-        },
-        {
-          "word": "EMIT",
-          "cellIds": [
-            "e2",
-            "m2",
-            "i2",
-            "t1"
-          ],
-          "phonetic": "/ɪˈmɪt/",
-          "meaning": "v. 发出，排放",
-          "example": "The factory emits toxic gas.",
-          "exampleCn": "这家工厂排放有毒气体。"
-        },
-        {
-          "word": "ITEM",
-          "cellIds": [
-            "i2",
-            "t1",
-            "e3",
-            "m3"
-          ],
-          "phonetic": "/ˈaɪtəm/",
-          "meaning": "n. 项目，物品",
-          "example": "This item is out of stock.",
-          "exampleCn": "这件商品缺货。"
-        },
-        {
-          "word": "MITE",
-          "cellIds": [
-            "m2",
-            "i2",
-            "t1",
-            "e3"
-          ],
-          "phonetic": "/maɪt/",
-          "meaning": "n. 螨虫",
-          "example": "Dust mites can cause allergies.",
-          "exampleCn": "尘螨会引起过敏。"
-        },
-        {
-          "word": "TIE",
-          "cellIds": [
-            "t2",
-            "i1",
-            "e4"
-          ],
-          "phonetic": "/taɪ/",
-          "meaning": "n. 领带；v. 系",
-          "example": "He wore a blue tie.",
-          "exampleCn": "他系了一条蓝色领带。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 19,
+    "level": 6,
     "letters": [
       "R",
       "O",
@@ -1813,7 +511,115 @@ const LEVELS = [
     }
   },
   {
-    "level": 20,
+    "level": 7,
+    "letters": [
+      "T",
+      "I",
+      "M",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "M",
+          "id": "m1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "letter": "M",
+          "id": "m2"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "I",
+          "id": "i2"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "E",
+          "id": "e3"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "M",
+          "id": "m3"
+        }
+      ],
+      "words": [
+        {
+          "word": "TIME",
+          "cellIds": [
+            "t1",
+            "i1",
+            "m1",
+            "e1"
+          ],
+          "phonetic": "/taɪm/",
+          "meaning": "n. 时间",
+          "example": "Time flies when you are having fun.",
+          "exampleCn": "开心的时候时间飞逝。"
+        },
+        {
+          "word": "EMIT",
+          "cellIds": [
+            "e2",
+            "m2",
+            "i2",
+            "t1"
+          ],
+          "phonetic": "/ɪˈmɪt/",
+          "meaning": "v. 发出，排放",
+          "example": "The factory emits toxic gas.",
+          "exampleCn": "这家工厂排放有毒气体。"
+        },
+        {
+          "word": "ITEM",
+          "cellIds": [
+            "i2",
+            "t1",
+            "e3",
+            "m3"
+          ],
+          "phonetic": "/ˈaɪtəm/",
+          "meaning": "n. 项目，物品",
+          "example": "This item is out of stock.",
+          "exampleCn": "这件商品缺货。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 8,
     "letters": [
       "P",
       "A",
@@ -1863,48 +669,6 @@ const LEVELS = [
           "col": 1,
           "letter": "A",
           "id": "a2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "L",
-          "id": "l3"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "L",
-          "id": "l4"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "A",
-          "id": "a4"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "P",
-          "id": "p2"
         }
       ],
       "words": [
@@ -1933,49 +697,261 @@ const LEVELS = [
           "meaning": "v. 跳跃",
           "example": "The cat made a leap over the fence.",
           "exampleCn": "猫跳过围栏。"
-        },
-        {
-          "word": "PLEA",
-          "cellIds": [
-            "p1",
-            "l3",
-            "e3",
-            "a3"
-          ],
-          "phonetic": "/pliː/",
-          "meaning": "n. 恳求，抗辩",
-          "example": "He entered a plea of not guilty.",
-          "exampleCn": "他提出无罪抗辩。"
-        },
-        {
-          "word": "ALE",
-          "cellIds": [
-            "a1",
-            "l4",
-            "e4"
-          ],
-          "phonetic": "/eɪl/",
-          "meaning": "n. 麦芽酒",
-          "example": "A pint of ale, please.",
-          "exampleCn": "请来一品脱麦芽酒。"
-        },
-        {
-          "word": "LAP",
-          "cellIds": [
-            "l1",
-            "a4",
-            "p2"
-          ],
-          "phonetic": "/læp/",
-          "meaning": "n. 大腿；v. 舔食",
-          "example": "The cat sat on her lap.",
-          "exampleCn": "猫坐在她的大腿上。"
         }
       ]
     }
   },
   {
-    "level": 21,
+    "level": 9,
+    "letters": [
+      "L",
+      "A",
+      "N",
+      "D"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "L",
+          "id": "l1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "N",
+          "id": "n1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "D",
+          "id": "d1"
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "letter": "D",
+          "id": "d2"
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "letter": "U",
+          "id": "u1"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "A",
+          "id": "a2"
+        }
+      ],
+      "words": [
+        {
+          "word": "LAND",
+          "cellIds": [
+            "l1",
+            "a1",
+            "n1",
+            "d1"
+          ],
+          "phonetic": "/lænd/",
+          "meaning": "n. 土地；v. 着陆",
+          "example": "The plane will land soon.",
+          "exampleCn": "飞机即将着陆。"
+        },
+        {
+          "word": "DUAL",
+          "cellIds": [
+            "d2",
+            "u1",
+            "a2",
+            "l1"
+          ],
+          "phonetic": "/ˈdjuːəl/",
+          "meaning": "adj. 双重的",
+          "example": "The phone has dual cameras.",
+          "exampleCn": "这款手机有双摄像头。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 10,
+    "letters": [
+      "D",
+      "U",
+      "S",
+      "T"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "D",
+          "id": "d1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "U",
+          "id": "u1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "letter": "S",
+          "id": "s2"
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "letter": "T",
+          "id": "t2"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "U",
+          "id": "u2"
+        }
+      ],
+      "words": [
+        {
+          "word": "DUST",
+          "cellIds": [
+            "d1",
+            "u1",
+            "s1",
+            "t1"
+          ],
+          "phonetic": "/dʌst/",
+          "meaning": "n. 灰尘",
+          "example": "The shelf is covered with dust.",
+          "exampleCn": "架子上布满灰尘。"
+        },
+        {
+          "word": "STUD",
+          "cellIds": [
+            "s2",
+            "t2",
+            "u2",
+            "d1"
+          ],
+          "phonetic": "/stʌd/",
+          "meaning": "n. 种马；耳钉",
+          "example": "He wore diamond studs.",
+          "exampleCn": "他戴着钻石耳钉。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 11,
+    "letters": [
+      "R",
+      "A",
+      "T",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "letter": "T",
+          "id": "t2"
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "A",
+          "id": "a2"
+        }
+      ],
+      "words": [
+        {
+          "word": "RATE",
+          "cellIds": [
+            "r1",
+            "a1",
+            "t1",
+            "e1"
+          ],
+          "phonetic": "/reɪt/",
+          "meaning": "n. 比率；v. 评价",
+          "example": "The exchange rate is rising.",
+          "exampleCn": "汇率正在上涨。"
+        },
+        {
+          "word": "TEAR",
+          "cellIds": [
+            "t2",
+            "e2",
+            "a2",
+            "r1"
+          ],
+          "phonetic": "/tɪər/",
+          "meaning": "n. 眼泪；v. 撕裂",
+          "example": "A tear rolled down her cheek.",
+          "exampleCn": "一滴眼泪从她脸颊滑落。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 12,
     "letters": [
       "B",
       "R",
@@ -2044,24 +1020,6 @@ const LEVELS = [
           "col": 2,
           "letter": "A",
           "id": "a3"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "D",
-          "id": "d4"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "A",
-          "id": "a4"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "R",
-          "id": "r2"
         }
       ],
       "words": [
@@ -2104,25 +1062,12 @@ const LEVELS = [
           "meaning": "v. 敢于",
           "example": "Do you dare to try?",
           "exampleCn": "你敢试试吗？"
-        },
-        {
-          "word": "DEAR",
-          "cellIds": [
-            "d4",
-            "e1",
-            "a4",
-            "r2"
-          ],
-          "phonetic": "/dɪər/",
-          "meaning": "adj. 亲爱的；昂贵的",
-          "example": "You are so dear to me.",
-          "exampleCn": "你对我来说很珍贵。"
         }
       ]
     }
   },
   {
-    "level": 22,
+    "level": 13,
     "letters": [
       "C",
       "L",
@@ -2244,523 +1189,7 @@ const LEVELS = [
     }
   },
   {
-    "level": 23,
-    "letters": [
-      "B",
-      "R",
-      "I",
-      "G",
-      "H",
-      "T"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "B",
-          "id": "b1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "G",
-          "id": "g1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "H",
-          "id": "h1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "G",
-          "id": "g2"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "H",
-          "id": "h2"
-        },
-        {
-          "row": 7,
-          "col": 2,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "letter": "G",
-          "id": "g3"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "T",
-          "id": "t3"
-        }
-      ],
-      "words": [
-        {
-          "word": "BRIGHT",
-          "cellIds": [
-            "b1",
-            "r1",
-            "i1",
-            "g1",
-            "h1",
-            "t1"
-          ],
-          "phonetic": "/braɪt/",
-          "meaning": "adj. 明亮的",
-          "example": "The sun is bright today.",
-          "exampleCn": "今天阳光明媚。"
-        },
-        {
-          "word": "RIGHT",
-          "cellIds": [
-            "r1",
-            "i2",
-            "g2",
-            "h2",
-            "t2"
-          ],
-          "phonetic": "/raɪt/",
-          "meaning": "adj. 正确的；n. 右边",
-          "example": "Turn right at the corner.",
-          "exampleCn": "在拐角处右转。"
-        },
-        {
-          "word": "GRIT",
-          "cellIds": [
-            "g3",
-            "r2",
-            "i1",
-            "t3"
-          ],
-          "phonetic": "/ɡrɪt/",
-          "meaning": "n. 勇气；砂砾",
-          "example": "She showed true grit.",
-          "exampleCn": "她展现了真正的勇气。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 24,
-    "letters": [
-      "S",
-      "T",
-      "R",
-      "E",
-      "A",
-      "M"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "S",
-          "id": "s1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "M",
-          "id": "m1"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
-          "row": 7,
-          "col": 1,
-          "letter": "M",
-          "id": "m2"
-        },
-        {
-          "row": -1,
-          "col": 1,
-          "letter": "M",
-          "id": "m3"
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "A",
-          "id": "a4"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "M",
-          "id": "m4"
-        }
-      ],
-      "words": [
-        {
-          "word": "STREAM",
-          "cellIds": [
-            "s1",
-            "t1",
-            "r1",
-            "e1",
-            "a1",
-            "m1"
-          ],
-          "phonetic": "/striːm/",
-          "meaning": "n. 小溪；v. 流动",
-          "example": "A small stream runs through the village.",
-          "exampleCn": "一条小溪穿过村庄。"
-        },
-        {
-          "word": "STEAM",
-          "cellIds": [
-            "s1",
-            "t2",
-            "e2",
-            "a2",
-            "m2"
-          ],
-          "phonetic": "/stiːm/",
-          "meaning": "n. 蒸汽",
-          "example": "Steam rose from the hot soup.",
-          "exampleCn": "热气从热汤中升起。"
-        },
-        {
-          "word": "MATES",
-          "cellIds": [
-            "m3",
-            "a3",
-            "t3",
-            "e3",
-            "s1"
-          ],
-          "phonetic": "/meɪts/",
-          "meaning": "n. 伙伴，同事（复数）",
-          "example": "He went out with his mates.",
-          "exampleCn": "他和伙伴们出去玩了。"
-        },
-        {
-          "word": "TEAM",
-          "cellIds": [
-            "t1",
-            "e4",
-            "a4",
-            "m4"
-          ],
-          "phonetic": "/tiːm/",
-          "meaning": "n. 团队",
-          "example": "Our team won the match.",
-          "exampleCn": "我们队赢了比赛。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 25,
-    "letters": [
-      "F",
-      "I",
-      "E",
-      "L",
-      "D"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "F",
-          "id": "f1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "L",
-          "id": "l1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "D",
-          "id": "d1"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "L",
-          "id": "l2"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 7,
-          "col": 1,
-          "letter": "D",
-          "id": "d2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "D",
-          "id": "d3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "L",
-          "id": "l3"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "letter": "L",
-          "id": "l4"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "I",
-          "id": "i3"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "D",
-          "id": "d4"
-        },
-        {
-          "row": 4,
-          "col": 4,
-          "letter": "I",
-          "id": "i4"
-        },
-        {
-          "row": 5,
-          "col": 4,
-          "letter": "F",
-          "id": "f2"
-        },
-        {
-          "row": 6,
-          "col": 4,
-          "letter": "E",
-          "id": "e4"
-        }
-      ],
-      "words": [
-        {
-          "word": "FIELD",
-          "cellIds": [
-            "f1",
-            "i1",
-            "e1",
-            "l1",
-            "d1"
-          ],
-          "phonetic": "/fiːld/",
-          "meaning": "n. 田野；领域",
-          "example": "She works in the medical field.",
-          "exampleCn": "她在医学领域工作。"
-        },
-        {
-          "word": "FILED",
-          "cellIds": [
-            "f1",
-            "i2",
-            "l2",
-            "e2",
-            "d2"
-          ],
-          "phonetic": "/faɪld/",
-          "meaning": "v. file 的过去式，提交",
-          "example": "He filed a complaint.",
-          "exampleCn": "他提交了一份投诉。"
-        },
-        {
-          "word": "IDLE",
-          "cellIds": [
-            "i1",
-            "d3",
-            "l3",
-            "e3"
-          ],
-          "phonetic": "/ˈaɪdl/",
-          "meaning": "adj. 空闲的；懒散的",
-          "example": "The factory machines sat idle.",
-          "exampleCn": "工厂的机器闲置着。"
-        },
-        {
-          "word": "LIED",
-          "cellIds": [
-            "l4",
-            "i3",
-            "e1",
-            "d4"
-          ],
-          "phonetic": "/laɪd/",
-          "meaning": "v. lie 的过去式",
-          "example": "He lied about his age.",
-          "exampleCn": "他谎报了年龄。"
-        },
-        {
-          "word": "FILE",
-          "cellIds": [
-            "f1",
-            "i2",
-            "l2",
-            "e2"
-          ],
-          "phonetic": "/faɪl/",
-          "meaning": "n. 文件",
-          "example": "Save the file before closing.",
-          "exampleCn": "关闭前保存文件。"
-        },
-        {
-          "word": "LIFE",
-          "cellIds": [
-            "l1",
-            "i4",
-            "f2",
-            "e4"
-          ],
-          "phonetic": "/laɪf/",
-          "meaning": "n. 生活，生命",
-          "example": "Life is full of surprises.",
-          "exampleCn": "生活充满惊喜。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 26,
+    "level": 14,
     "letters": [
       "G",
       "R",
@@ -2858,14 +1287,371 @@ const LEVELS = [
     }
   },
   {
-    "level": 27,
+    "level": 15,
+    "letters": [
+      "F",
+      "I",
+      "E",
+      "L",
+      "D"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "F",
+          "id": "f1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "L",
+          "id": "l1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "D",
+          "id": "d1"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "I",
+          "id": "i2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "L",
+          "id": "l2"
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "letter": "D",
+          "id": "d2"
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "letter": "D",
+          "id": "d3"
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "letter": "L",
+          "id": "l3"
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "letter": "E",
+          "id": "e3"
+        }
+      ],
+      "words": [
+        {
+          "word": "FIELD",
+          "cellIds": [
+            "f1",
+            "i1",
+            "e1",
+            "l1",
+            "d1"
+          ],
+          "phonetic": "/fiːld/",
+          "meaning": "n. 田野；领域",
+          "example": "She works in the medical field.",
+          "exampleCn": "她在医学领域工作。"
+        },
+        {
+          "word": "FILED",
+          "cellIds": [
+            "f1",
+            "i2",
+            "l2",
+            "e2",
+            "d2"
+          ],
+          "phonetic": "/faɪld/",
+          "meaning": "v. file 的过去式，提交",
+          "example": "He filed a complaint.",
+          "exampleCn": "他提交了一份投诉。"
+        },
+        {
+          "word": "IDLE",
+          "cellIds": [
+            "i1",
+            "d3",
+            "l3",
+            "e3"
+          ],
+          "phonetic": "/ˈaɪdl/",
+          "meaning": "adj. 空闲的；懒散的",
+          "example": "The factory machines sat idle.",
+          "exampleCn": "工厂的机器闲置着。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 16,
+    "letters": [
+      "O",
+      "C",
+      "E",
+      "A",
+      "N"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "O",
+          "id": "o1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "C",
+          "id": "c1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "N",
+          "id": "n1"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "C",
+          "id": "c2"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "N",
+          "id": "n2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "letter": "A",
+          "id": "a2"
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "letter": "N",
+          "id": "n3"
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "letter": "E",
+          "id": "e3"
+        }
+      ],
+      "words": [
+        {
+          "word": "OCEAN",
+          "cellIds": [
+            "o1",
+            "c1",
+            "e1",
+            "a1",
+            "n1"
+          ],
+          "phonetic": "/ˈəʊʃn/",
+          "meaning": "n. 海洋",
+          "example": "The ocean is vast and blue.",
+          "exampleCn": "海洋广阔而湛蓝。"
+        },
+        {
+          "word": "CONE",
+          "cellIds": [
+            "c2",
+            "o1",
+            "n2",
+            "e2"
+          ],
+          "phonetic": "/kəʊn/",
+          "meaning": "n. 圆锥；松果",
+          "example": "An ice cream cone, please.",
+          "exampleCn": "请给我一个冰淇淋甜筒。"
+        },
+        {
+          "word": "CANE",
+          "cellIds": [
+            "c1",
+            "a2",
+            "n3",
+            "e3"
+          ],
+          "phonetic": "/keɪn/",
+          "meaning": "n. 手杖；甘蔗",
+          "example": "The old man walks with a cane.",
+          "exampleCn": "老人拄着手杖走路。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 17,
+    "letters": [
+      "B",
+      "R",
+      "I",
+      "G",
+      "H",
+      "T"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "B",
+          "id": "b1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "G",
+          "id": "g1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "H",
+          "id": "h1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "letter": "I",
+          "id": "i2"
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "letter": "G",
+          "id": "g2"
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "letter": "H",
+          "id": "h2"
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "letter": "T",
+          "id": "t2"
+        }
+      ],
+      "words": [
+        {
+          "word": "BRIGHT",
+          "cellIds": [
+            "b1",
+            "r1",
+            "i1",
+            "g1",
+            "h1",
+            "t1"
+          ],
+          "phonetic": "/braɪt/",
+          "meaning": "adj. 明亮的",
+          "example": "The sun is bright today.",
+          "exampleCn": "今天阳光明媚。"
+        },
+        {
+          "word": "RIGHT",
+          "cellIds": [
+            "r1",
+            "i2",
+            "g2",
+            "h2",
+            "t2"
+          ],
+          "phonetic": "/raɪt/",
+          "meaning": "adj. 正确的；n. 右边",
+          "example": "Turn right at the corner.",
+          "exampleCn": "在拐角处右转。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 18,
     "letters": [
       "S",
-      "I",
-      "L",
-      "V",
+      "T",
+      "R",
       "E",
-      "R"
+      "A",
+      "M"
     ],
     "grid": {
       "cells": [
@@ -2878,138 +1664,86 @@ const LEVELS = [
         {
           "row": 3,
           "col": 2,
-          "letter": "I",
-          "id": "i1"
+          "letter": "T",
+          "id": "t1"
         },
         {
           "row": 3,
           "col": 3,
-          "letter": "L",
-          "id": "l1"
+          "letter": "R",
+          "id": "r1"
         },
         {
           "row": 3,
           "col": 4,
-          "letter": "V",
-          "id": "v1"
-        },
-        {
-          "row": 3,
-          "col": 5,
           "letter": "E",
           "id": "e1"
         },
         {
           "row": 3,
+          "col": 5,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
           "col": 6,
-          "letter": "R",
-          "id": "r1"
+          "letter": "M",
+          "id": "m1"
         },
         {
           "row": 4,
-          "col": 1,
-          "letter": "L",
-          "id": "l2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "V",
-          "id": "v2"
-        },
-        {
-          "row": 7,
-          "col": 1,
+          "col": 2,
           "letter": "E",
           "id": "e2"
         },
         {
-          "row": 8,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "L",
-          "id": "l3"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "V",
-          "id": "v3"
-        },
-        {
           "row": 5,
           "col": 2,
-          "letter": "E",
-          "id": "e3"
+          "letter": "A",
+          "id": "a2"
         },
         {
           "row": 6,
           "col": 2,
-          "letter": "R",
-          "id": "r3"
+          "letter": "M",
+          "id": "m2"
         }
       ],
       "words": [
         {
-          "word": "SILVER",
+          "word": "STREAM",
           "cellIds": [
             "s1",
-            "i1",
-            "l1",
-            "v1",
+            "t1",
+            "r1",
             "e1",
-            "r1"
+            "a1",
+            "m1"
           ],
-          "phonetic": "/ˈsɪlvər/",
-          "meaning": "n. 银；adj. 银色的",
-          "example": "She wore a silver necklace.",
-          "exampleCn": "她戴着一条银项链。"
+          "phonetic": "/striːm/",
+          "meaning": "n. 小溪；v. 流动",
+          "example": "A small stream runs through the village.",
+          "exampleCn": "一条小溪穿过村庄。"
         },
         {
-          "word": "SLIVER",
+          "word": "TEAM",
           "cellIds": [
-            "s1",
-            "l2",
-            "i2",
-            "v2",
+            "t1",
             "e2",
-            "r2"
+            "a2",
+            "m2"
           ],
-          "phonetic": "/ˈslɪvər/",
-          "meaning": "n. 碎片，裂片",
-          "example": "A sliver of glass cut her finger.",
-          "exampleCn": "一块玻璃碎片割伤了她的手指。"
-        },
-        {
-          "word": "LIVER",
-          "cellIds": [
-            "l3",
-            "i1",
-            "v3",
-            "e3",
-            "r3"
-          ],
-          "phonetic": "/ˈlɪvər/",
-          "meaning": "n. 肝脏",
-          "example": "The liver filters blood.",
-          "exampleCn": "肝脏过滤血液。"
+          "phonetic": "/tiːm/",
+          "meaning": "n. 团队",
+          "example": "Our team won the match.",
+          "exampleCn": "我们队赢了比赛。"
         }
       ]
     }
   },
   {
-    "level": 28,
+    "level": 19,
     "letters": [
       "Y",
       "E",
@@ -3073,24 +1807,6 @@ const LEVELS = [
           "col": 2,
           "letter": "L",
           "id": "l4"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "L",
-          "id": "l5"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "L",
-          "id": "l6"
         }
       ],
       "words": [
@@ -3121,25 +1837,118 @@ const LEVELS = [
           "meaning": "adv. 好地；n. 井",
           "example": "She plays the piano very well.",
           "exampleCn": "她钢琴弹得很好。"
-        },
-        {
-          "word": "YELL",
-          "cellIds": [
-            "y1",
-            "e2",
-            "l5",
-            "l6"
-          ],
-          "phonetic": "/jel/",
-          "meaning": "v. 大喊",
-          "example": "Do not yell at me!",
-          "exampleCn": "别对我大喊大叫！"
         }
       ]
     }
   },
   {
-    "level": 29,
+    "level": 20,
+    "letters": [
+      "S",
+      "I",
+      "L",
+      "V",
+      "E",
+      "R"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "L",
+          "id": "l1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "V",
+          "id": "v1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "letter": "L",
+          "id": "l2"
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "letter": "V",
+          "id": "v2"
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "letter": "R",
+          "id": "r2"
+        }
+      ],
+      "words": [
+        {
+          "word": "SILVER",
+          "cellIds": [
+            "s1",
+            "i1",
+            "l1",
+            "v1",
+            "e1",
+            "r1"
+          ],
+          "phonetic": "/ˈsɪlvər/",
+          "meaning": "n. 银；adj. 银色的",
+          "example": "She wore a silver necklace.",
+          "exampleCn": "她戴着一条银项链。"
+        },
+        {
+          "word": "LIVER",
+          "cellIds": [
+            "l2",
+            "i1",
+            "v2",
+            "e2",
+            "r2"
+          ],
+          "phonetic": "/ˈlɪvər/",
+          "meaning": "n. 肝脏",
+          "example": "The liver filters blood.",
+          "exampleCn": "肝脏过滤血液。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 21,
     "letters": [
       "O",
       "R",
@@ -3209,54 +2018,6 @@ const LEVELS = [
           "col": 2,
           "letter": "E",
           "id": "e2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "G",
-          "id": "g3"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "N",
-          "id": "n3"
-        },
-        {
-          "row": 0,
-          "col": 3,
-          "letter": "O",
-          "id": "o2"
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "G",
-          "id": "g4"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "N",
-          "id": "n4"
         }
       ],
       "words": [
@@ -3288,40 +2049,12 @@ const LEVELS = [
           "meaning": "n. 范围",
           "example": "The price range is wide.",
           "exampleCn": "价格范围很广。"
-        },
-        {
-          "word": "GROAN",
-          "cellIds": [
-            "g3",
-            "r2",
-            "o1",
-            "a3",
-            "n3"
-          ],
-          "phonetic": "/ɡrəʊn/",
-          "meaning": "v. 呻吟",
-          "example": "He groaned in pain.",
-          "exampleCn": "他痛苦地呻吟。"
-        },
-        {
-          "word": "ORGAN",
-          "cellIds": [
-            "o2",
-            "r3",
-            "g4",
-            "a1",
-            "n4"
-          ],
-          "phonetic": "/ˈɔːɡən/",
-          "meaning": "n. 器官；风琴",
-          "example": "The heart is a vital organ.",
-          "exampleCn": "心脏是重要的器官。"
         }
       ]
     }
   },
   {
-    "level": 30,
+    "level": 22,
     "letters": [
       "D",
       "I",
@@ -3397,7 +2130,7 @@ const LEVELS = [
     }
   },
   {
-    "level": 31,
+    "level": 23,
     "letters": [
       "S",
       "U",
@@ -3461,60 +2194,6 @@ const LEVELS = [
           "col": 1,
           "letter": "T",
           "id": "t2"
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "letter": "S",
-          "id": "s3"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": 0,
-          "col": 4,
-          "letter": "T",
-          "id": "t4"
-        },
-        {
-          "row": 1,
-          "col": 4,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 2,
-          "col": 4,
-          "letter": "N",
-          "id": "n3"
-        },
-        {
-          "row": 2,
-          "col": 5,
-          "letter": "N",
-          "id": "n4"
-        },
-        {
-          "row": 4,
-          "col": 5,
-          "letter": "T",
-          "id": "t5"
-        },
-        {
-          "row": 5,
-          "col": 5,
-          "letter": "S",
-          "id": "s4"
         }
       ],
       "words": [
@@ -3545,51 +2224,750 @@ const LEVELS = [
           "meaning": "n. 巢",
           "example": "The bird built a nest in the tree.",
           "exampleCn": "鸟在树上筑了一个巢。"
-        },
-        {
-          "word": "SENT",
-          "cellIds": [
-            "s3",
-            "e3",
-            "n1",
-            "t3"
-          ],
-          "phonetic": "/sent/",
-          "meaning": "v. send 的过去式",
-          "example": "I sent an email yesterday.",
-          "exampleCn": "我昨天发了一封邮件。"
-        },
-        {
-          "word": "TENS",
-          "cellIds": [
-            "t4",
-            "e4",
-            "n3",
-            "s2"
-          ],
-          "phonetic": "/tenz/",
-          "meaning": "n. 十位数",
-          "example": "The temperature is in the tens.",
-          "exampleCn": "温度在十几度。"
-        },
-        {
-          "word": "NETS",
-          "cellIds": [
-            "n4",
-            "e1",
-            "t5",
-            "s4"
-          ],
-          "phonetic": "/nets/",
-          "meaning": "n. 网（复数）",
-          "example": "The fisherman checked his nets.",
-          "exampleCn": "渔夫检查了他的网。"
         }
       ]
     }
   },
   {
-    "level": 32,
+    "level": 24,
+    "letters": [
+      "W",
+      "I",
+      "N",
+      "T",
+      "E",
+      "R"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "W",
+          "id": "w1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "N",
+          "id": "n1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "R",
+          "id": "r2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "I",
+          "id": "i2"
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "letter": "T",
+          "id": "t2"
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        }
+      ],
+      "words": [
+        {
+          "word": "WINTER",
+          "cellIds": [
+            "w1",
+            "i1",
+            "n1",
+            "t1",
+            "e1",
+            "r1"
+          ],
+          "phonetic": "/ˈwɪntər/",
+          "meaning": "n. 冬天",
+          "example": "Winter is my favorite season.",
+          "exampleCn": "冬天是我最喜欢的季节。"
+        },
+        {
+          "word": "WRITE",
+          "cellIds": [
+            "w1",
+            "r2",
+            "i2",
+            "t2",
+            "e2"
+          ],
+          "phonetic": "/raɪt/",
+          "meaning": "v. 写",
+          "example": "I write in my diary every night.",
+          "exampleCn": "我每晚写日记。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 25,
+    "letters": [
+      "S",
+      "U",
+      "M",
+      "M",
+      "E",
+      "R"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "U",
+          "id": "u1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "M",
+          "id": "m1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "M",
+          "id": "m2"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "U",
+          "id": "u2"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "R",
+          "id": "r2"
+        }
+      ],
+      "words": [
+        {
+          "word": "SUMMER",
+          "cellIds": [
+            "s1",
+            "u1",
+            "m1",
+            "m2",
+            "e1",
+            "r1"
+          ],
+          "phonetic": "/ˈsʌmər/",
+          "meaning": "n. 夏天",
+          "example": "We go swimming every summer.",
+          "exampleCn": "我们每年夏天都去游泳。"
+        },
+        {
+          "word": "USER",
+          "cellIds": [
+            "u2",
+            "s1",
+            "e2",
+            "r2"
+          ],
+          "phonetic": "/ˈjuːzər/",
+          "meaning": "n. 用户",
+          "example": "The app has one million users.",
+          "exampleCn": "这款应用有一百万用户。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 26,
+    "letters": [
+      "S",
+      "P",
+      "R",
+      "I",
+      "N",
+      "G"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "P",
+          "id": "p1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "N",
+          "id": "n1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "G",
+          "id": "g1"
+        },
+        {
+          "row": -1,
+          "col": 1,
+          "letter": "R",
+          "id": "r2"
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "letter": "I",
+          "id": "i2"
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "letter": "N",
+          "id": "n2"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "G",
+          "id": "g2"
+        }
+      ],
+      "words": [
+        {
+          "word": "SPRING",
+          "cellIds": [
+            "s1",
+            "p1",
+            "r1",
+            "i1",
+            "n1",
+            "g1"
+          ],
+          "phonetic": "/sprɪŋ/",
+          "meaning": "n. 春天；弹簧",
+          "example": "Spring is the season of growth.",
+          "exampleCn": "春天是生长的季节。"
+        },
+        {
+          "word": "RINGS",
+          "cellIds": [
+            "r2",
+            "i2",
+            "n2",
+            "g2",
+            "s1"
+          ],
+          "phonetic": "/rɪŋz/",
+          "meaning": "n. 戒指（复数）；v. ring 的第三人称单数",
+          "example": "She wears two gold rings.",
+          "exampleCn": "她戴着两枚金戒指。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 27,
+    "letters": [
+      "B",
+      "R",
+      "I",
+      "D",
+      "G",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "B",
+          "id": "b1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "D",
+          "id": "d1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "G",
+          "id": "g1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "I",
+          "id": "i2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "R",
+          "id": "r2"
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "letter": "D",
+          "id": "d2"
+        }
+      ],
+      "words": [
+        {
+          "word": "BRIDGE",
+          "cellIds": [
+            "b1",
+            "r1",
+            "i1",
+            "d1",
+            "g1",
+            "e1"
+          ],
+          "phonetic": "/brɪdʒ/",
+          "meaning": "n. 桥",
+          "example": "The bridge crosses the river.",
+          "exampleCn": "这座桥横跨河流。"
+        },
+        {
+          "word": "BIRD",
+          "cellIds": [
+            "b1",
+            "i2",
+            "r2",
+            "d2"
+          ],
+          "phonetic": "/bɜːd/",
+          "meaning": "n. 鸟",
+          "example": "A bird sang in the tree.",
+          "exampleCn": "一只鸟在树上唱歌。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 28,
+    "letters": [
+      "V",
+      "I",
+      "L",
+      "L",
+      "A",
+      "G",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "V",
+          "id": "v1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "L",
+          "id": "l1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "L",
+          "id": "l2"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "G",
+          "id": "g1"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "letter": "G",
+          "id": "g2"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "I",
+          "id": "i2"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        }
+      ],
+      "words": [
+        {
+          "word": "VILLAGE",
+          "cellIds": [
+            "v1",
+            "i1",
+            "l1",
+            "l2",
+            "a1",
+            "g1",
+            "e1"
+          ],
+          "phonetic": "/ˈvɪlɪdʒ/",
+          "meaning": "n. 村庄",
+          "example": "A small village by the lake.",
+          "exampleCn": "湖边的一个小村庄。"
+        },
+        {
+          "word": "GIVE",
+          "cellIds": [
+            "g2",
+            "i2",
+            "v1",
+            "e2"
+          ],
+          "phonetic": "/ɡɪv/",
+          "meaning": "v. 给",
+          "example": "Give me a hand, please.",
+          "exampleCn": "请帮我一下。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 29,
+    "letters": [
+      "T",
+      "H",
+      "O",
+      "U",
+      "G",
+      "H",
+      "T"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "H",
+          "id": "h1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "O",
+          "id": "o1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "U",
+          "id": "u1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "G",
+          "id": "g1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "H",
+          "id": "h2"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "T",
+          "id": "t2"
+        },
+        {
+          "row": -1,
+          "col": 1,
+          "letter": "O",
+          "id": "o2"
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "letter": "U",
+          "id": "u2"
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "letter": "G",
+          "id": "g2"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "H",
+          "id": "h3"
+        }
+      ],
+      "words": [
+        {
+          "word": "THOUGHT",
+          "cellIds": [
+            "t1",
+            "h1",
+            "o1",
+            "u1",
+            "g1",
+            "h2",
+            "t2"
+          ],
+          "phonetic": "/θɔːt/",
+          "meaning": "n. 想法",
+          "example": "A thought crossed my mind.",
+          "exampleCn": "一个想法掠过我的脑海。"
+        },
+        {
+          "word": "OUGHT",
+          "cellIds": [
+            "o2",
+            "u2",
+            "g2",
+            "h3",
+            "t1"
+          ],
+          "phonetic": "/ɔːt/",
+          "meaning": "aux. 应该",
+          "example": "You ought to try harder.",
+          "exampleCn": "你应该更努力。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 30,
+    "letters": [
+      "P",
+      "I",
+      "C",
+      "T",
+      "U",
+      "R",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "P",
+          "id": "p1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "C",
+          "id": "c1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "U",
+          "id": "u1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "U",
+          "id": "u2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "R",
+          "id": "r2"
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        }
+      ],
+      "words": [
+        {
+          "word": "PICTURE",
+          "cellIds": [
+            "p1",
+            "i1",
+            "c1",
+            "t1",
+            "u1",
+            "r1",
+            "e1"
+          ],
+          "phonetic": "/ˈpɪktʃər/",
+          "meaning": "n. 图片，照片",
+          "example": "Take a picture of the sunset.",
+          "exampleCn": "拍一张日落的照片。"
+        },
+        {
+          "word": "PURE",
+          "cellIds": [
+            "p1",
+            "u2",
+            "r2",
+            "e2"
+          ],
+          "phonetic": "/pjʊər/",
+          "meaning": "adj. 纯的",
+          "example": "The water is pure and clean.",
+          "exampleCn": "水纯净清澈。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 31,
     "letters": [
       "C",
       "A",
@@ -3666,42 +3044,6 @@ const LEVELS = [
           "col": 2,
           "letter": "T",
           "id": "t2"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "I",
-          "id": "i3"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "N",
-          "id": "n3"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "P",
-          "id": "p3"
-        },
-        {
-          "row": 2,
-          "col": 5,
-          "letter": "P",
-          "id": "p4"
-        },
-        {
-          "row": 4,
-          "col": 5,
-          "letter": "N",
-          "id": "n4"
         }
       ],
       "words": [
@@ -3734,1593 +3076,12 @@ const LEVELS = [
           "meaning": "n. 油漆；v. 绘画",
           "example": "She loves to paint landscapes.",
           "exampleCn": "她喜欢画风景画。"
-        },
-        {
-          "word": "PIN",
-          "cellIds": [
-            "p1",
-            "i3",
-            "n3"
-          ],
-          "phonetic": "/pɪn/",
-          "meaning": "n. 别针",
-          "example": "He wore a pin on his jacket.",
-          "exampleCn": "他在夹克上别了一枚别针。"
-        },
-        {
-          "word": "CAP",
-          "cellIds": [
-            "c1",
-            "a3",
-            "p3"
-          ],
-          "phonetic": "/kæp/",
-          "meaning": "n. 帽子",
-          "example": "He wore a baseball cap.",
-          "exampleCn": "他戴了一顶棒球帽。"
-        },
-        {
-          "word": "PAN",
-          "cellIds": [
-            "p4",
-            "a2",
-            "n4"
-          ],
-          "phonetic": "/pæn/",
-          "meaning": "n. 平底锅",
-          "example": "Heat the oil in a pan.",
-          "exampleCn": "在平底锅里加热油。"
         }
       ]
     }
   },
   {
-    "level": 33,
-    "letters": [
-      "P",
-      "I",
-      "C",
-      "T",
-      "U",
-      "R",
-      "E"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "P",
-          "id": "p1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "C",
-          "id": "c1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "U",
-          "id": "u1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 7,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "U",
-          "id": "u2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "U",
-          "id": "u3"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 4,
-          "col": 4,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 5,
-          "col": 4,
-          "letter": "R",
-          "id": "r4"
-        },
-        {
-          "row": 6,
-          "col": 4,
-          "letter": "E",
-          "id": "e5"
-        }
-      ],
-      "words": [
-        {
-          "word": "PICTURE",
-          "cellIds": [
-            "p1",
-            "i1",
-            "c1",
-            "t1",
-            "u1",
-            "r1",
-            "e1"
-          ],
-          "phonetic": "/ˈpɪktʃər/",
-          "meaning": "n. 图片，照片",
-          "example": "Take a picture of the sunset.",
-          "exampleCn": "拍一张日落的照片。"
-        },
-        {
-          "word": "PURE",
-          "cellIds": [
-            "p1",
-            "u2",
-            "r2",
-            "e2"
-          ],
-          "phonetic": "/pjʊər/",
-          "meaning": "adj. 纯的",
-          "example": "The water is pure and clean.",
-          "exampleCn": "水纯净清澈。"
-        },
-        {
-          "word": "CUTE",
-          "cellIds": [
-            "c1",
-            "u3",
-            "t2",
-            "e3"
-          ],
-          "phonetic": "/kjuːt/",
-          "meaning": "adj. 可爱的",
-          "example": "The puppy is so cute.",
-          "exampleCn": "这只小狗太可爱了。"
-        },
-        {
-          "word": "RITE",
-          "cellIds": [
-            "r3",
-            "i1",
-            "t3",
-            "e4"
-          ],
-          "phonetic": "/raɪt/",
-          "meaning": "n. 仪式",
-          "example": "The wedding rite was beautiful.",
-          "exampleCn": "婚礼仪式很美好。"
-        },
-        {
-          "word": "TIRE",
-          "cellIds": [
-            "t1",
-            "i2",
-            "r4",
-            "e5"
-          ],
-          "phonetic": "/ˈtaɪər/",
-          "meaning": "n. 轮胎；v. 疲劳",
-          "example": "The car needs a new tire.",
-          "exampleCn": "这辆车需要新轮胎。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 34,
-    "letters": [
-      "W",
-      "I",
-      "N",
-      "T",
-      "E",
-      "R"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "W",
-          "id": "w1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "N",
-          "id": "n1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 7,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 1,
-          "col": 2,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "W",
-          "id": "w2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "N",
-          "id": "n2"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 0,
-          "col": 5,
-          "letter": "W",
-          "id": "w3"
-        },
-        {
-          "row": 1,
-          "col": 5,
-          "letter": "I",
-          "id": "i3"
-        },
-        {
-          "row": 2,
-          "col": 5,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 4,
-          "col": 4,
-          "letter": "I",
-          "id": "i4"
-        },
-        {
-          "row": 5,
-          "col": 4,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 6,
-          "col": 4,
-          "letter": "R",
-          "id": "r4"
-        }
-      ],
-      "words": [
-        {
-          "word": "WINTER",
-          "cellIds": [
-            "w1",
-            "i1",
-            "n1",
-            "t1",
-            "e1",
-            "r1"
-          ],
-          "phonetic": "/ˈwɪntər/",
-          "meaning": "n. 冬天",
-          "example": "Winter is my favorite season.",
-          "exampleCn": "冬天是我最喜欢的季节。"
-        },
-        {
-          "word": "WRITE",
-          "cellIds": [
-            "w1",
-            "r2",
-            "i2",
-            "t2",
-            "e2"
-          ],
-          "phonetic": "/raɪt/",
-          "meaning": "v. 写",
-          "example": "I write in my diary every night.",
-          "exampleCn": "我每晚写日记。"
-        },
-        {
-          "word": "TWIN",
-          "cellIds": [
-            "t3",
-            "w2",
-            "i1",
-            "n2"
-          ],
-          "phonetic": "/twɪn/",
-          "meaning": "n. 双胞胎之一",
-          "example": "She has a twin sister.",
-          "exampleCn": "她有一个双胞胎姐妹。"
-        },
-        {
-          "word": "WINE",
-          "cellIds": [
-            "w2",
-            "i1",
-            "n2",
-            "e3"
-          ],
-          "phonetic": "/waɪn/",
-          "meaning": "n. 葡萄酒",
-          "example": "A glass of red wine, please.",
-          "exampleCn": "请来一杯红葡萄酒。"
-        },
-        {
-          "word": "WIRE",
-          "cellIds": [
-            "w3",
-            "i3",
-            "r3",
-            "e1"
-          ],
-          "phonetic": "/ˈwaɪər/",
-          "meaning": "n. 电线",
-          "example": "The wire was cut.",
-          "exampleCn": "电线被切断了。"
-        },
-        {
-          "word": "TIER",
-          "cellIds": [
-            "t1",
-            "i4",
-            "e4",
-            "r4"
-          ],
-          "phonetic": "/ˈtaɪər/",
-          "meaning": "n. 层，等级",
-          "example": "The cake had three tiers.",
-          "exampleCn": "蛋糕有三层。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 35,
-    "letters": [
-      "S",
-      "U",
-      "M",
-      "M",
-      "E",
-      "R"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "S",
-          "id": "s1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "U",
-          "id": "u1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "M",
-          "id": "m1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "M",
-          "id": "m2"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "U",
-          "id": "u2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "S",
-          "id": "s2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "R",
-          "id": "r4"
-        }
-      ],
-      "words": [
-        {
-          "word": "SUMMER",
-          "cellIds": [
-            "s1",
-            "u1",
-            "m1",
-            "m2",
-            "e1",
-            "r1"
-          ],
-          "phonetic": "/ˈsʌmər/",
-          "meaning": "n. 夏天",
-          "example": "We go swimming every summer.",
-          "exampleCn": "我们每年夏天都去游泳。"
-        },
-        {
-          "word": "USER",
-          "cellIds": [
-            "u2",
-            "s1",
-            "e2",
-            "r2"
-          ],
-          "phonetic": "/ˈjuːzər/",
-          "meaning": "n. 用户",
-          "example": "The app has one million users.",
-          "exampleCn": "这款应用有一百万用户。"
-        },
-        {
-          "word": "SURE",
-          "cellIds": [
-            "s2",
-            "u1",
-            "r3",
-            "e3"
-          ],
-          "phonetic": "/ʃʊər/",
-          "meaning": "adj. 确定的",
-          "example": "Are you sure about that?",
-          "exampleCn": "你确定吗？"
-        },
-        {
-          "word": "RUSE",
-          "cellIds": [
-            "r4",
-            "u2",
-            "s1",
-            "e2"
-          ],
-          "phonetic": "/ruːz/",
-          "meaning": "n. 诡计",
-          "example": "It was all a ruse to trick us.",
-          "exampleCn": "这都是欺骗我们的诡计。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 36,
-    "letters": [
-      "S",
-      "P",
-      "R",
-      "I",
-      "N",
-      "G"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "S",
-          "id": "s1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "P",
-          "id": "p1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "N",
-          "id": "n1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "G",
-          "id": "g1"
-        },
-        {
-          "row": -1,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "N",
-          "id": "n2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "G",
-          "id": "g2"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "G",
-          "id": "g3"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "I",
-          "id": "i3"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "N",
-          "id": "n3"
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "letter": "S",
-          "id": "s2"
-        },
-        {
-          "row": 0,
-          "col": 2,
-          "letter": "G",
-          "id": "g4"
-        },
-        {
-          "row": 1,
-          "col": 2,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "I",
-          "id": "i4"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "I",
-          "id": "i5"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "N",
-          "id": "n4"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "S",
-          "id": "s3"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "I",
-          "id": "i6"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "G",
-          "id": "g5"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "N",
-          "id": "n5"
-        }
-      ],
-      "words": [
-        {
-          "word": "SPRING",
-          "cellIds": [
-            "s1",
-            "p1",
-            "r1",
-            "i1",
-            "n1",
-            "g1"
-          ],
-          "phonetic": "/sprɪŋ/",
-          "meaning": "n. 春天；弹簧",
-          "example": "Spring is the season of growth.",
-          "exampleCn": "春天是生长的季节。"
-        },
-        {
-          "word": "RINGS",
-          "cellIds": [
-            "r2",
-            "i2",
-            "n2",
-            "g2",
-            "s1"
-          ],
-          "phonetic": "/rɪŋz/",
-          "meaning": "n. 戒指（复数）；v. ring 的第三人称单数",
-          "example": "She wears two gold rings.",
-          "exampleCn": "她戴着两枚金戒指。"
-        },
-        {
-          "word": "GRINS",
-          "cellIds": [
-            "g3",
-            "r1",
-            "i3",
-            "n3",
-            "s2"
-          ],
-          "phonetic": "/ɡrɪnz/",
-          "meaning": "v. grin 的第三人称单数，咧嘴笑",
-          "example": "He grins from ear to ear.",
-          "exampleCn": "他笑得合不拢嘴。"
-        },
-        {
-          "word": "GRIP",
-          "cellIds": [
-            "g4",
-            "r3",
-            "i4",
-            "p1"
-          ],
-          "phonetic": "/ɡrɪp/",
-          "meaning": "n. 紧握；v. 抓住",
-          "example": "Keep a firm grip on the rope.",
-          "exampleCn": "紧紧握住绳子。"
-        },
-        {
-          "word": "PINS",
-          "cellIds": [
-            "p1",
-            "i5",
-            "n4",
-            "s3"
-          ],
-          "phonetic": "/pɪnz/",
-          "meaning": "n. 别针（复数）",
-          "example": "She collects colorful pins.",
-          "exampleCn": "她收集彩色别针。"
-        },
-        {
-          "word": "SIGN",
-          "cellIds": [
-            "s1",
-            "i6",
-            "g5",
-            "n5"
-          ],
-          "phonetic": "/saɪn/",
-          "meaning": "n. 标志；v. 签名",
-          "example": "Please sign your name here.",
-          "exampleCn": "请在这里签名。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 37,
-    "letters": [
-      "O",
-      "C",
-      "E",
-      "A",
-      "N"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "O",
-          "id": "o1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "C",
-          "id": "c1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "N",
-          "id": "n1"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "C",
-          "id": "c2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "N",
-          "id": "n2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "N",
-          "id": "n3"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 0,
-          "col": 3,
-          "letter": "O",
-          "id": "o2"
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "letter": "N",
-          "id": "n4"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "C",
-          "id": "c3"
-        }
-      ],
-      "words": [
-        {
-          "word": "OCEAN",
-          "cellIds": [
-            "o1",
-            "c1",
-            "e1",
-            "a1",
-            "n1"
-          ],
-          "phonetic": "/ˈəʊʃn/",
-          "meaning": "n. 海洋",
-          "example": "The ocean is vast and blue.",
-          "exampleCn": "海洋广阔而湛蓝。"
-        },
-        {
-          "word": "CONE",
-          "cellIds": [
-            "c2",
-            "o1",
-            "n2",
-            "e2"
-          ],
-          "phonetic": "/kəʊn/",
-          "meaning": "n. 圆锥；松果",
-          "example": "An ice cream cone, please.",
-          "exampleCn": "请给我一个冰淇淋甜筒。"
-        },
-        {
-          "word": "CANE",
-          "cellIds": [
-            "c1",
-            "a2",
-            "n3",
-            "e3"
-          ],
-          "phonetic": "/keɪn/",
-          "meaning": "n. 手杖；甘蔗",
-          "example": "The old man walks with a cane.",
-          "exampleCn": "老人拄着手杖走路。"
-        },
-        {
-          "word": "ONCE",
-          "cellIds": [
-            "o2",
-            "n4",
-            "c3",
-            "e1"
-          ],
-          "phonetic": "/wʌns/",
-          "meaning": "adv. 一次；曾经",
-          "example": "I have been there once.",
-          "exampleCn": "我去过那里一次。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 38,
-    "letters": [
-      "V",
-      "I",
-      "L",
-      "L",
-      "A",
-      "G",
-      "E"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "V",
-          "id": "v1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "L",
-          "id": "l1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "L",
-          "id": "l2"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "A",
-          "id": "a1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "G",
-          "id": "g1"
-        },
-        {
-          "row": 3,
-          "col": 7,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "G",
-          "id": "g2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "L",
-          "id": "l3"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "V",
-          "id": "v2"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "letter": "V",
-          "id": "v3"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "I",
-          "id": "i3"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "I",
-          "id": "i4"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "L",
-          "id": "l4"
-        }
-      ],
-      "words": [
-        {
-          "word": "VILLAGE",
-          "cellIds": [
-            "v1",
-            "i1",
-            "l1",
-            "l2",
-            "a1",
-            "g1",
-            "e1"
-          ],
-          "phonetic": "/ˈvɪlɪdʒ/",
-          "meaning": "n. 村庄",
-          "example": "A small village by the lake.",
-          "exampleCn": "湖边的一个小村庄。"
-        },
-        {
-          "word": "GIVE",
-          "cellIds": [
-            "g2",
-            "i2",
-            "v1",
-            "e2"
-          ],
-          "phonetic": "/ɡɪv/",
-          "meaning": "v. 给",
-          "example": "Give me a hand, please.",
-          "exampleCn": "请帮我一下。"
-        },
-        {
-          "word": "LIVE",
-          "cellIds": [
-            "l3",
-            "i1",
-            "v2",
-            "e3"
-          ],
-          "phonetic": "/lɪv/",
-          "meaning": "v. 生活；/laɪv/ adj. 现场的",
-          "example": "I live in Beijing.",
-          "exampleCn": "我住在北京。"
-        },
-        {
-          "word": "VILE",
-          "cellIds": [
-            "v3",
-            "i3",
-            "l1",
-            "e4"
-          ],
-          "phonetic": "/vaɪl/",
-          "meaning": "adj. 卑鄙的",
-          "example": "A vile smell filled the room.",
-          "exampleCn": "房间里弥漫着恶臭。"
-        },
-        {
-          "word": "VEIL",
-          "cellIds": [
-            "v1",
-            "e2",
-            "i4",
-            "l4"
-          ],
-          "phonetic": "/veɪl/",
-          "meaning": "n. 面纱",
-          "example": "The bride wore a white veil.",
-          "exampleCn": "新娘戴着白色面纱。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 39,
-    "letters": [
-      "B",
-      "R",
-      "I",
-      "D",
-      "G",
-      "E"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "B",
-          "id": "b1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "R",
-          "id": "r1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "I",
-          "id": "i1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "D",
-          "id": "d1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "G",
-          "id": "g1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "E",
-          "id": "e1"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "D",
-          "id": "d2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "I",
-          "id": "i3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "D",
-          "id": "d3"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "G",
-          "id": "g2"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "B",
-          "id": "b2"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "D",
-          "id": "d4"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 0,
-          "col": 6,
-          "letter": "B",
-          "id": "b3"
-        },
-        {
-          "row": 1,
-          "col": 6,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 2,
-          "col": 6,
-          "letter": "I",
-          "id": "i4"
-        }
-      ],
-      "words": [
-        {
-          "word": "BRIDGE",
-          "cellIds": [
-            "b1",
-            "r1",
-            "i1",
-            "d1",
-            "g1",
-            "e1"
-          ],
-          "phonetic": "/brɪdʒ/",
-          "meaning": "n. 桥",
-          "example": "The bridge crosses the river.",
-          "exampleCn": "这座桥横跨河流。"
-        },
-        {
-          "word": "BIRD",
-          "cellIds": [
-            "b1",
-            "i2",
-            "r2",
-            "d2"
-          ],
-          "phonetic": "/bɜːd/",
-          "meaning": "n. 鸟",
-          "example": "A bird sang in the tree.",
-          "exampleCn": "一只鸟在树上唱歌。"
-        },
-        {
-          "word": "RIDE",
-          "cellIds": [
-            "r1",
-            "i3",
-            "d3",
-            "e2"
-          ],
-          "phonetic": "/raɪd/",
-          "meaning": "v. 骑；n. 旅程",
-          "example": "I ride my bike to work.",
-          "exampleCn": "我骑自行车上班。"
-        },
-        {
-          "word": "GRID",
-          "cellIds": [
-            "g2",
-            "r1",
-            "i3",
-            "d3"
-          ],
-          "phonetic": "/ɡrɪd/",
-          "meaning": "n. 网格",
-          "example": "The city is laid out in a grid.",
-          "exampleCn": "这座城市呈网格状布局。"
-        },
-        {
-          "word": "BIDE",
-          "cellIds": [
-            "b2",
-            "i1",
-            "d4",
-            "e3"
-          ],
-          "phonetic": "/baɪd/",
-          "meaning": "v. 等待",
-          "example": "Bide your time patiently.",
-          "exampleCn": "耐心等待时机。"
-        },
-        {
-          "word": "BRIE",
-          "cellIds": [
-            "b3",
-            "r3",
-            "i4",
-            "e1"
-          ],
-          "phonetic": "/briː/",
-          "meaning": "n. （法国）布里奶酪",
-          "example": "She served brie with crackers.",
-          "exampleCn": "她配饼干上了布里奶酪。"
-        }
-      ]
-    }
-  },
-  {
-    "level": 40,
-    "letters": [
-      "T",
-      "H",
-      "O",
-      "U",
-      "G",
-      "H",
-      "T"
-    ],
-    "grid": {
-      "cells": [
-        {
-          "row": 3,
-          "col": 1,
-          "letter": "T",
-          "id": "t1"
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "letter": "H",
-          "id": "h1"
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "letter": "O",
-          "id": "o1"
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "letter": "U",
-          "id": "u1"
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "letter": "G",
-          "id": "g1"
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "letter": "H",
-          "id": "h2"
-        },
-        {
-          "row": 3,
-          "col": 7,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": -1,
-          "col": 1,
-          "letter": "O",
-          "id": "o2"
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "letter": "U",
-          "id": "u2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "G",
-          "id": "g2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "H",
-          "id": "h3"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "O",
-          "id": "o3"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "U",
-          "id": "u3"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "G",
-          "id": "g3"
-        },
-        {
-          "row": 7,
-          "col": 1,
-          "letter": "H",
-          "id": "h4"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "O",
-          "id": "o4"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "U",
-          "id": "u4"
-        }
-      ],
-      "words": [
-        {
-          "word": "THOUGHT",
-          "cellIds": [
-            "t1",
-            "h1",
-            "o1",
-            "u1",
-            "g1",
-            "h2",
-            "t2"
-          ],
-          "phonetic": "/θɔːt/",
-          "meaning": "n. 想法",
-          "example": "A thought crossed my mind.",
-          "exampleCn": "一个想法掠过我的脑海。"
-        },
-        {
-          "word": "OUGHT",
-          "cellIds": [
-            "o2",
-            "u2",
-            "g2",
-            "h3",
-            "t1"
-          ],
-          "phonetic": "/ɔːt/",
-          "meaning": "aux. 应该",
-          "example": "You ought to try harder.",
-          "exampleCn": "你应该更努力。"
-        },
-        {
-          "word": "TOUGH",
-          "cellIds": [
-            "t1",
-            "o3",
-            "u3",
-            "g3",
-            "h4"
-          ],
-          "phonetic": "/tʌf/",
-          "meaning": "adj. 坚韧的；困难的",
-          "example": "This meat is tough to chew.",
-          "exampleCn": "这块肉很难嚼。"
-        },
-        {
-          "word": "THOU",
-          "cellIds": [
-            "t3",
-            "h1",
-            "o4",
-            "u4"
-          ],
-          "phonetic": "/ðaʊ/",
-          "meaning": "pron. 你（古英语）",
-          "example": "Where art thou?",
-          "exampleCn": "你在哪里？（古英语）"
-        }
-      ]
-    }
-  },
-  {
-    "level": 41,
+    "level": 32,
     "letters": [
       "W",
       "E",
@@ -5375,6 +3136,12 @@ const LEVELS = [
           "id": "r1"
         },
         {
+          "row": 2,
+          "col": 2,
+          "letter": "H",
+          "id": "h2"
+        },
+        {
           "row": 4,
           "col": 2,
           "letter": "A",
@@ -5383,38 +3150,8 @@ const LEVELS = [
         {
           "row": 5,
           "col": 2,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 6,
-          "col": 2,
           "letter": "T",
           "id": "t2"
-        },
-        {
-          "row": 7,
-          "col": 2,
-          "letter": "H",
-          "id": "h2"
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "letter": "H",
-          "id": "h3"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "T",
-          "id": "t3"
         }
       ],
       "words": [
@@ -5435,26 +3172,12 @@ const LEVELS = [
           "exampleCn": "今天天气很好。"
         },
         {
-          "word": "EARTH",
-          "cellIds": [
-            "e1",
-            "a2",
-            "r2",
-            "t2",
-            "h2"
-          ],
-          "phonetic": "/ɜːθ/",
-          "meaning": "n. 地球；土壤",
-          "example": "The Earth orbits the Sun.",
-          "exampleCn": "地球围绕太阳运转。"
-        },
-        {
           "word": "HEAT",
           "cellIds": [
-            "h3",
-            "e3",
-            "a1",
-            "t3"
+            "h2",
+            "e1",
+            "a2",
+            "t2"
           ],
           "phonetic": "/hiːt/",
           "meaning": "n. 热",
@@ -5465,7 +3188,7 @@ const LEVELS = [
     }
   },
   {
-    "level": 42,
+    "level": 33,
     "letters": [
       "F",
       "O",
@@ -5548,54 +3271,6 @@ const LEVELS = [
           "col": 1,
           "letter": "T",
           "id": "t2"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "F",
-          "id": "f2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "S",
-          "id": "s4"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "S",
-          "id": "s5"
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "letter": "T",
-          "id": "t4"
-        },
-        {
-          "row": 7,
-          "col": 3,
-          "letter": "S",
-          "id": "s6"
         }
       ],
       "words": [
@@ -5629,40 +3304,12 @@ const LEVELS = [
           "meaning": "n. 森林",
           "example": "We camped in the forest.",
           "exampleCn": "我们在森林里露营。"
-        },
-        {
-          "word": "FORTS",
-          "cellIds": [
-            "f2",
-            "o1",
-            "r3",
-            "t3",
-            "s4"
-          ],
-          "phonetic": "/fɔːts/",
-          "meaning": "n. 堡垒（复数）",
-          "example": "Old forts line the coast.",
-          "exampleCn": "古老的堡垒沿着海岸排列。"
-        },
-        {
-          "word": "RESTS",
-          "cellIds": [
-            "r1",
-            "e3",
-            "s5",
-            "t4",
-            "s6"
-          ],
-          "phonetic": "/rests/",
-          "meaning": "v. 休息（第三人称单数）",
-          "example": "He rests after lunch.",
-          "exampleCn": "他午饭后休息。"
         }
       ]
     }
   },
   {
-    "level": 43,
+    "level": 34,
     "letters": [
       "G",
       "A",
@@ -5739,72 +3386,6 @@ const LEVELS = [
           "col": 2,
           "letter": "S",
           "id": "s2"
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "letter": "D",
-          "id": "d3"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "S",
-          "id": "s3"
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "letter": "N",
-          "id": "n2"
-        },
-        {
-          "row": 7,
-          "col": 1,
-          "letter": "D",
-          "id": "d4"
-        },
-        {
-          "row": 0,
-          "col": 4,
-          "letter": "S",
-          "id": "s4"
-        },
-        {
-          "row": 1,
-          "col": 4,
-          "letter": "A",
-          "id": "a4"
-        },
-        {
-          "row": 2,
-          "col": 4,
-          "letter": "N",
-          "id": "n3"
         }
       ],
       "words": [
@@ -5837,53 +3418,12 @@ const LEVELS = [
           "meaning": "v. 阅读（第三人称单数）",
           "example": "She reads every night.",
           "exampleCn": "她每晚都阅读。"
-        },
-        {
-          "word": "DARES",
-          "cellIds": [
-            "d3",
-            "a2",
-            "r1",
-            "e3",
-            "s3"
-          ],
-          "phonetic": "/deərz/",
-          "meaning": "v. 敢于（第三人称单数）",
-          "example": "He dares to dream big.",
-          "exampleCn": "他敢于大胆梦想。"
-        },
-        {
-          "word": "GRAND",
-          "cellIds": [
-            "g1",
-            "r3",
-            "a3",
-            "n2",
-            "d4"
-          ],
-          "phonetic": "/ɡrænd/",
-          "meaning": "adj. 宏伟的",
-          "example": "A grand building stood before us.",
-          "exampleCn": "一座宏伟的建筑矗立在我们面前。"
-        },
-        {
-          "word": "SAND",
-          "cellIds": [
-            "s4",
-            "a4",
-            "n3",
-            "d1"
-          ],
-          "phonetic": "/sænd/",
-          "meaning": "n. 沙子",
-          "example": "Children play in the sand.",
-          "exampleCn": "孩子们在沙子里玩耍。"
         }
       ]
     }
   },
   {
-    "level": 44,
+    "level": 35,
     "letters": [
       "J",
       "O",
@@ -5938,58 +3478,22 @@ const LEVELS = [
           "id": "y1"
         },
         {
-          "row": 1,
-          "col": 1,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "N",
-          "id": "n2"
-        },
-        {
           "row": 4,
           "col": 1,
-          "letter": "O",
-          "id": "o2"
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "letter": "Y",
-          "id": "y2"
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "letter": "J",
-          "id": "j2"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "R",
-          "id": "r2"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "Y",
-          "id": "y3"
-        },
-        {
-          "row": 4,
-          "col": 2,
           "letter": "U",
           "id": "u2"
         },
         {
           "row": 5,
-          "col": 2,
+          "col": 1,
           "letter": "R",
-          "id": "r3"
+          "id": "r2"
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "letter": "Y",
+          "id": "y2"
         }
       ],
       "words": [
@@ -6010,49 +3514,23 @@ const LEVELS = [
           "exampleCn": "人生是一场旅程，不是终点。"
         },
         {
-          "word": "ENJOY",
-          "cellIds": [
-            "e2",
-            "n2",
-            "j1",
-            "o2",
-            "y2"
-          ],
-          "phonetic": "/ɪnˈdʒɔɪ/",
-          "meaning": "v. 享受",
-          "example": "Enjoy your meal!",
-          "exampleCn": "请享用你的餐食！"
-        },
-        {
           "word": "JURY",
           "cellIds": [
-            "j2",
-            "u1",
+            "j1",
+            "u2",
             "r2",
-            "y3"
+            "y2"
           ],
           "phonetic": "/ˈdʒʊəri/",
           "meaning": "n. 陪审团",
           "example": "The jury reached a verdict.",
           "exampleCn": "陪审团做出了裁决。"
-        },
-        {
-          "word": "OUR",
-          "cellIds": [
-            "o1",
-            "u2",
-            "r3"
-          ],
-          "phonetic": "/ˈaʊər/",
-          "meaning": "pron. 我们的",
-          "example": "This is our home.",
-          "exampleCn": "这是我们的家。"
         }
       ]
     }
   },
   {
-    "level": 45,
+    "level": 36,
     "letters": [
       "C",
       "H",
@@ -6129,48 +3607,6 @@ const LEVELS = [
           "col": 1,
           "letter": "T",
           "id": "t2"
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "letter": "P",
-          "id": "p2"
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": -1,
-          "col": 2,
-          "letter": "P",
-          "id": "p3"
-        },
-        {
-          "row": 0,
-          "col": 2,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 1,
-          "col": 2,
-          "letter": "A",
-          "id": "a4"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "C",
-          "id": "c2"
         }
       ],
       "words": [
@@ -6203,40 +3639,12 @@ const LEVELS = [
           "meaning": "n. 图表",
           "example": "The chart shows sales growth.",
           "exampleCn": "图表显示了销售增长。"
-        },
-        {
-          "word": "PATCH",
-          "cellIds": [
-            "p2",
-            "a3",
-            "t3",
-            "c1",
-            "h2"
-          ],
-          "phonetic": "/pætʃ/",
-          "meaning": "n. 补丁；v. 修补",
-          "example": "He sewed a patch on his jeans.",
-          "exampleCn": "他在牛仔裤上缝了一块补丁。"
-        },
-        {
-          "word": "PEACH",
-          "cellIds": [
-            "p3",
-            "e2",
-            "a4",
-            "c2",
-            "h1"
-          ],
-          "phonetic": "/piːtʃ/",
-          "meaning": "n. 桃子",
-          "example": "She ate a juicy peach.",
-          "exampleCn": "她吃了一个多汁的桃子。"
         }
       ]
     }
   },
   {
-    "level": 46,
+    "level": 37,
     "letters": [
       "D",
       "E",
@@ -6313,30 +3721,6 @@ const LEVELS = [
           "col": 2,
           "letter": "R",
           "id": "r2"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "T",
-          "id": "t3"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "O",
-          "id": "o3"
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 7,
-          "col": 3,
-          "letter": "Y",
-          "id": "y2"
         }
       ],
       "words": [
@@ -6369,26 +3753,12 @@ const LEVELS = [
           "meaning": "n. 商店；v. 储存",
           "example": "I need to go to the store.",
           "exampleCn": "我需要去商店。"
-        },
-        {
-          "word": "STORY",
-          "cellIds": [
-            "s1",
-            "t3",
-            "o3",
-            "r3",
-            "y2"
-          ],
-          "phonetic": "/ˈstɔːri/",
-          "meaning": "n. 故事",
-          "example": "Tell me a bedtime story.",
-          "exampleCn": "给我讲一个睡前故事。"
         }
       ]
     }
   },
   {
-    "level": 47,
+    "level": 38,
     "letters": [
       "H",
       "I",
@@ -6465,30 +3835,6 @@ const LEVELS = [
           "col": 1,
           "letter": "T",
           "id": "t2"
-        },
-        {
-          "row": 1,
-          "col": 2,
-          "letter": "S",
-          "id": "s3"
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "letter": "H",
-          "id": "h2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "R",
-          "id": "r3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "T",
-          "id": "t3"
         }
       ],
       "words": [
@@ -6521,26 +3867,12 @@ const LEVELS = [
           "meaning": "adj. 短的",
           "example": "He is short but strong.",
           "exampleCn": "他个子矮但很强壮。"
-        },
-        {
-          "word": "SHIRT",
-          "cellIds": [
-            "s3",
-            "h2",
-            "i1",
-            "r3",
-            "t3"
-          ],
-          "phonetic": "/ʃɜːt/",
-          "meaning": "n. 衬衫",
-          "example": "He wore a white shirt.",
-          "exampleCn": "他穿了一件白衬衫。"
         }
       ]
     }
   },
   {
-    "level": 48,
+    "level": 39,
     "letters": [
       "F",
       "A",
@@ -6611,24 +3943,6 @@ const LEVELS = [
           "col": 1,
           "letter": "S",
           "id": "s2"
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "letter": "H",
-          "id": "h2"
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "letter": "I",
-          "id": "i2"
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "letter": "N",
-          "id": "n3"
         }
       ],
       "words": [
@@ -6660,25 +3974,12 @@ const LEVELS = [
           "meaning": "n. 粉丝（复数）",
           "example": "The singer has millions of fans.",
           "exampleCn": "这位歌手有数百万粉丝。"
-        },
-        {
-          "word": "SHIN",
-          "cellIds": [
-            "s1",
-            "h2",
-            "i2",
-            "n3"
-          ],
-          "phonetic": "/ʃɪn/",
-          "meaning": "n. 胫骨",
-          "example": "He hurt his shin playing soccer.",
-          "exampleCn": "他踢足球时伤了胫骨。"
         }
       ]
     }
   },
   {
-    "level": 49,
+    "level": 40,
     "letters": [
       "P",
       "R",
@@ -6755,24 +4056,6 @@ const LEVELS = [
           "col": 1,
           "letter": "E",
           "id": "e2"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "O",
-          "id": "o3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "L",
-          "id": "l2"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "E",
-          "id": "e3"
         }
       ],
       "words": [
@@ -6805,25 +4088,12 @@ const LEVELS = [
           "meaning": "n. 探测器；v. 探查",
           "example": "The doctor used a probe.",
           "exampleCn": "医生使用了探针。"
-        },
-        {
-          "word": "ROLE",
-          "cellIds": [
-            "r1",
-            "o3",
-            "l2",
-            "e3"
-          ],
-          "phonetic": "/rəʊl/",
-          "meaning": "n. 角色",
-          "example": "She played the lead role.",
-          "exampleCn": "她扮演了主角。"
         }
       ]
     }
   },
   {
-    "level": 50,
+    "level": 41,
     "letters": [
       "T",
       "R",
@@ -6907,30 +4177,6 @@ const LEVELS = [
           "col": 1,
           "letter": "E",
           "id": "e3"
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "letter": "T",
-          "id": "t2"
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 7,
-          "col": 2,
-          "letter": "S",
-          "id": "s3"
         }
       ],
       "words": [
@@ -6964,20 +4210,1140 @@ const LEVELS = [
           "meaning": "v. 凝视",
           "example": "Do not stare at strangers.",
           "exampleCn": "不要盯着陌生人看。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 42,
+    "letters": [
+      "T",
+      "E",
+      "A",
+      "C",
+      "H",
+      "E",
+      "R",
+      "S"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "T",
+          "id": "t1"
         },
         {
-          "word": "RATES",
+          "row": 3,
+          "col": 2,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "C",
+          "id": "c1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "H",
+          "id": "h1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "E",
+          "id": "e3"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "A",
+          "id": "a2"
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "letter": "C",
+          "id": "c2"
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "letter": "H",
+          "id": "h2"
+        },
+        {
+          "row": 8,
+          "col": 1,
+          "letter": "E",
+          "id": "e4"
+        },
+        {
+          "row": 9,
+          "col": 1,
+          "letter": "S",
+          "id": "s2"
+        }
+      ],
+      "words": [
+        {
+          "word": "TEACHERS",
+          "cellIds": [
+            "t1",
+            "e1",
+            "a1",
+            "c1",
+            "h1",
+            "e2",
+            "r1",
+            "s1"
+          ],
+          "phonetic": "/ˈtiːtʃərz/",
+          "meaning": "n. 老师（复数）",
+          "example": "The teachers are in the meeting room.",
+          "exampleCn": "老师们正在会议室里。"
+        },
+        {
+          "word": "TEACHES",
+          "cellIds": [
+            "t1",
+            "e3",
+            "a2",
+            "c2",
+            "h2",
+            "e4",
+            "s2"
+          ],
+          "phonetic": "/ˈtiːtʃɪz/",
+          "meaning": "v. 教（第三人称单数）",
+          "example": "She teaches English at school.",
+          "exampleCn": "她在学校教英语。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 43,
+    "letters": [
+      "Q",
+      "U",
+      "E",
+      "S",
+      "T",
+      "I",
+      "O",
+      "N"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "Q",
+          "id": "q1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "U",
+          "id": "u1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "O",
+          "id": "o1"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "N",
+          "id": "n1"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "U",
+          "id": "u2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "letter": "S",
+          "id": "s2"
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "letter": "T",
+          "id": "t2"
+        }
+      ],
+      "words": [
+        {
+          "word": "QUESTION",
+          "cellIds": [
+            "q1",
+            "u1",
+            "e1",
+            "s1",
+            "t1",
+            "i1",
+            "o1",
+            "n1"
+          ],
+          "phonetic": "",
+          "meaning": "n. question",
+          "example": "Example sentence with question.",
+          "exampleCn": "包含 question 的例句。"
+        },
+        {
+          "word": "QUEST",
+          "cellIds": [
+            "q1",
+            "u2",
+            "e2",
+            "s2",
+            "t2"
+          ],
+          "phonetic": "/kwest/",
+          "meaning": "n. 探索，追求",
+          "example": "He went on a quest for knowledge.",
+          "exampleCn": "他踏上了求知之旅。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 44,
+    "letters": [
+      "P",
+      "O",
+      "S",
+      "I",
+      "T",
+      "I",
+      "V",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "P",
+          "id": "p1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "O",
+          "id": "o1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "I",
+          "id": "i2"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "V",
+          "id": "v1"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "letter": "V",
+          "id": "v2"
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "letter": "I",
+          "id": "i3"
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "letter": "I",
+          "id": "i4"
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "letter": "T",
+          "id": "t2"
+        }
+      ],
+      "words": [
+        {
+          "word": "POSITIVE",
+          "cellIds": [
+            "p1",
+            "o1",
+            "s1",
+            "i1",
+            "t1",
+            "i2",
+            "v1",
+            "e1"
+          ],
+          "phonetic": "",
+          "meaning": "n. positive",
+          "example": "Example sentence with positive.",
+          "exampleCn": "包含 positive 的例句。"
+        },
+        {
+          "word": "VISIT",
+          "cellIds": [
+            "v2",
+            "i3",
+            "s1",
+            "i4",
+            "t2"
+          ],
+          "phonetic": "",
+          "meaning": "n. visit",
+          "example": "Example sentence with visit.",
+          "exampleCn": "包含 visit 的例句。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 45,
+    "letters": [
+      "C",
+      "O",
+      "M",
+      "P",
+      "L",
+      "E",
+      "T",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "C",
+          "id": "c1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "O",
+          "id": "o1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "M",
+          "id": "m1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "P",
+          "id": "p1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "L",
+          "id": "l1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "letter": "P",
+          "id": "p2"
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "letter": "E",
+          "id": "e3"
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "letter": "T",
+          "id": "t2"
+        }
+      ],
+      "words": [
+        {
+          "word": "COMPLETE",
+          "cellIds": [
+            "c1",
+            "o1",
+            "m1",
+            "p1",
+            "l1",
+            "e1",
+            "t1",
+            "e2"
+          ],
+          "phonetic": "",
+          "meaning": "n. complete",
+          "example": "Example sentence with complete.",
+          "exampleCn": "包含 complete 的例句。"
+        },
+        {
+          "word": "POET",
+          "cellIds": [
+            "p2",
+            "o1",
+            "e3",
+            "t2"
+          ],
+          "phonetic": "/ˈpəʊɪt/",
+          "meaning": "n. 诗人",
+          "example": "The poet wrote beautiful verses.",
+          "exampleCn": "这位诗人写下了优美的诗句。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 46,
+    "letters": [
+      "P",
+      "R",
+      "A",
+      "C",
+      "T",
+      "I",
+      "C",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "P",
+          "id": "p1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "C",
+          "id": "c1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "C",
+          "id": "c2"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "letter": "T",
+          "id": "t2"
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "letter": "A",
+          "id": "a2"
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "letter": "C",
+          "id": "c3"
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "letter": "E",
+          "id": "e2"
+        }
+      ],
+      "words": [
+        {
+          "word": "PRACTICE",
+          "cellIds": [
+            "p1",
+            "r1",
+            "a1",
+            "c1",
+            "t1",
+            "i1",
+            "c2",
+            "e1"
+          ],
+          "phonetic": "",
+          "meaning": "n. practice",
+          "example": "Example sentence with practice.",
+          "exampleCn": "包含 practice 的例句。"
+        },
+        {
+          "word": "TRACE",
+          "cellIds": [
+            "t2",
+            "r1",
+            "a2",
+            "c3",
+            "e2"
+          ],
+          "phonetic": "",
+          "meaning": "n. trace",
+          "example": "Example sentence with trace.",
+          "exampleCn": "包含 trace 的例句。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 47,
+    "letters": [
+      "I",
+      "N",
+      "T",
+      "E",
+      "R",
+      "E",
+      "S",
+      "T"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "N",
+          "id": "n1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "T",
+          "id": "t2"
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "letter": "E",
+          "id": "e3"
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "letter": "T",
+          "id": "t3"
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "letter": "E",
+          "id": "e4"
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "letter": "R",
+          "id": "r2"
+        }
+      ],
+      "words": [
+        {
+          "word": "INTEREST",
+          "cellIds": [
+            "i1",
+            "n1",
+            "t1",
+            "e1",
+            "r1",
+            "e2",
+            "s1",
+            "t2"
+          ],
+          "phonetic": "",
+          "meaning": "n. interest",
+          "example": "Example sentence with interest.",
+          "exampleCn": "包含 interest 的例句。"
+        },
+        {
+          "word": "ENTER",
+          "cellIds": [
+            "e3",
+            "n1",
+            "t3",
+            "e4",
+            "r2"
+          ],
+          "phonetic": "/ˈentər/",
+          "meaning": "v. 进入",
+          "example": "Please enter through the front door.",
+          "exampleCn": "请从前门进入。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 48,
+    "letters": [
+      "R",
+      "E",
+      "S",
+      "E",
+      "A",
+      "R",
+      "C",
+      "H"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "S",
+          "id": "s1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "R",
+          "id": "r2"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "C",
+          "id": "c1"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "H",
+          "id": "h1"
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "letter": "S",
+          "id": "s2"
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "letter": "E",
+          "id": "e3"
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "letter": "A",
+          "id": "a2"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "C",
+          "id": "c2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "H",
+          "id": "h2"
+        }
+      ],
+      "words": [
+        {
+          "word": "RESEARCH",
           "cellIds": [
             "r1",
-            "a3",
-            "t2",
-            "e4",
-            "s3"
+            "e1",
+            "s1",
+            "e2",
+            "a1",
+            "r2",
+            "c1",
+            "h1"
           ],
-          "phonetic": "/reɪts/",
-          "meaning": "n. 比率（复数）",
-          "example": "Interest rates are rising.",
-          "exampleCn": "利率正在上升。"
+          "phonetic": "",
+          "meaning": "n. research",
+          "example": "Example sentence with research.",
+          "exampleCn": "包含 research 的例句。"
+        },
+        {
+          "word": "SEARCH",
+          "cellIds": [
+            "s2",
+            "e3",
+            "a2",
+            "r1",
+            "c2",
+            "h2"
+          ],
+          "phonetic": "",
+          "meaning": "n. search",
+          "example": "Example sentence with search.",
+          "exampleCn": "包含 search 的例句。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 49,
+    "letters": [
+      "C",
+      "H",
+      "A",
+      "M",
+      "P",
+      "I",
+      "O",
+      "N"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "C",
+          "id": "c1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "H",
+          "id": "h1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "M",
+          "id": "m1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "P",
+          "id": "p1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "I",
+          "id": "i1"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "O",
+          "id": "o1"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "N",
+          "id": "n1"
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "letter": "H",
+          "id": "h2"
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "letter": "A",
+          "id": "a2"
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "letter": "M",
+          "id": "m2"
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "letter": "P",
+          "id": "p2"
+        }
+      ],
+      "words": [
+        {
+          "word": "CHAMPION",
+          "cellIds": [
+            "c1",
+            "h1",
+            "a1",
+            "m1",
+            "p1",
+            "i1",
+            "o1",
+            "n1"
+          ],
+          "phonetic": "",
+          "meaning": "n. champion",
+          "example": "Example sentence with champion.",
+          "exampleCn": "包含 champion 的例句。"
+        },
+        {
+          "word": "CHAMP",
+          "cellIds": [
+            "c1",
+            "h2",
+            "a2",
+            "m2",
+            "p2"
+          ],
+          "phonetic": "/tʃæmp/",
+          "meaning": "n. 冠军（口语）",
+          "example": "He is the champ of the tournament.",
+          "exampleCn": "他是锦标赛的冠军。"
+        }
+      ]
+    }
+  },
+  {
+    "level": 50,
+    "letters": [
+      "A",
+      "D",
+      "V",
+      "E",
+      "N",
+      "T",
+      "U",
+      "R",
+      "E"
+    ],
+    "grid": {
+      "cells": [
+        {
+          "row": 3,
+          "col": 1,
+          "letter": "A",
+          "id": "a1"
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "letter": "D",
+          "id": "d1"
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "letter": "V",
+          "id": "v1"
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "letter": "E",
+          "id": "e1"
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "letter": "N",
+          "id": "n1"
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "letter": "T",
+          "id": "t1"
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "letter": "U",
+          "id": "u1"
+        },
+        {
+          "row": 3,
+          "col": 8,
+          "letter": "R",
+          "id": "r1"
+        },
+        {
+          "row": 3,
+          "col": 9,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "letter": "E",
+          "id": "e3"
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "letter": "N",
+          "id": "n2"
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "letter": "T",
+          "id": "t2"
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "letter": "U",
+          "id": "u2"
+        },
+        {
+          "row": 8,
+          "col": 3,
+          "letter": "R",
+          "id": "r2"
+        },
+        {
+          "row": 9,
+          "col": 3,
+          "letter": "E",
+          "id": "e4"
+        }
+      ],
+      "words": [
+        {
+          "word": "ADVENTURE",
+          "cellIds": [
+            "a1",
+            "d1",
+            "v1",
+            "e1",
+            "n1",
+            "t1",
+            "u1",
+            "r1",
+            "e2"
+          ],
+          "phonetic": "",
+          "meaning": "n. adventure",
+          "example": "Example sentence with adventure.",
+          "exampleCn": "包含 adventure 的例句。"
+        },
+        {
+          "word": "VENTURE",
+          "cellIds": [
+            "v1",
+            "e3",
+            "n2",
+            "t2",
+            "u2",
+            "r2",
+            "e4"
+          ],
+          "phonetic": "/ˈventʃər/",
+          "meaning": "n. 冒险；v. 敢于",
+          "example": "The business venture was risky.",
+          "exampleCn": "这项商业投资有风险。"
         }
       ]
     }
