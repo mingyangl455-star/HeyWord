@@ -8,6 +8,10 @@ const Game = (() => {
   let currentLevelIndex = 0;
   let bindingsReady = false;
 
+  const IDLE_TIMEOUT = 10000;
+  let idleTimer = null;
+  let idleHintTimer = null;
+
   const levelLabel = document.getElementById('level-label');
   const coinCount = document.getElementById('coin-count');
   const clearedPanel = document.getElementById('level-cleared');
@@ -53,7 +57,57 @@ const Game = (() => {
       returnToHome();
     });
 
+    _bindIdleListeners();
+
     bindingsReady = true;
+  }
+
+  function _bindIdleListeners() {
+    const app = document.getElementById('app');
+    if (!app) return;
+    const events = ['pointerdown', 'pointermove', 'touchstart', 'wheel', 'keydown'];
+    events.forEach(evt => {
+      app.addEventListener(evt, _resetIdleTimer, { passive: true });
+    });
+  }
+
+  function _startIdleTimer() {
+    _clearIdleTimer();
+    idleTimer = setTimeout(() => {
+      _triggerIdleHint();
+      idleTimer = setInterval(() => {
+        _triggerIdleHint();
+      }, IDLE_TIMEOUT);
+    }, IDLE_TIMEOUT);
+  }
+
+  function _clearIdleTimer() {
+    if (idleTimer) {
+      clearTimeout(idleTimer);
+      clearInterval(idleTimer);
+      idleTimer = null;
+    }
+    if (idleHintTimer) {
+      clearTimeout(idleHintTimer);
+      idleHintTimer = null;
+    }
+    Grid.clearIdleHints();
+  }
+
+  function _resetIdleTimer() {
+    Grid.clearIdleHints();
+    _startIdleTimer();
+  }
+
+  function _triggerIdleHint() {
+    const cells = Grid.getRandomUnsolvedWordCells();
+    if (!cells || cells.length === 0) return;
+
+    cells.forEach(cell => cell.classList.add('idle-hint'));
+
+    idleHintTimer = setTimeout(() => {
+      Grid.clearIdleHints();
+    }, 1300);
   }
 
   function startNew() {
@@ -71,6 +125,7 @@ const Game = (() => {
   }
 
   function returnToHome() {
+    _clearIdleTimer();
     clearedPanel.classList.remove('show');
     wordCards.innerHTML = '';
     gridContainer.innerHTML = '';
@@ -99,6 +154,8 @@ const Game = (() => {
 
     Wheel.setLetters(levelData.letters);
     clearedPanel.classList.remove('show');
+
+    _startIdleTimer();
   }
 
   function _onWordComplete(word) {
@@ -198,6 +255,7 @@ const Game = (() => {
   ];
 
   function _onLevelCleared() {
+    _clearIdleTimer();
     Progress.markLevelCleared(currentLevelIndex);
 
     const levelNum = currentLevelIndex + 1;

@@ -254,6 +254,26 @@ body {
   100% { transform: scale(1); }
 }
 
+/* 10秒无操作提示闪烁 */
+.grid-cell.idle-hint {
+  animation: idleHintBlink 1.2s ease-in-out 2;
+}
+
+@keyframes idleHintBlink {
+  0%, 100% {
+    box-shadow: none;
+    border-color: var(--cell-border);
+  }
+  25%, 75% {
+    box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.55), 0 0 12px rgba(255, 184, 0, 0.35);
+    border-color: #ffb800;
+  }
+  50% {
+    box-shadow: none;
+    border-color: var(--cell-border);
+  }
+}
+
 /* ---- 预览框 ---- */
 #preview-box {
   min-height: 32px;

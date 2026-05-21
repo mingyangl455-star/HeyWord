@@ -155,6 +155,20 @@ const Grid = (() => {
     return unsolved[Math.floor(Math.random() * unsolved.length)].id;
   }
 
+  function getRandomUnsolvedWordCells() {
+    if (!currentLevel || !currentLevel.grid || !currentLevel.grid.words) return null;
+    const unsolvedWords = currentLevel.grid.words.filter(w => !solvedWords.has(w.word.toUpperCase()));
+    if (unsolvedWords.length === 0) return null;
+    const word = unsolvedWords[Math.floor(Math.random() * unsolvedWords.length)];
+    return word.cellIds.map(id => cellMap[id]).filter(Boolean);
+  }
+
+  function clearIdleHints() {
+    Object.values(cellMap).forEach(el => {
+      if (el) el.classList.remove('idle-hint');
+    });
+  }
+
   function isWordSolved(word) {
     return solvedWords.has(word.toUpperCase());
   }
@@ -175,6 +189,8 @@ const Grid = (() => {
     solveWord,
     revealCell,
     getRandomUnsolvedCellId,
+    getRandomUnsolvedWordCells,
+    clearIdleHints,
     isWordSolved,
   };
 })();
