@@ -183,7 +183,7 @@ const Game = (() => {
       _onLevelCleared();
     });
 
-    Wheel.setLetters(levelData.letters);
+    Wheel.setLetters(levelData.letters, levelData.grid.words.map(w => w.word));
     clearedPanel.classList.remove('show');
 
     _startIdleTimer();

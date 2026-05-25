@@ -59,8 +59,30 @@ const Wheel = (() => {
     lineWidth: 4,
   };
 
-  function setLetters(arr) {
-    letters = arr.slice();
+  function setLetters(arr, targetWords = []) {
+    let shuffled = arr.slice();
+    const targets = targetWords.map(w => w.toUpperCase());
+
+    // Helper to check if a shuffled array spells any target word when read clockwise (as a circular substring)
+    const spellsAnyTarget = (array) => {
+      const s = array.join('');
+      const circular = s + s; // Double the string to handle circular wrap-around
+      return targets.some(target => circular.includes(target) || [...circular].reverse().join('').includes(target));
+    };
+
+    let attempts = 0;
+    do {
+      // Fisher-Yates shuffle
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = temp;
+      }
+      attempts++;
+    } while (spellsAnyTarget(shuffled) && attempts < 25 && shuffled.length > 2);
+
+    letters = shuffled;
     _buildNodes();
     _render();
   }
