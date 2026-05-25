@@ -9,62 +9,62 @@ const fs = require('fs');
 // 这里的每一关都极其严格地约束：words 里的所有单词只能用 letters 里的字母拼写！
 const RAW_LEVELS = [
   // ==================== STAGE 1: 3 字母入门 (Levels 1 - 10) ====================
-  { letters: ['C','A','T'], words: ['CAT','ACT'] },
-  { letters: ['D','O','G'], words: ['DOG'] },
-  { letters: ['T','E','A'], words: ['TEA','EAT'] },
-  { letters: ['B','U','S'], words: ['BUS'] },
-  { letters: ['F','L','Y'], words: ['FLY'] },
-  { letters: ['R','U','N'], words: ['RUN'] },
-  { letters: ['S','U','N'], words: ['SUN'] },
-  { letters: ['B','A','D'], words: ['BAD'] },
-  { letters: ['H','O','T'], words: ['HOT'] },
-  { letters: ['P','E','N'], words: ['PEN'] },
+  { letters: ['D','O','G'], words: ['DOG'] }, // Level 1: 唯一一个单单词热身关
+  { letters: ['C','A','T'], words: ['CAT','ACT'] }, // Level 2
+  { letters: ['T','E','A'], words: ['TEA','EAT'] }, // Level 3
+  { letters: ['B','U','S'], words: ['BUS','SUB'] }, // Level 4
+  { letters: ['A','R','M'], words: ['ARM','RAM'] }, // Level 5
+  { letters: ['N','O','W'], words: ['NOW','WON'] }, // Level 6
+  { letters: ['E','A','R'], words: ['EAR','ARE','ERA'] }, // Level 7
+  { letters: ['R','A','T'], words: ['RAT','ART','TAR'] }, // Level 8
+  { letters: ['R','U','N'], words: ['RUN','URN'] }, // Level 9
+  { letters: ['N','E','T'], words: ['NET','TEN'] }, // Level 10
 
   // ==================== STAGE 2: 4 字母进阶 (Levels 11 - 25) ====================
-  { letters: ['S','T','A','R'], words: ['STAR','ART'] },
-  { letters: ['R','O','S','E'], words: ['ROSE','ORE'] },
-  { letters: ['L','I','S','T'], words: ['LIST','SIT'] },
-  { letters: ['F','I','R','E'], words: ['FIRE','REF'] }, 
-  { letters: ['R','O','A','D'], words: ['ROAD','ROD'] },
-  { letters: ['T','I','M','E'], words: ['TIME','MET'] },
-  { letters: ['P','A','L','E'], words: ['PALE','LAP'] },
-  { letters: ['L','A','N','D'], words: ['LAND','LAD'] },
-  { letters: ['D','U','S','T'], words: ['DUST','STUD'] },
-  { letters: ['B','O','A','T'], words: ['BOAT','BAT'] },
-  { letters: ['K','I','N','G'], words: ['KING','INK'] },
-  { letters: ['W','I','N','D'], words: ['WIND','WIN'] },
-  { letters: ['C','O','A','L'], words: ['COAL','COLA'] },
-  { letters: ['H','A','N','D'], words: ['HAND','HAD'] },
-  { letters: ['G','O','L','D'], words: ['GOLD','GOD'] },
+  { letters: ['S','T','A','R'], words: ['STAR','ART'] }, // Level 11
+  { letters: ['R','O','S','E'], words: ['ROSE','ORE'] }, // Level 12
+  { letters: ['F','I','R','E'], words: ['FIRE','REF'] }, // Level 13
+  { letters: ['R','O','A','D'], words: ['ROAD','ROD'] }, // Level 14
+  { letters: ['L','A','N','D'], words: ['LAND','LAD'] }, // Level 15
+  { letters: ['L','I','S','T'], words: ['LIST','SIT','LIT'] }, // Level 16
+  { letters: ['T','I','M','E'], words: ['TIME','MET','TIE'] }, // Level 17
+  { letters: ['P','A','L','E'], words: ['PALE','LAP','ALE'] }, // Level 18
+  { letters: ['B','O','A','T'], words: ['BOAT','BAT','TAB'] }, // Level 19
+  { letters: ['K','I','N','G'], words: ['KING','INK','GIN'] }, // Level 20
+  { letters: ['W','I','N','D'], words: ['WIND','WIN','DIN'] }, // Level 21
+  { letters: ['H','A','N','D'], words: ['HAND','HAD','AND'] }, // Level 22
+  { letters: ['G','O','L','D'], words: ['GOLD','GOD','DOG','LOG'] }, // Level 23
+  { letters: ['E','A','S','Y'], words: ['EASY','SAY','SEA','YES'] }, // Level 24
+  { letters: ['R','A','T','E'], words: ['RATE','TEAR','ART','ATE'] }, // Level 25
 
   // ==================== STAGE 3: 5 字母挑战 (Levels 26 - 40) ====================
-  { letters: ['B','R','E','A','D'], words: ['BREAD','BEAR','RED'] },
-  { letters: ['C','L','O','U','D'], words: ['CLOUD','LOUD','COLD'] },
-  { letters: ['G','R','E','E','N'], words: ['GREEN','GENE'] },
-  { letters: ['F','I','E','L','D'], words: ['FIELD','FILE','LED'] },
-  { letters: ['O','C','E','A','N'], words: ['OCEAN','CANE','ONE'] },
-  { letters: ['S','M','A','R','T'], words: ['SMART','STARS','MAT'] }, 
-  { letters: ['T','R','A','I','N'], words: ['TRAIN','RAIN','RAN'] },
-  { letters: ['S','T','O','N','E'], words: ['STONE','TONE','SON'] },
-  { letters: ['H','O','U','S','E'], words: ['HOUSE','USE'] },
-  { letters: ['S','M','I','L','E'], words: ['SMILE','SLIM','MIL'] },
-  { letters: ['W','A','T','E','R'], words: ['WATER','TEAR','WET'] },
-  { letters: ['M','U','S','I','C'], words: ['MUSIC','SUM'] },
-  { letters: ['P','L','A','N','T'], words: ['PLANT','PLAN','TAP'] },
-  { letters: ['A','P','P','L','E'], words: ['APPLE','PLEA','APE'] },
-  { letters: ['S','H','E','E','P'], words: ['SHEEP','SHE','SEE'] },
+  { letters: ['B','R','E','A','D'], words: ['BREAD','BEAR','RED','BAD'] }, // Level 26
+  { letters: ['C','L','O','U','D'], words: ['CLOUD','LOUD','COLD','COD'] }, // Level 27
+  { letters: ['G','R','E','E','N'], words: ['GREEN','GENE','ERR'] }, // Level 28
+  { letters: ['F','I','E','L','D'], words: ['FIELD','FILE','LED','DIE'] }, // Level 29
+  { letters: ['O','C','E','A','N'], words: ['OCEAN','CANE','ONE','CON'] }, // Level 30
+  { letters: ['S','M','A','R','T'], words: ['SMART','MAT','ART','RAT'] }, // Level 31
+  { letters: ['T','R','A','I','N'], words: ['TRAIN','RAIN','RAN','TIN'] }, // Level 32
+  { letters: ['S','T','O','N','E'], words: ['STONE','TONE','SON','NET','TEN'] }, // Level 33
+  { letters: ['H','O','U','S','E'], words: ['HOUSE','USE','SHE','HUE'] }, // Level 34
+  { letters: ['S','M','I','L','E'], words: ['SMILE','SLIM','MIL','LIE'] }, // Level 35
+  { letters: ['W','A','T','E','R'], words: ['WATER','TEAR','WET','ART','RAW'] }, // Level 36
+  { letters: ['P','L','A','N','T'], words: ['PLANT','PLAN','TAP','PAN','ANT'] }, // Level 37
+  { letters: ['A','P','P','L','E'], words: ['APPLE','PLEA','APE','PALE','LAP'] }, // Level 38
+  { letters: ['S','H','E','E','P'], words: ['SHEEP','SHE','SEE','PEE'] }, // Level 39
+  { letters: ['S','H','A','R','P'], words: ['SHARP','HARP','ASH','HAS','RAP','SPA'] }, // Level 40
 
   // ==================== STAGE 4: 6 字母大师 (Levels 41 - 50) ====================
-  { letters: ['S','I','L','V','E','R'], words: ['SILVER','LIVER','RISE'] },
-  { letters: ['Y','E','L','L','O','W'], words: ['YELLOW','WELL','YELL'] },
-  { letters: ['O','R','A','N','G','E'], words: ['ORANGE','RANGE','AGE'] },
-  { letters: ['S','U','N','S','E','T'], words: ['SUNSET','NEST','SUN'] },
-  { letters: ['W','I','N','T','E','R'], words: ['WINTER','WRITE','TEN'] },
-  { letters: ['S','U','M','M','E','R'], words: ['SUMMER','MUSE','SUE'] },
-  { letters: ['S','P','R','I','N','G'], words: ['SPRING','RING','PIG'] },
-  { letters: ['B','R','I','D','G','E'], words: ['BRIDGE','BIRD','RED'] },
-  { letters: ['V','I','L','L','A','G','E'], words: ['VILLAGE','LIVE','LEG'] },
-  { letters: ['A','N','I','M','A','L'], words: ['ANIMAL','MAIL','MAN'] },
+  { letters: ['S','I','L','V','E','R'], words: ['SILVER','LIVER','RISE','LIVE','VILE'] }, // Level 41
+  { letters: ['Y','E','L','L','O','W'], words: ['YELLOW','WELL','YELL','LOW'] }, // Level 42
+  { letters: ['O','R','A','N','G','E'], words: ['ORANGE','RANGE','AGE','EAR','ONE'] }, // Level 43
+  { letters: ['S','U','N','S','E','T'], words: ['SUNSET','NEST','SUN','NET','TEN','SET'] }, // Level 44
+  { letters: ['W','I','N','T','E','R'], words: ['WINTER','WRITE','TEN','NET','WET','TIE'] }, // Level 45
+  { letters: ['S','U','M','M','E','R'], words: ['SUMMER','MUSE','SUE','SUM'] }, // Level 46
+  { letters: ['S','P','R','I','N','G'], words: ['SPRING','RING','PIG','PIN','GIN','SING'] }, // Level 47
+  { letters: ['B','R','I','D','G','E'], words: ['BRIDGE','BIRD','RED','BED','RIDE','GRID'] }, // Level 48
+  { letters: ['F','A','M','I','L','Y'], words: ['FAMILY','MAIL','FLY','LAY','AIM'] }, // Level 49
+  { letters: ['A','N','I','M','A','L'], words: ['ANIMAL','MAIL','MAN','MIL','AIM','NIL'] }, // Level 50
 ];
 
 // ========== 精准释义词典，完美覆盖这 50 关中使用的所有目标单词 ==========
@@ -187,7 +187,40 @@ const DICTIONARY = {
   'LEG': { phonetic: '/leɡ/', meaning: 'n. 腿', example: 'He hurt his leg playing football.', exampleCn: '他踢足球伤了腿。' },
   'ANIMAL': { phonetic: '/ˈænɪml/', meaning: 'n. 动物', example: 'The lion is a wild animal.', exampleCn: '狮子是野生动物。' },
   'MAIL': { phonetic: '/meɪl/', meaning: 'n. 邮件；v. 邮寄', example: 'Check your mailbox daily.', exampleCn: '每天检查一下邮箱。' },
-  'MAN': { phonetic: '/mæn/', meaning: 'n. 男人', example: 'He is a kind man.', exampleCn: '他是个善良的男人。' }
+  'MAN': { phonetic: '/mæn/', meaning: 'n. 男人', example: 'He is a kind man.', exampleCn: '他是个善良的男人。' },
+  'SUB': { phonetic: '/sʌb/', meaning: 'n. 潜水艇；v. 替代', example: 'The team used a sub.', exampleCn: '这个团队使用了一个替补。' },
+  'RAM': { phonetic: '/ræm/', meaning: 'n. 公羊；v. 猛撞', example: 'A ram charged at the gate.', exampleCn: '一只公羊猛撞大门。' },
+  'WON': { phonetic: '/wʌn/', meaning: 'v. 赢（win的过去式）', example: 'We won the match yesterday.', exampleCn: '我们昨天赢了比赛。' },
+  'ERA': { phonetic: '/ˈɪərə/', meaning: 'n. 纪元，时代', example: 'This is the digital era.', exampleCn: '这是数字化时代。' },
+  'TAR': { phonetic: '/tɑːr/', meaning: 'n. 焦油', example: 'Tar is used for paving roads.', exampleCn: '焦油用来铺路。' },
+  'URN': { phonetic: '/ɜːn/', meaning: 'n. 瓮；茶水壶', example: 'An urn of hot tea stood nearby.', exampleCn: '旁边放着一壶热茶。' },
+  'NET': { phonetic: '/net/', meaning: 'n. 网', example: 'The ball hit the net.', exampleCn: '球打在了网上。' },
+  'TIE': { phonetic: '/taɪ/', meaning: 'v. 系；n. 领带', example: 'Tie your shoelaces tightly.', exampleCn: '系紧你的鞋带。' },
+  'ALE': { phonetic: '/eɪl/', meaning: 'n. 麦芽啤酒', example: 'He ordered a pint of ale.', exampleCn: '他点了一品脱麦芽啤酒。' },
+  'TAB': { phonetic: '/tæb/', meaning: 'n. 标签，页签', example: 'Open a new tab in the browser.', exampleCn: '在浏览器中打开一个新标签页。' },
+  'GIN': { phonetic: '/dʒɪn/', meaning: 'n. 琴酒，杜松子酒', example: 'He drank a glass of gin.', exampleCn: '他喝了一杯琴酒。' },
+  'DIN': { phonetic: '/dɪn/', meaning: 'n. 嘈杂声，喧嚣', example: 'The kids made a terrible din.', exampleCn: '孩子们制造了可怕的嘈杂声。' },
+  'AND': { phonetic: '/ænd/', meaning: 'conj. 和，与', example: 'You and I are good friends.', exampleCn: '你和我是好朋友。' },
+  'LOG': { phonetic: '/lɒɡ/', meaning: 'n. 圆木；v. 记录', example: 'A log of wood was burning.', exampleCn: '一根圆木正在燃烧。' },
+  'SAY': { phonetic: '/seɪ/', meaning: 'v. 说，表达', example: 'What did you say?', exampleCn: '你说了什么？' },
+  'YES': { phonetic: '/jes/', meaning: 'adv. 是的，同意', example: 'He said yes to our offer.', exampleCn: '他同意了我们的提议。' },
+  'ERR': { phonetic: '/ɜːr/', meaning: 'v. 犯错', example: 'To err is human.', exampleCn: '人非圣贤，孰能无过。' },
+  'DIE': { phonetic: '/daɪ/', meaning: 'v. 死亡', example: 'Flowers die without water.', exampleCn: '花朵没水就会枯死。' },
+  'CON': { phonetic: '/kɒn/', meaning: 'n. 反对论点；骗局', example: 'He weighed the pros and cons.', exampleCn: '他权衡了利弊。' },
+  'TIN': { phonetic: '/tɪn/', meaning: 'n. 锡；罐头', example: 'A tin of sardines.', exampleCn: '一罐沙丁鱼。' },
+  'HUE': { phonetic: '/hjuː/', meaning: 'n. 色彩，色调', example: 'The sunset had a golden hue.', exampleCn: '落日带有一层金色的色调。' },
+  'ANT': { phonetic: '/ænt/', meaning: 'n. 蚂蚁', example: 'An ant carries food together.', exampleCn: '蚂蚁一起搬运食物。' },
+  'PEE': { phonetic: '/piː/', meaning: 'v. 小便（非正式）', example: 'The dog needs to pee.', exampleCn: '小狗需要尿尿。' },
+  'HARP': { phonetic: '/hɑːp/', meaning: 'n. 竖琴', example: 'She plays the harp beautifully.', exampleCn: '她竖琴弹得很动听。' },
+  'ASH': { phonetic: '/æʃ/', meaning: 'n. 灰烬', example: 'The cigar fell into ash.', exampleCn: '雪茄掉成了灰烬。' },
+  'HAS': { phonetic: '/hæz/', meaning: 'v. 有（第三人称单数）', example: 'She has a lovely cat.', exampleCn: '她有一只可爱的小猫。' },
+  'RAP': { phonetic: '/ræp/', meaning: 'n./v. 敲击；说唱', example: 'He loves listening to rap music.', exampleCn: '他喜欢听说唱音乐。' },
+  'SPA': { phonetic: '/spɑː/', meaning: 'n. 水疗，温泉', example: 'They went to a luxury spa.', exampleCn: '他们去了一家奢华的水疗中心。' },
+  'LOW': { phonetic: '/ləʊ/', meaning: 'adj. 低的，低矮的', example: 'The sun is low in the sky.', exampleCn: '太阳在天空中的位置很低。' },
+  'BED': { phonetic: '/bed/', meaning: 'n. 床', example: 'Go to bed early tonight.', exampleCn: '早点上床睡觉。' },
+  'LAY': { phonetic: '/leɪ/', meaning: 'v. 产卵；躺下（past）', example: 'Please lay the map on the table.', exampleCn: '请把地图铺在桌子上。' },
+  'AIM': { phonetic: '/eɪm/', meaning: 'n. 目标；v. 瞄准', example: 'My aim is to pass the exam.', exampleCn: '我的目标是通过考试。' },
+  'NIL': { phonetic: '/nɪl/', meaning: 'n. 零，无', example: 'The match ended two-nil.', exampleCn: '比赛以二比零结束。' }
 };
 
 function getWordInfo(word) {
