@@ -28,6 +28,9 @@ const StartScreen = (() => {
     const screen = document.getElementById('start-screen');
 
     btn.addEventListener('click', () => {
+      if (typeof AudioHaptic !== 'undefined') {
+        AudioHaptic.playClick();
+      }
       const useContinue = Progress.hasProgress();
       screen.classList.add('hide');
       screen.style.pointerEvents = 'none';
@@ -41,6 +44,9 @@ const StartScreen = (() => {
 
     if (btnNew) {
       btnNew.addEventListener('click', () => {
+        if (typeof AudioHaptic !== 'undefined') {
+          AudioHaptic.playClick();
+        }
         if (!confirm('确定要重新开始新游戏吗？之前闯过的进度不会被删除。')) return;
         screen.classList.add('hide');
         screen.style.pointerEvents = 'none';

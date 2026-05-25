@@ -28,6 +28,10 @@ const Game = (() => {
   function init() {
     if (bindingsReady) return;
 
+    if (typeof AudioHaptic !== 'undefined') {
+      AudioHaptic.init();
+    }
+
     AdHint.init();
     Validator.setOnCoinsChange(_updateCoins);
     Wheel.setOnWordComplete(_onWordComplete);
@@ -36,23 +40,28 @@ const Game = (() => {
       btnHint.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
         _useHint(e);
       });
     }
 
     btnNextLevel.addEventListener('click', () => {
+      if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
       _goNextLevel();
     });
 
     btnHome.addEventListener('click', () => {
+      if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
       homeConfirm.classList.add('show');
     });
 
     btnHomeCancel.addEventListener('click', () => {
+      if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
       homeConfirm.classList.remove('show');
     });
 
     btnHomeOk.addEventListener('click', () => {
+      if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
       homeConfirm.classList.remove('show');
       returnToHome();
     });
@@ -166,6 +175,7 @@ const Game = (() => {
         Wheel.showPreviewSuccess();
         if (Grid.solveWord(result.wordObj)) {
           Validator.addCoins(1);
+          if (typeof AudioHaptic !== 'undefined') AudioHaptic.playSuccess();
           // 获得星星特效：从屏幕中央生成粒子飞向右上角星星
           const app = document.getElementById('app');
           const appRect = app.getBoundingClientRect();
@@ -183,6 +193,7 @@ const Game = (() => {
 
       case 'extra':
         Wheel.showPreviewSuccess();
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playExtraSuccess();
         const app = document.getElementById('app');
         const appRect = app.getBoundingClientRect();
         const coinEl = document.getElementById('coin-count');
@@ -199,10 +210,12 @@ const Game = (() => {
       case 'duplicate':
       case 'invalid':
         Wheel.showError();
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playError();
         break;
 
       default:
         Wheel.showError();
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playError();
         break;
     }
   }
@@ -257,6 +270,10 @@ const Game = (() => {
   function _onLevelCleared() {
     _clearIdleTimer();
     Progress.markLevelCleared(currentLevelIndex);
+
+    if (typeof AudioHaptic !== 'undefined') {
+      AudioHaptic.playLevelCleared();
+    }
 
     const levelNum = currentLevelIndex + 1;
     const stageIndex = Math.floor(currentLevelIndex / 10);

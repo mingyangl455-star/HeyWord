@@ -116,6 +116,40 @@ body {
   transform: scale(0.95);
 }
 
+.btn-mute {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--transition-speed) var(--easing),
+    transform var(--transition-speed) var(--easing);
+  margin-right: 4px;
+}
+
+.btn-mute:hover {
+  background: rgba(123, 97, 255, 0.12);
+  transform: scale(1.05);
+}
+
+.btn-mute:active {
+  transform: scale(0.95);
+}
+
+.btn-mute svg {
+  display: block;
+}
+
+.btn-mute svg.hidden {
+  display: none !important;
+}
+
 .header-right {
   display: flex;
   align-items: center;

@@ -271,6 +271,10 @@ const Wheel = (() => {
     currentPointer = pos;
     _updatePreview();
     _render();
+
+    if (typeof AudioHaptic !== 'undefined') {
+      AudioHaptic.playConnect(0);
+    }
   }
 
   function _onMove(e) {
@@ -285,9 +289,15 @@ const Wheel = (() => {
       if (selectedIndices.length >= 2 && idx === selectedIndices[selectedIndices.length - 2]) {
         selectedIndices.pop();
         _updatePreview();
+        if (typeof AudioHaptic !== 'undefined') {
+          AudioHaptic.playConnect(selectedIndices.length - 1);
+        }
       } else if (!selectedIndices.includes(idx)) {
         selectedIndices.push(idx);
         _updatePreview();
+        if (typeof AudioHaptic !== 'undefined') {
+          AudioHaptic.playConnect(selectedIndices.length - 1);
+        }
       }
     }
 
