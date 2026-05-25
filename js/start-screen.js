@@ -68,12 +68,19 @@ const StartScreen = (() => {
     if (!labelEl || !levelEl) return;
 
     if (Progress.hasProgress()) {
-      labelEl.textContent = '继续闯关';
-      levelEl.textContent = 'Level ' + Progress.getNextLevelNumber();
+      labelEl.textContent = '继续旅途';
+      const nextLevelNum = Progress.getNextLevelNumber();
+      const stationIdx = Math.floor(Progress.getNextLevelIndex() / 10);
+      const stations = ['伦敦站', '巴黎站', '东京站', '里约站', '纽约站'];
+      const flags = ['🇬🇧', '🇫🇷', '🇯🇵', '🇧🇷', '🇺🇸'];
+      const stationName = stations[Math.min(stationIdx, stations.length - 1)];
+      const flag = flags[Math.min(stationIdx, flags.length - 1)];
+      
+      levelEl.textContent = `Level ${nextLevelNum} · ${flag} ${stationName}`;
       levelEl.classList.remove('hidden');
       if (btnNew) btnNew.classList.remove('hidden');
     } else {
-      labelEl.textContent = '开始游戏';
+      labelEl.textContent = '开始旅途';
       levelEl.textContent = '';
       levelEl.classList.add('hidden');
       if (btnNew) btnNew.classList.add('hidden');

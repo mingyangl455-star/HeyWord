@@ -31,6 +31,17 @@ const Wheel = (() => {
 
   let previewIsError = false;
 
+  // Pre-allocated particle pool for 60fps stutter-free trailing effects
+  const PARTICLE_COUNT = 25;
+  const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+    x: 0, y: 0,
+    vx: 0, vy: 0,
+    size: 0,
+    alpha: 0,
+    active: false
+  }));
+  let animId = null;
+
   const COLORS = {
     ringTop: '#f5f6fa',
     ringBottom: '#e8eaef',
@@ -222,7 +233,98 @@ const Wheel = (() => {
     }
   }
 
+  function _updateThemeColors() {
+    const app = document.getElementById('app');
+    if (!app) return;
+    const style = getComputedStyle(app);
+    const primary = style.getPropertyValue('--primary').trim() || '#7b61ff';
+    
+    COLORS.nodeSelected = primary;
+    COLORS.line = primary;
+    
+    // Helper to convert hex to rgba
+    const hexToRgba = (hex, alpha) => {
+      hex = hex.replace('#', '');
+      if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+      }
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    };
+
+    COLORS.nodeSelectedGlow = hexToRgba(primary, 0.3);
+    COLORS.lineGlow = hexToRgba(primary, 0.25);
+  }
+
+  function _spawnParticles(x, y) {
+    for (let count = 0; count < 2; count++) {
+      const p = particles.find(item => !item.active);
+      if (!p) break; // Pool full, recycle/skip
+
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 0.4 + Math.random() * 1.2;
+
+      p.x = x;
+      p.y = y;
+      p.vx = Math.cos(angle) * speed;
+      p.vy = Math.sin(angle) * speed;
+      p.size = 2.5 + Math.random() * 3.5;
+      p.alpha = 1.0;
+      p.active = true;
+    }
+  }
+
+  function _updateAndDrawParticles() {
+    let hasActive = false;
+    particles.forEach(p => {
+      if (!p.active) return;
+      hasActive = true;
+
+      // Update physics without allocating new memory
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.03; // Gentle gravity
+      p.alpha -= 0.045; // Fade out
+      p.size *= 0.96; // Shrink
+
+      if (p.alpha <= 0 || p.size <= 0.1) {
+        p.active = false;
+        return;
+      }
+
+      // Draw particle (glowing neon core)
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+      ctx.shadowColor = COLORS.nodeSelected; // Theme matching glow
+      ctx.shadowBlur = 4;
+      ctx.fill();
+      ctx.shadowBlur = 0; // Restore
+    });
+    return hasActive;
+  }
+
+  function _tick() {
+    _render();
+    const hasParticles = _updateAndDrawParticles();
+
+    if (isDragging || hasParticles) {
+      animId = requestAnimationFrame(_tick);
+    } else {
+      animId = null;
+    }
+  }
+
+  function _startLoop() {
+    if (!animId) {
+      _tick();
+    }
+  }
+
   function _render() {
+    _updateThemeColors();
     ctx.clearRect(0, 0, LOGICAL_SIZE, LOGICAL_SIZE);
 
     _drawRing();
@@ -270,7 +372,8 @@ const Wheel = (() => {
     selectedIndices = [idx];
     currentPointer = pos;
     _updatePreview();
-    _render();
+    _spawnParticles(pos.x, pos.y);
+    _startLoop();
 
     if (typeof AudioHaptic !== 'undefined') {
       AudioHaptic.playConnect(0);
@@ -301,7 +404,8 @@ const Wheel = (() => {
       }
     }
 
-    _render();
+    _spawnParticles(pos.x, pos.y);
+    _startLoop();
   }
 
   function _onEnd(e) {
@@ -317,7 +421,7 @@ const Wheel = (() => {
 
     selectedIndices = [];
     _hidePreview();
-    _render();
+    _startLoop();
   }
 
   function _updatePreview() {

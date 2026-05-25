@@ -37,6 +37,42 @@
   --canvas-height: 700px;
 }
 
+/* ---- 语言旅途 5 大站点主题皮肤 ---- */
+#app.theme-london {
+  --primary: #7b61ff;
+  --primary-light: #9d8cff;
+  --primary-dark: #6347e5;
+  --primary-glow: rgba(123, 97, 255, 0.35);
+}
+
+#app.theme-paris {
+  --primary: #ff4a86;
+  --primary-light: #ff7da4;
+  --primary-dark: #cc1e5b;
+  --primary-glow: rgba(255, 74, 134, 0.35);
+}
+
+#app.theme-tokyo {
+  --primary: #ff763b;
+  --primary-light: #ff9d70;
+  --primary-dark: #d3450d;
+  --primary-glow: rgba(255, 118, 59, 0.35);
+}
+
+#app.theme-rio {
+  --primary: #00b894;
+  --primary-light: #55efc4;
+  --primary-dark: #008764;
+  --primary-glow: rgba(0, 184, 148, 0.35);
+}
+
+#app.theme-newyork {
+  --primary: #0984e3;
+  --primary-light: #74b9ff;
+  --primary-dark: #095fac;
+  --primary-glow: rgba(9, 132, 227, 0.35);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -89,6 +125,19 @@ body {
   font-weight: 700;
   letter-spacing: 0.5px;
   color: var(--primary);
+}
+
+.station-badge-header {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--primary);
+  padding: 3px 8px;
+  border-radius: 99px;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 8px var(--primary-glow);
+  transition: background var(--transition-speed) var(--easing), box-shadow var(--transition-speed) var(--easing);
+  white-space: nowrap;
 }
 
 .btn-home {

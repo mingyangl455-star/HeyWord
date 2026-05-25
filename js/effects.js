@@ -64,5 +64,79 @@ const Effects = (() => {
     }, 350);
   }
 
-  return { showToast, spawnSparkles, popCell };
+  function celebrate() {
+    const app = document.getElementById('app');
+    if (!app) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.className = 'confetti-canvas';
+    canvas.style.position = 'absolute';
+    canvas.style.inset = '0';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '99';
+
+    const rect = app.getBoundingClientRect();
+    const DPR = window.devicePixelRatio || 1;
+    canvas.width = rect.width * DPR;
+    canvas.height = rect.height * DPR;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    
+    const ctx = canvas.getContext('2d');
+    ctx.scale(DPR, DPR);
+
+    app.appendChild(canvas);
+
+    const colors = ['#7b61ff', '#ff4a86', '#ff763b', '#00b894', '#0984e3', '#ffb800'];
+    const confettiCount = 30; // Highly optimized lightweight count
+    const confettiList = Array.from({ length: confettiCount }, () => {
+      const w = 4 + Math.random() * 4;
+      const h = 7 + Math.random() * 5;
+      return {
+        x: Math.random() * rect.width,
+        y: -10 - Math.random() * 40,
+        vx: -1.2 + Math.random() * 2.4,
+        vy: 2.5 + Math.random() * 3.5,
+        rotation: Math.random() * Math.PI,
+        rotationSpeed: -0.08 + Math.random() * 0.16,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        width: w,
+        height: h
+      };
+    });
+
+    const startTime = Date.now();
+    const duration = 1500; // Strictly 1.5s max
+
+    function tick() {
+      const elapsed = Date.now() - startTime;
+      if (elapsed > duration) {
+        canvas.remove();
+        return;
+      }
+
+      ctx.clearRect(0, 0, rect.width, rect.height);
+      const globalAlpha = elapsed > 1000 ? 1 - (elapsed - 1000) / 500 : 1;
+
+      confettiList.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rotation += p.rotationSpeed;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = globalAlpha;
+        ctx.fillRect(-p.width / 2, -p.height / 2, p.width, p.height);
+        ctx.restore();
+      });
+
+      requestAnimationFrame(tick);
+    }
+
+    tick();
+  }
+
+  return { showToast, spawnSparkles, popCell, celebrate };
 })();

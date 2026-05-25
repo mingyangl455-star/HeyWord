@@ -5,6 +5,14 @@
 const Game = (() => {
   const HINT_STAR_COST = 5;
 
+  const STATIONS = [
+    { name: '伦敦站', flag: '🇬🇧', class: 'theme-london' },
+    { name: '巴黎站', flag: '🇫🇷', class: 'theme-paris' },
+    { name: '东京站', flag: '🇯🇵', class: 'theme-tokyo' },
+    { name: '里约站', flag: '🇧🇷', class: 'theme-rio' },
+    { name: '纽约站', flag: '🇺🇸', class: 'theme-newyork' }
+  ];
+
   let currentLevelIndex = 0;
   let bindingsReady = false;
 
@@ -154,6 +162,20 @@ const Game = (() => {
     const levelData = LEVELS[index];
 
     levelLabel.textContent = 'Level ' + levelData.level;
+
+    // Apply country station theme skin
+    const stationIndex = Math.floor(index / 10);
+    const station = STATIONS[Math.min(stationIndex, STATIONS.length - 1)];
+    const app = document.getElementById('app');
+    if (app) {
+      STATIONS.forEach(s => app.classList.remove(s.class));
+      app.classList.add(station.class);
+    }
+    const badgeHeader = document.getElementById('station-badge-header');
+    if (badgeHeader) {
+      badgeHeader.textContent = station.flag + ' ' + station.name;
+    }
+
     Validator.setLevel(levelData);
     _updateCoins(Validator.getCoins());
 
@@ -259,14 +281,6 @@ const Game = (() => {
     });
   }
 
-  const STAGE_NAMES = [
-    '单词新手',   // 1-10
-    '词汇学徒',   // 11-20
-    '拼词达人',   // 21-30
-    '英语高手',   // 31-40
-    '语言大师',   // 41-50
-  ];
-
   function _onLevelCleared() {
     _clearIdleTimer();
     Progress.markLevelCleared(currentLevelIndex);
@@ -275,13 +289,18 @@ const Game = (() => {
       AudioHaptic.playLevelCleared();
     }
 
+    if (typeof Effects !== 'undefined') {
+      Effects.celebrate();
+    }
+
     const levelNum = currentLevelIndex + 1;
     const stageIndex = Math.floor(currentLevelIndex / 10);
-    const isStageEnd = levelNum % 10 === 0 && stageIndex < STAGE_NAMES.length;
+    const isStageEnd = levelNum % 10 === 0 && stageIndex < STATIONS.length - 1;
 
     if (stageBadge) {
       if (isStageEnd) {
-        stageBadge.innerHTML = `<span class="badge-icon">🏅</span> ${STAGE_NAMES[stageIndex]} 达成！`;
+        const nextStation = STATIONS[stageIndex + 1];
+        stageBadge.innerHTML = `<span class="badge-icon">✈️</span> 恭喜抵达 ${nextStation.flag} ${nextStation.name}！`;
         stageBadge.classList.remove('hidden');
       } else {
         stageBadge.classList.add('hidden');
