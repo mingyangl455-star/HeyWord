@@ -7,6 +7,33 @@ const Grid = (() => {
     return document.getElementById('grid-container');
   }
 
+  function _fitGridToArea() {
+    const grid = document.getElementById('grid-container');
+    const fit = document.getElementById('grid-fit');
+    const scroll = document.querySelector('#grid-area .grid-scroll');
+    if (!grid || !fit || !scroll) return;
+
+    // Reset first to get natural size
+    fit.style.transform = 'scale(1)';
+    fit.style.width = '';
+    fit.style.height = '';
+
+    // Measure after layout
+    requestAnimationFrame(() => {
+      const availableW = scroll.clientWidth;
+      const availableH = scroll.clientHeight;
+      const gridW = grid.scrollWidth;
+      const gridH = grid.scrollHeight;
+
+      if (!availableW || !availableH || !gridW || !gridH) return;
+
+      const scale = Math.min(1, availableW / gridW, availableH / gridH);
+      fit.style.transform = `scale(${scale})`;
+      fit.style.width = `${gridW * scale}px`;
+      fit.style.height = `${gridH * scale}px`;
+    });
+  }
+
   let currentLevel = null;
   let cellMap = {};
   let solvedWords = new Set();
@@ -70,6 +97,8 @@ const Grid = (() => {
         if (el) el.dataset.wordColor = colorClass;
       });
     });
+
+    _fitGridToArea();
   }
 
   function reset() {

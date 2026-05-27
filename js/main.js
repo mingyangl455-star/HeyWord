@@ -30,6 +30,8 @@ const Game = (() => {
   const dictModal = document.getElementById('dict-modal');
   const dictWordList = document.getElementById('dict-word-list');
   const btnDictClose = document.getElementById('btn-dict-close');
+  const btnSettings = document.getElementById('btn-settings');
+  const settingsMenu = document.getElementById('settings-menu');
   const btnHome = document.getElementById('btn-home');
   const homeConfirm = document.getElementById('home-confirm');
   const btnHomeCancel = document.getElementById('btn-home-cancel');
@@ -70,6 +72,7 @@ const Game = (() => {
     if (btnDictionary) {
       btnDictionary.addEventListener('click', () => {
         if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
+        _closeSettingsMenu();
         _openDictionary();
       });
     }
@@ -92,10 +95,40 @@ const Game = (() => {
       _goNextLevel();
     });
 
-    btnHome.addEventListener('click', () => {
-      if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
-      homeConfirm.classList.add('show');
+    function _closeSettingsMenu() {
+      if (!settingsMenu) return;
+      settingsMenu.classList.add('hidden');
+      if (btnSettings) btnSettings.setAttribute('aria-expanded', 'false');
+    }
+
+    function _toggleSettingsMenu() {
+      if (!settingsMenu || !btnSettings) return;
+      const open = settingsMenu.classList.toggle('hidden');
+      btnSettings.setAttribute('aria-expanded', open ? 'false' : 'true');
+    }
+
+    if (btnSettings) {
+      btnSettings.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
+        _toggleSettingsMenu();
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!settingsMenu || settingsMenu.classList.contains('hidden')) return;
+      if (e.target.closest('.settings-wrap')) return;
+      _closeSettingsMenu();
     });
+
+    if (btnHome) {
+      btnHome.addEventListener('click', () => {
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
+        _closeSettingsMenu();
+        homeConfirm.classList.add('show');
+      });
+    }
 
     btnHomeCancel.addEventListener('click', () => {
       if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
@@ -251,6 +284,11 @@ const Game = (() => {
       case 'extra':
         Wheel.showPreviewSuccess();
         if (typeof AudioHaptic !== 'undefined') AudioHaptic.playExtraSuccess();
+        {
+          const messages = ['猜到了隐藏单词', '好可惜，不是这个单词'];
+          const msg = messages[Math.floor(Math.random() * messages.length)];
+          Wheel.showToastMessage(msg, 3000);
+        }
         const app = document.getElementById('app');
         const appRect = app.getBoundingClientRect();
         const coinEl = document.getElementById('coin-count');

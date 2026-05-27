@@ -8,7 +8,7 @@ const Wheel = (() => {
   const previewBox = document.getElementById('preview-box');
 
   const DPR = window.devicePixelRatio || 1;
-  const LOGICAL_SIZE = 220;
+  const LOGICAL_SIZE = 248;
   canvas.width = LOGICAL_SIZE * DPR;
   canvas.height = LOGICAL_SIZE * DPR;
   canvas.style.width = LOGICAL_SIZE + 'px';
@@ -16,8 +16,8 @@ const Wheel = (() => {
   ctx.scale(DPR, DPR);
 
   const CENTER = LOGICAL_SIZE / 2;
-  const NODE_RADIUS = 88;
-  const NODE_CIRCLE_R = 22;
+  const NODE_RADIUS = 84;
+  const NODE_CIRCLE_R = 21;
   const NODE_HIT_RADIUS = 30;
 
   let letters = [];
@@ -30,6 +30,7 @@ const Wheel = (() => {
   let onWordComplete = null;
 
   let previewIsError = false;
+  let toastTimer = null;
 
   // Pre-allocated particle pool for 60fps stutter-free trailing effects
   const PARTICLE_COUNT = 25;
@@ -348,6 +349,12 @@ const Wheel = (() => {
     const idx = _findNode(pos);
     if (idx === -1) return;
 
+    if (toastTimer) {
+      clearTimeout(toastTimer);
+      toastTimer = null;
+    }
+    previewBox.classList.remove('toast-message');
+
     isDragging = true;
     selectedIndices = [idx];
     currentPointer = pos;
@@ -400,7 +407,10 @@ const Wheel = (() => {
     }
 
     selectedIndices = [];
-    _hidePreview();
+    // If a toast is showing, don't auto-hide it here.
+    if (!toastTimer) {
+      _hidePreview();
+    }
     _startLoop();
   }
 
@@ -409,6 +419,7 @@ const Wheel = (() => {
     previewBox.textContent = word;
     previewBox.classList.add('visible');
     previewBox.classList.remove('error');
+    previewBox.classList.remove('toast-message');
   }
 
   function _hidePreview() {
@@ -418,6 +429,9 @@ const Wheel = (() => {
 
   function showError() {
     previewIsError = true;
+    if (previewBox.textContent) {
+      previewBox.classList.add('visible');
+    }
     previewBox.classList.add('error');
     _render();
     setTimeout(() => {
@@ -429,9 +443,28 @@ const Wheel = (() => {
   function showPreviewSuccess() {
     previewIsError = false;
     previewBox.style.color = '';
+    // If a toast is showing, keep it visible.
+    if (toastTimer) return;
     setTimeout(() => {
       _hidePreview();
     }, 400);
+  }
+
+  function showToastMessage(message, durationMs = 1000) {
+    if (toastTimer) clearTimeout(toastTimer);
+    previewIsError = false;
+    previewBox.textContent = message;
+    previewBox.classList.add('visible');
+    previewBox.classList.remove('error');
+    previewBox.classList.add('toast-message');
+
+    toastTimer = setTimeout(() => {
+      toastTimer = null;
+      if (!isDragging) {
+        previewBox.textContent = '';
+        _hidePreview();
+      }
+    }, durationMs);
   }
 
   function clearInteraction() {
@@ -439,6 +472,7 @@ const Wheel = (() => {
     isDragging = false;
     previewIsError = false;
     previewBox.textContent = '';
+    previewBox.classList.remove('toast-message');
     _hidePreview();
     _render();
   }
@@ -457,6 +491,7 @@ const Wheel = (() => {
     setOnWordComplete,
     showError,
     showPreviewSuccess,
+    showToastMessage,
     clearInteraction,
     reshuffle,
   };

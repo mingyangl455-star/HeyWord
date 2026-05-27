@@ -56,14 +56,20 @@ const AudioHaptic = (() => {
   function updateMuteButtonUI() {
     const iconOn = document.getElementById('mute-icon-on');
     const iconOff = document.getElementById('mute-icon-off');
-    if (!iconOn || !iconOff) return;
+    const label = document.getElementById('settings-mute-label');
 
-    if (isMuted) {
-      iconOn.classList.add('hidden');
-      iconOff.classList.remove('hidden');
-    } else {
-      iconOn.classList.remove('hidden');
-      iconOff.classList.add('hidden');
+    if (iconOn && iconOff) {
+      if (isMuted) {
+        iconOn.classList.add('hidden');
+        iconOff.classList.remove('hidden');
+      } else {
+        iconOn.classList.remove('hidden');
+        iconOff.classList.add('hidden');
+      }
+    }
+
+    if (label) {
+      label.textContent = isMuted ? '音效：关' : '音效：开';
     }
   }
 
