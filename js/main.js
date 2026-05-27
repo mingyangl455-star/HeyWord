@@ -25,6 +25,11 @@ const Game = (() => {
   const clearedPanel = document.getElementById('level-cleared');
   const btnNextLevel = document.getElementById('btn-next-level');
   const btnHint = document.getElementById('btn-hint');
+  const btnShuffle = document.getElementById('btn-shuffle');
+  const btnDictionary = document.getElementById('btn-dictionary');
+  const dictModal = document.getElementById('dict-modal');
+  const dictWordList = document.getElementById('dict-word-list');
+  const btnDictClose = document.getElementById('btn-dict-close');
   const btnHome = document.getElementById('btn-home');
   const homeConfirm = document.getElementById('home-confirm');
   const btnHomeCancel = document.getElementById('btn-home-cancel');
@@ -50,6 +55,35 @@ const Game = (() => {
         e.stopPropagation();
         if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
         _useHint(e);
+      });
+    }
+
+    if (btnShuffle) {
+      btnShuffle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
+        Wheel.reshuffle();
+      });
+    }
+
+    if (btnDictionary) {
+      btnDictionary.addEventListener('click', () => {
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
+        _openDictionary();
+      });
+    }
+
+    if (btnDictClose) {
+      btnDictClose.addEventListener('click', () => {
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
+        dictModal.classList.remove('show');
+      });
+    }
+
+    if (dictModal) {
+      dictModal.addEventListener('click', (e) => {
+        if (e.target === dictModal) dictModal.classList.remove('show');
       });
     }
 
@@ -143,6 +177,7 @@ const Game = (() => {
 
   function returnToHome() {
     _clearIdleTimer();
+    if (dictModal) dictModal.classList.remove('show');
     clearedPanel.classList.remove('show');
     wordCards.innerHTML = '';
     gridContainer.innerHTML = '';
@@ -161,7 +196,7 @@ const Game = (() => {
     currentLevelIndex = index;
     const levelData = LEVELS[index];
 
-    levelLabel.textContent = 'Level ' + levelData.level;
+    levelLabel.textContent = 'LEVEL ' + levelData.level;
 
     // Apply country station theme skin
     const stationIndex = Math.floor(index / 10);
@@ -314,27 +349,35 @@ const Game = (() => {
     }, 1000);
   }
 
+  function _wordCardHtml(w, showLevel) {
+    const levelTag = showLevel && w.level
+      ? `<span class="wc-level">Lv.${w.level}</span>`
+      : '';
+    return `
+      <div class="wc-header">
+        <span class="wc-word">${w.word}</span>
+        <span class="wc-phonetic">${w.phonetic || ''}</span>
+        ${levelTag}
+      </div>
+      <div class="wc-meaning">${w.meaning || ''}</div>
+      <div class="wc-divider"></div>
+      <div class="wc-example">${w.example || ''}</div>
+      <div class="wc-example-cn">${w.exampleCn || ''}</div>
+    `;
+  }
+
+  function _appendWordCard(container, w, options = {}) {
+    const card = document.createElement('div');
+    card.className = 'word-card';
+    card.innerHTML = _wordCardHtml(w, options.showLevel);
+    container.appendChild(card);
+    return card;
+  }
+
   function _renderWordCards() {
     const levelData = LEVELS[currentLevelIndex];
     wordCards.innerHTML = '';
-
-    levelData.grid.words.forEach(w => {
-      const card = document.createElement('div');
-      card.className = 'word-card';
-
-      card.innerHTML = `
-        <div class="wc-header">
-          <span class="wc-word">${w.word}</span>
-          <span class="wc-phonetic">${w.phonetic}</span>
-        </div>
-        <div class="wc-meaning">${w.meaning}</div>
-        <div class="wc-divider"></div>
-        <div class="wc-example">${w.example}</div>
-        <div class="wc-example-cn">${w.exampleCn}</div>
-      `;
-
-      wordCards.appendChild(card);
-    });
+    levelData.grid.words.forEach((w) => _appendWordCard(wordCards, w));
   }
 
   function _goNextLevel() {
@@ -343,16 +386,30 @@ const Game = (() => {
 
   function _updateCoins(count) {
     coinCount.textContent = count;
-    const headerRight = coinCount.parentElement;
-    if (headerRight) {
-      headerRight.classList.remove('pop-pulse');
-      // 触发重绘
-      void headerRight.offsetWidth;
-      headerRight.classList.add('pop-pulse');
+    const coinPill = coinCount.closest('.coin-pill');
+    if (coinPill) {
+      coinPill.classList.remove('pop-pulse');
+      void coinPill.offsetWidth;
+      coinPill.classList.add('pop-pulse');
       setTimeout(() => {
-        headerRight.classList.remove('pop-pulse');
+        coinPill.classList.remove('pop-pulse');
       }, 450);
     }
+  }
+
+  function _openDictionary() {
+    if (!dictModal || !dictWordList) return;
+    const learned = Progress.getLearnedWords();
+    dictWordList.innerHTML = '';
+
+    if (learned.length === 0) {
+      dictWordList.innerHTML =
+        '<p class="dict-empty">还没有学过单词。<br>通关后会自动收录到这里。</p>';
+    } else {
+      learned.forEach((w) => _appendWordCard(dictWordList, w, { showLevel: true }));
+    }
+
+    dictModal.classList.add('show');
   }
 
   return { init, startNew, continueGame, returnToHome, useHint: _useHint };

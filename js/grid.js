@@ -34,43 +34,42 @@ const Grid = (() => {
     container.style.gridTemplateColumns = `repeat(${gridCols}, 44px)`;
     container.style.gridTemplateRows = `repeat(${gridRows}, 44px)`;
 
-    const activePositions = new Set(cells.map(c => `${c.row},${c.col}`));
+    const rowIndex = new Map(activeRows.map((r, i) => [r, i + 1]));
+    const colIndex = new Map(activeCols.map((c, i) => [c, i + 1]));
 
-    for (let ri = 0; ri < gridRows; ri++) {
-      for (let ci = 0; ci < gridCols; ci++) {
-        const origRow = activeRows[ri];
-        const origCol = activeCols[ci];
-        const key = `${origRow},${origCol}`;
-        const div = document.createElement('div');
+    cells.forEach((cellData) => {
+      const div = document.createElement('div');
+      div.className = 'grid-cell unsolved';
+      div.dataset.id = cellData.id;
+      div.dataset.letter = cellData.letter;
+      div.style.gridRow = String(rowIndex.get(cellData.row));
+      div.style.gridColumn = String(colIndex.get(cellData.col));
 
-        if (activePositions.has(key)) {
-          const cellData = cells.find(ce => ce.row === origRow && ce.col === origCol);
-          div.className = 'grid-cell unsolved';
-          div.dataset.id = cellData.id;
-          div.dataset.letter = cellData.letter;
+      const inner = document.createElement('div');
+      inner.className = 'cell-inner';
 
-          const inner = document.createElement('div');
-          inner.className = 'cell-inner';
+      const front = document.createElement('div');
+      front.className = 'cell-front';
 
-          const front = document.createElement('div');
-          front.className = 'cell-front';
+      const back = document.createElement('div');
+      back.className = 'cell-back';
+      back.textContent = cellData.letter;
 
-          const back = document.createElement('div');
-          back.className = 'cell-back';
-          back.textContent = cellData.letter;
+      inner.appendChild(front);
+      inner.appendChild(back);
+      div.appendChild(inner);
 
-          inner.appendChild(front);
-          inner.appendChild(back);
-          div.appendChild(inner);
+      cellMap[cellData.id] = div;
+      container.appendChild(div);
+    });
 
-          cellMap[cellData.id] = div;
-        } else {
-          div.className = 'grid-cell empty';
-        }
-
-        container.appendChild(div);
-      }
-    }
+    levelData.grid.words.forEach((w, wi) => {
+      const colorClass = `solved-word-${wi % 6}`;
+      w.cellIds.forEach((id) => {
+        const el = cellMap[id];
+        if (el) el.dataset.wordColor = colorClass;
+      });
+    });
   }
 
   function reset() {
@@ -101,12 +100,15 @@ const Grid = (() => {
 
     solvedWords.add(key);
 
+    const colorClass = cellMap[wordObj.cellIds[0]]?.dataset.wordColor || 'solved-word-0';
+
     wordObj.cellIds.forEach((cellId, idx) => {
       solvedCells.add(cellId);
       const cellEl = cellMap[cellId];
       if (!cellEl) return;
 
       setTimeout(() => {
+        cellEl.classList.add(colorClass);
         _markCellSolved(cellEl, false);
         Effects.popCell(cellEl);
       }, idx * 80);
@@ -126,6 +128,8 @@ const Grid = (() => {
     if (!cellEl || cellEl.classList.contains('solved')) return false;
 
     solvedCells.add(cellId);
+    const colorClass = cellEl.dataset.wordColor;
+    if (colorClass) cellEl.classList.add(colorClass);
     _markCellSolved(cellEl, true);
     Effects.popCell(cellEl);
 
@@ -173,6 +177,13 @@ const Grid = (() => {
     return solvedWords.has(word.toUpperCase());
   }
 
+  function getSolvedWordObjects() {
+    if (!currentLevel || !currentLevel.grid) return [];
+    return currentLevel.grid.words.filter((w) =>
+      solvedWords.has(w.word.toUpperCase())
+    );
+  }
+
   function _checkCleared() {
     if (!currentLevel || !currentLevel.grid) return;
     const allSolved = currentLevel.grid.words.every(w =>
@@ -192,5 +203,6 @@ const Grid = (() => {
     getRandomUnsolvedWordCells,
     clearIdleHints,
     isWordSolved,
+    getSolvedWordObjects,
   };
 })();

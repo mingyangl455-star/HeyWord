@@ -16,13 +16,13 @@ const Wheel = (() => {
   ctx.scale(DPR, DPR);
 
   const CENTER = LOGICAL_SIZE / 2;
-  const RING_OUTER = 100;
-  const RING_INNER = 66;
-  const RING_MID = (RING_OUTER + RING_INNER) / 2;
+  const NODE_RADIUS = 88;
+  const NODE_CIRCLE_R = 22;
   const NODE_HIT_RADIUS = 30;
-  const RING_WIDTH = RING_OUTER - RING_INNER;
 
   let letters = [];
+  let lastLetters = [];
+  let lastTargets = [];
   let nodes = [];
   let selectedIndices = [];
   let isDragging = false;
@@ -43,19 +43,19 @@ const Wheel = (() => {
   let animId = null;
 
   const COLORS = {
-    ringTop: '#f5f6fa',
-    ringBottom: '#e8eaef',
-    ringStroke: '#636e72',
-    centerBg: '#ffffff',
-    nodeSelectedGlow: 'rgba(123, 97, 255, 0.3)',
-    letterText: '#2d3436',
-    letterTextShadow: 'rgba(255,255,255,0.8)',
-    letterSelectedShadow: 'rgba(99, 71, 229, 0.25)',
-    nodeSelected: '#7b61ff',
-    line: 'rgba(123, 97, 255, 0.85)',
-    lineGlow: 'rgba(123, 97, 255, 0.25)',
-    lineError: 'rgba(255, 71, 87, 0.9)',
-    lineErrorGlow: 'rgba(255, 71, 87, 0.25)',
+    guideRing: '#d8dee9',
+    nodeBg: '#ffffff',
+    nodeShadow: 'rgba(45, 58, 74, 0.12)',
+    centerBg: '#4a9eff',
+    centerText: '#ffffff',
+    letterText: '#4a9eff',
+    letterSelected: '#ffffff',
+    nodeSelectedGlow: 'rgba(74, 158, 255, 0.35)',
+    nodeSelected: '#4a9eff',
+    line: 'rgba(74, 158, 255, 0.9)',
+    lineGlow: 'rgba(74, 158, 255, 0.22)',
+    lineError: 'rgba(255, 107, 107, 0.95)',
+    lineErrorGlow: 'rgba(255, 107, 107, 0.22)',
     lineWidth: 4,
   };
 
@@ -83,8 +83,16 @@ const Wheel = (() => {
     } while (spellsAnyTarget(shuffled) && attempts < 25 && shuffled.length > 2);
 
     letters = shuffled;
+    lastLetters = arr.slice();
+    lastTargets = targets.slice();
     _buildNodes();
     _render();
+  }
+
+  function reshuffle() {
+    if (lastLetters.length === 0) return;
+    clearInteraction();
+    setLetters(lastLetters, lastTargets);
   }
 
   function setOnWordComplete(cb) {
@@ -98,91 +106,44 @@ const Wheel = (() => {
       return {
         letter,
         angle,
-        x: CENTER + RING_MID * Math.cos(angle),
-        y: CENTER + RING_MID * Math.sin(angle),
-        targetX: CENTER + RING_MID * Math.cos(angle),
-        targetY: CENTER + RING_MID * Math.sin(angle),
+        x: CENTER + NODE_RADIUS * Math.cos(angle),
+        y: CENTER + NODE_RADIUS * Math.sin(angle),
       };
     });
   }
 
-  function _drawRing() {
-    // Outer shadow (soft)
+  function _drawGuideRing() {
     ctx.beginPath();
-    ctx.arc(CENTER + 1, CENTER + 3, RING_OUTER + 4, 0, Math.PI * 2);
-    ctx.arc(CENTER + 1, CENTER + 3, RING_INNER - 4, 0, Math.PI * 2, true);
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
-    ctx.fill();
-
-    // Ring body with gradient
-    const ringGrad = ctx.createLinearGradient(CENTER, CENTER - RING_OUTER, CENTER, CENTER + RING_OUTER);
-    ringGrad.addColorStop(0, COLORS.ringTop);
-    ringGrad.addColorStop(1, COLORS.ringBottom);
-
-    ctx.beginPath();
-    ctx.arc(CENTER, CENTER, RING_OUTER, 0, Math.PI * 2);
-    ctx.arc(CENTER, CENTER, RING_INNER, 0, Math.PI * 2, true);
-    ctx.fillStyle = ringGrad;
-    ctx.fill();
-
-    // Outer border
-    ctx.beginPath();
-    ctx.arc(CENTER, CENTER, RING_OUTER, 0, Math.PI * 2);
-    ctx.strokeStyle = COLORS.ringStroke;
+    ctx.arc(CENTER, CENTER, NODE_RADIUS, 0, Math.PI * 2);
+    ctx.strokeStyle = COLORS.guideRing;
     ctx.lineWidth = 1.5;
     ctx.stroke();
-
-    // Subtle inner highlight (top arc)
-    ctx.beginPath();
-    ctx.arc(CENTER, CENTER, RING_OUTER - 1, -Math.PI * 0.8, -Math.PI * 0.2);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-    ctx.lineWidth = 1;
-    ctx.stroke();
   }
 
-  function _drawCenter() {
-    // Radial gradient from ring inner edge color to background
-    const grad = ctx.createRadialGradient(CENTER, CENTER, RING_INNER * 0.3, CENTER, CENTER, RING_INNER - 1);
-    grad.addColorStop(0, COLORS.centerBg);
-    grad.addColorStop(1, COLORS.ringBottom);
+  function _drawNode(n, isSelected) {
+    const r = isSelected ? NODE_CIRCLE_R + 2 : NODE_CIRCLE_R;
+
     ctx.beginPath();
-    ctx.arc(CENTER, CENTER, RING_INNER - 1, 0, Math.PI * 2);
-    ctx.fillStyle = grad;
+    ctx.arc(n.x, n.y + 2, r, 0, Math.PI * 2);
+    ctx.fillStyle = COLORS.nodeShadow;
     ctx.fill();
-  }
 
-  function _drawLetter(n, isSelected) {
-    if (isSelected) {
-      // Glow behind letter
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, 18, 0, Math.PI * 2);
-      ctx.fillStyle = COLORS.nodeSelectedGlow;
-      ctx.fill();
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+    ctx.fillStyle = isSelected ? COLORS.nodeSelected : COLORS.nodeBg;
+    ctx.fill();
 
-      // Text shadow
-      ctx.fillStyle = COLORS.letterSelectedShadow;
-      ctx.font = `bold 24px 'Segoe UI', sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(n.letter, n.x + 0.5, n.y + 1.5);
-
-      // Text
-      ctx.fillStyle = COLORS.nodeSelected;
-      ctx.font = `bold 24px 'Segoe UI', sans-serif`;
-      ctx.fillText(n.letter, n.x, n.y + 1);
-    } else {
-      // Text shadow
-      ctx.fillStyle = COLORS.letterTextShadow;
-      ctx.font = `bold 22px 'Segoe UI', sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(n.letter, n.x + 0.5, n.y + 1.5);
-
-      // Text
-      ctx.fillStyle = COLORS.letterText;
-      ctx.font = `bold 22px 'Segoe UI', sans-serif`;
-      ctx.fillText(n.letter, n.x, n.y + 1);
+    if (!isSelected) {
+      ctx.strokeStyle = '#eef1f7';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
     }
+
+    ctx.fillStyle = isSelected ? COLORS.letterSelected : COLORS.letterText;
+    ctx.font = `800 ${isSelected ? 22 : 20}px 'Nunito', 'Segoe UI', sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(n.letter, n.x, n.y + 1);
   }
 
   function _lineColors() {
@@ -349,14 +310,11 @@ const Wheel = (() => {
     _updateThemeColors();
     ctx.clearRect(0, 0, LOGICAL_SIZE, LOGICAL_SIZE);
 
-    _drawRing();
-    _drawCenter();
+    _drawGuideRing();
     _drawLines();
 
-    // Draw letters
     nodes.forEach((n, i) => {
-      const isSelected = selectedIndices.includes(i);
-      _drawLetter(n, isSelected);
+      _drawNode(n, selectedIndices.includes(i));
     });
   }
 
@@ -494,5 +452,12 @@ const Wheel = (() => {
   canvas.addEventListener('touchend', _onEnd, { passive: false });
   canvas.addEventListener('touchcancel', _onEnd, { passive: false });
 
-  return { setLetters, setOnWordComplete, showError, showPreviewSuccess, clearInteraction };
+  return {
+    setLetters,
+    setOnWordComplete,
+    showError,
+    showPreviewSuccess,
+    clearInteraction,
+    reshuffle,
+  };
 })();

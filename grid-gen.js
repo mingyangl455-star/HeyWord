@@ -266,12 +266,22 @@ function validateRawLevels() {
 
 validateRawLevels();
 
-// ==================== 网格自动布局算法 (科学交叉，杜绝同方向重合歧义) ====================
-function generateGrid(words, letters) {
-  // 按长度降序排序
-  const sortedWords = [...words].sort((a, b) => b.length - a.length);
-  
+function permute(arr) {
+  if (arr.length <= 1) return [arr];
+  const out = [];
+  for (let i = 0; i < arr.length; i++) {
+    const head = arr[i];
+    const tailPerms = permute(arr.filter((_, j) => j !== i));
+    for (const tp of tailPerms) out.push([head, ...tp]);
+  }
+  return out;
+}
+
+// 单次尝试：按给定顺序交叉摆放，遵守一行一词 / 一列一词
+function tryPlaceWords(sortedWords) {
   const placedCells = new Map(); // key="row,col" -> { row, col, letter, id }
+  const horizontalByRow = new Map(); // row -> word（该行唯一的横向词）
+  const verticalByCol = new Map();   // col -> word（该列唯一的纵向词）
   const idCounters = {};
   const wordPlacements = []; // { word, cells: [{row, col, letter, id}] }
   
@@ -300,6 +310,9 @@ function generateGrid(words, letters) {
   function canPlaceVertical(word, crossIndex, crossRow, crossCol) {
     const startRow = crossRow - crossIndex;
     const startCol = crossCol;
+
+    // 同一列只能有一条纵向词
+    if (verticalByCol.has(startCol)) return false;
     
     // 边界与间距审查
     if (getCell(startRow - 1, startCol) !== undefined) return false;
@@ -328,6 +341,9 @@ function generateGrid(words, letters) {
   function canPlaceHorizontal(word, crossIndex, crossRow, crossCol) {
     const startRow = crossRow;
     const startCol = crossCol - crossIndex;
+
+    // 同一行只能有一条横向词
+    if (horizontalByRow.has(startRow)) return false;
     
     // 边界与间距审查
     if (getCell(startRow, startCol - 1) !== undefined) return false;
@@ -363,8 +379,22 @@ function generateGrid(words, letters) {
     mainCells.push(cell);
   }
   wordPlacements.push({ word: mainWord, cells: mainCells });
+  horizontalByRow.set(mainRow, mainWord);
   
-  // 2. 交叉放置其余词，优先垂直正交
+  function commitPlacement(word, newCells, orientation) {
+    const finalCells = newCells.map(nc => setCell(nc.row, nc.col, nc.letter));
+    wordPlacements.push({ word, cells: finalCells });
+    if (orientation === 'vertical') {
+      const col = finalCells[0].col;
+      verticalByCol.set(col, word);
+    } else {
+      const row = finalCells[0].row;
+      horizontalByRow.set(row, word);
+    }
+    return true;
+  }
+  
+  // 2. 交叉放置其余词，必须正交交叉，禁止同排/同列并排
   for (let w = 1; w < sortedWords.length; w++) {
     const word = sortedWords[w];
     let placed = false;
@@ -377,18 +407,14 @@ function generateGrid(words, letters) {
             // 尝试垂直摆放
             let newCells = canPlaceVertical(word, i, prevCell.row, prevCell.col);
             if (newCells) {
-              const finalCells = newCells.map(nc => setCell(nc.row, nc.col, nc.letter));
-              wordPlacements.push({ word, cells: finalCells });
-              placed = true;
+              placed = commitPlacement(word, newCells, 'vertical');
               break;
             }
             
-            // 垂直失败尝试水平摆放
+            // 垂直失败尝试水平交叉（仍须满足「该行尚无其它横词」）
             newCells = canPlaceHorizontal(word, i, prevCell.row, prevCell.col);
             if (newCells) {
-              const finalCells = newCells.map(nc => setCell(nc.row, nc.col, nc.letter));
-              wordPlacements.push({ word, cells: finalCells });
-              placed = true;
+              placed = commitPlacement(word, newCells, 'horizontal');
               break;
             }
           }
@@ -398,26 +424,33 @@ function generateGrid(words, letters) {
       if (placed) break;
     }
     
-    // 如果无法与已有词完美交叉，则并排在一行，间隔 3 格，不粘合
     if (!placed) {
-      let maxCol = -1;
-      placedCells.forEach(c => {
-        if (c.row === mainRow) {
-          maxCol = Math.max(maxCol, c.col);
-        }
+      const partialCells = Array.from(placedCells.values()).map(c => ({
+        row: c.row,
+        col: c.col,
+        letter: c.letter,
+        id: c.id,
+      }));
+      const partialWords = wordPlacements.map(wp => {
+        const info = getWordInfo(wp.word);
+        return {
+          word: wp.word,
+          cellIds: wp.cells.map(c => c.id),
+          phonetic: info.phonetic,
+          meaning: info.meaning,
+          example: info.example,
+          exampleCn: info.exampleCn,
+        };
       });
-      const startC = maxCol + 3;
-      const newCells = [];
-      for (let i = 0; i < word.length; i++) {
-        const cell = setCell(mainRow, startC + i, word[i]);
-        newCells.push(cell);
-      }
-      wordPlacements.push({ word, cells: newCells });
-      console.log(`Placed unconnected word "${word}" at safe distance.`);
+      return {
+        placedAll: false,
+        placedCount: wordPlacements.length,
+        cells: partialCells,
+        words: partialWords,
+      };
     }
   }
   
-  // 3. 收集并格式化输出
   const cells = Array.from(placedCells.values()).map(c => ({
     row: c.row,
     col: c.col,
@@ -437,7 +470,36 @@ function generateGrid(words, letters) {
     };
   });
   
-  return { cells, words: wordObjs };
+  return { placedAll: true, cells, words: wordObjs };
+}
+
+function generateGrid(words, letters) {
+  const mainWord = [...words].sort((a, b) => b.length - a.length)[0];
+  const rest = words.filter((w) => w !== mainWord);
+  const restByLen = [...rest].sort((a, b) => b.length - a.length);
+
+  const orders = [[...restByLen]];
+  for (const perm of permute(rest)) {
+    const key = perm.join('|');
+    if (!orders.some((o) => o.join('|') === key)) orders.push(perm);
+  }
+
+  let best = null;
+  for (const restOrder of orders) {
+    const result = tryPlaceWords([mainWord, ...restOrder]);
+    if (result.placedAll) {
+      return { cells: result.cells, words: result.words };
+    }
+    if (!best || result.placedCount > best.placedCount) {
+      best = result;
+    }
+  }
+
+  const missing = words.filter((w) => !best.words.some((gw) => gw.word === w));
+  console.warn(
+    `[grid] Level incomplete: placed ${best.words.length}/${words.length}, missing: ${missing.join(', ')}`
+  );
+  return { cells: best.cells, words: best.words };
 }
 
 // ========== 4. 生成 50 关并输出到 js/levels.js ==========
@@ -464,6 +526,11 @@ console.log(`Generated ${LEVELS.length} levels into ./js/levels.js`);
 let success = true;
 for (let i = 0; i < LEVELS.length; i++) {
   const lvl = LEVELS[i];
+  const raw = RAW_LEVELS[i];
+  if (lvl.grid.words.length !== raw.words.length) {
+    console.error(`Level ${i + 1}: placed ${lvl.grid.words.length}/${raw.words.length} words — missing: ${raw.words.filter(w => !lvl.grid.words.some(gw => gw.word === w)).join(', ')}`);
+    success = false;
+  }
   for (const w of lvl.grid.words) {
     if (w.cellIds.length !== w.word.length) {
       console.error(`Level ${i+1} word "${w.word}" has ${w.cellIds.length} cells but length ${w.word.length}`);

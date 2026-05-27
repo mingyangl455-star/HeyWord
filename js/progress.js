@@ -10,7 +10,7 @@ const Progress = (() => {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) return JSON.parse(raw);
     } catch (e) { /* ignore */ }
-    return { highestClearedIndex: -1 };
+    return { highestClearedIndex: -1, learnedWords: {} };
   }
 
   function _save(data) {
@@ -23,12 +23,56 @@ const Progress = (() => {
     return _load().highestClearedIndex;
   }
 
+  function _ensureLearnedWords(data) {
+    if (!data.learnedWords || typeof data.learnedWords !== 'object') {
+      data.learnedWords = {};
+    }
+  }
+
+  function _mergeLevelWords(data, levelIndex) {
+    if (typeof LEVELS === 'undefined' || !LEVELS[levelIndex]) return;
+    _ensureLearnedWords(data);
+    let orderBase = Object.keys(data.learnedWords).length;
+    LEVELS[levelIndex].grid.words.forEach((w) => {
+      const key = w.word.toUpperCase();
+      if (data.learnedWords[key]) return;
+      data.learnedWords[key] = {
+        word: w.word,
+        phonetic: w.phonetic,
+        meaning: w.meaning,
+        example: w.example,
+        exampleCn: w.exampleCn,
+        level: LEVELS[levelIndex].level,
+        order: orderBase++,
+      };
+    });
+  }
+
+  function _backfillLearnedWords(data) {
+    _ensureLearnedWords(data);
+    if (data.highestClearedIndex < 0) return;
+    if (Object.keys(data.learnedWords).length > 0) return;
+    for (let i = 0; i <= data.highestClearedIndex; i++) {
+      _mergeLevelWords(data, i);
+    }
+  }
+
   function markLevelCleared(levelIndex) {
     const data = _load();
+    _mergeLevelWords(data, levelIndex);
     if (levelIndex > data.highestClearedIndex) {
       data.highestClearedIndex = levelIndex;
+    }
+    _save(data);
+  }
+
+  function getLearnedWords() {
+    const data = _load();
+    _backfillLearnedWords(data);
+    if (Object.keys(data.learnedWords).length > 0) {
       _save(data);
     }
+    return Object.values(data.learnedWords).sort((a, b) => a.order - b.order);
   }
 
   function hasProgress() {
@@ -58,5 +102,6 @@ const Progress = (() => {
     getNextLevelIndex,
     getNextLevelNumber,
     getClearedCount,
+    getLearnedWords,
   };
 })();

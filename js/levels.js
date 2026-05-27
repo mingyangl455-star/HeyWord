@@ -1835,33 +1835,21 @@ const LEVELS = [
         },
         {
           "row": 11,
-          "col": 13,
+          "col": 12,
           "letter": "O",
           "id": "o3"
         },
         {
           "row": 12,
-          "col": 13,
+          "col": 12,
           "letter": "G",
           "id": "g2"
         },
         {
-          "row": 10,
-          "col": 16,
-          "letter": "L",
-          "id": "l2"
-        },
-        {
-          "row": 10,
-          "col": 17,
+          "row": 12,
+          "col": 11,
           "letter": "O",
           "id": "o4"
-        },
-        {
-          "row": 10,
-          "col": 18,
-          "letter": "G",
-          "id": "g3"
         }
       ],
       "words": [
@@ -1891,28 +1879,28 @@ const LEVELS = [
           "exampleCn": "谢天谢地，周五了。"
         },
         {
+          "word": "LOG",
+          "cellIds": [
+            "l1",
+            "o3",
+            "g2"
+          ],
+          "phonetic": "/lɒɡ/",
+          "meaning": "n. 圆木；v. 记录",
+          "example": "A log of wood was burning.",
+          "exampleCn": "一根圆木正在燃烧。"
+        },
+        {
           "word": "DOG",
           "cellIds": [
-            "d1",
-            "o3",
+            "d2",
+            "o4",
             "g2"
           ],
           "phonetic": "/dɒɡ/",
           "meaning": "n. 狗",
           "example": "The dog runs in the park.",
           "exampleCn": "狗在公园里跑。"
-        },
-        {
-          "word": "LOG",
-          "cellIds": [
-            "l2",
-            "o4",
-            "g3"
-          ],
-          "phonetic": "/lɒɡ/",
-          "meaning": "n. 圆木；v. 记录",
-          "example": "A log of wood was burning.",
-          "exampleCn": "一根圆木正在燃烧。"
         }
       ]
     }
@@ -1964,34 +1952,28 @@ const LEVELS = [
           "id": "y2"
         },
         {
-          "row": 10,
-          "col": 16,
-          "letter": "S",
-          "id": "s3"
-        },
-        {
-          "row": 10,
-          "col": 17,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 10,
-          "col": 18,
-          "letter": "A",
-          "id": "a2"
-        },
-        {
           "row": 11,
           "col": 13,
           "letter": "E",
-          "id": "e3"
+          "id": "e2"
         },
         {
           "row": 12,
           "col": 13,
           "letter": "S",
-          "id": "s4"
+          "id": "s3"
+        },
+        {
+          "row": 12,
+          "col": 14,
+          "letter": "E",
+          "id": "e3"
+        },
+        {
+          "row": 12,
+          "col": 15,
+          "letter": "A",
+          "id": "a2"
         }
       ],
       "words": [
@@ -2021,28 +2003,28 @@ const LEVELS = [
           "exampleCn": "你说了什么？"
         },
         {
+          "word": "YES",
+          "cellIds": [
+            "y1",
+            "e2",
+            "s3"
+          ],
+          "phonetic": "/jes/",
+          "meaning": "adv. 是的，同意",
+          "example": "He said yes to our offer.",
+          "exampleCn": "他同意了我们的提议。"
+        },
+        {
           "word": "SEA",
           "cellIds": [
             "s3",
-            "e2",
+            "e3",
             "a2"
           ],
           "phonetic": "",
           "meaning": "n. sea",
           "example": "Example sentence with sea.",
           "exampleCn": "包含 sea 的例句。"
-        },
-        {
-          "word": "YES",
-          "cellIds": [
-            "y1",
-            "e3",
-            "s4"
-          ],
-          "phonetic": "/jes/",
-          "meaning": "adv. 是的，同意",
-          "example": "He said yes to our offer.",
-          "exampleCn": "他同意了我们的提议。"
         }
       ]
     }
@@ -3189,38 +3171,38 @@ const LEVELS = [
         {
           "row": 8,
           "col": 13,
-          "letter": "S",
-          "id": "s2"
+          "letter": "T",
+          "id": "t2"
         },
         {
           "row": 9,
           "col": 13,
-          "letter": "O",
-          "id": "o3"
-        },
-        {
-          "row": 12,
-          "col": 12,
           "letter": "E",
           "id": "e3"
         },
         {
           "row": 12,
-          "col": 13,
-          "letter": "T",
-          "id": "t2"
+          "col": 9,
+          "letter": "S",
+          "id": "s2"
         },
         {
-          "row": 13,
-          "col": 13,
-          "letter": "E",
-          "id": "e4"
+          "row": 12,
+          "col": 10,
+          "letter": "O",
+          "id": "o3"
         },
         {
-          "row": 14,
-          "col": 13,
+          "row": 8,
+          "col": 11,
           "letter": "N",
           "id": "n3"
+        },
+        {
+          "row": 8,
+          "col": 12,
+          "letter": "E",
+          "id": "e4"
         }
       ],
       "words": [
@@ -3252,11 +3234,23 @@ const LEVELS = [
           "exampleCn": "请用礼貌的语气说话。"
         },
         {
+          "word": "TEN",
+          "cellIds": [
+            "t2",
+            "e3",
+            "n1"
+          ],
+          "phonetic": "/ten/",
+          "meaning": "num. 十",
+          "example": "Count from one to ten.",
+          "exampleCn": "从一数到十。"
+        },
+        {
           "word": "SON",
           "cellIds": [
             "s2",
             "o3",
-            "n1"
+            "n2"
           ],
           "phonetic": "/sʌn/",
           "meaning": "n. 儿子",
@@ -3266,26 +3260,14 @@ const LEVELS = [
         {
           "word": "NET",
           "cellIds": [
-            "n2",
-            "e3",
+            "n3",
+            "e4",
             "t2"
           ],
           "phonetic": "/net/",
           "meaning": "n. 网",
           "example": "The ball hit the net.",
           "exampleCn": "球打在了网上。"
-        },
-        {
-          "word": "TEN",
-          "cellIds": [
-            "t2",
-            "e4",
-            "n3"
-          ],
-          "phonetic": "/ten/",
-          "meaning": "num. 十",
-          "example": "Count from one to ten.",
-          "exampleCn": "从一数到十。"
         }
       ]
     }
@@ -4249,34 +4231,28 @@ const LEVELS = [
           "id": "p2"
         },
         {
-          "row": 10,
-          "col": 17,
-          "letter": "A",
-          "id": "a3"
-        },
-        {
-          "row": 10,
-          "col": 18,
-          "letter": "S",
-          "id": "s2"
-        },
-        {
-          "row": 10,
-          "col": 19,
-          "letter": "H",
-          "id": "h2"
-        },
-        {
           "row": 8,
           "col": 10,
           "letter": "H",
-          "id": "h3"
+          "id": "h2"
         },
         {
           "row": 9,
           "col": 10,
           "letter": "A",
+          "id": "a3"
+        },
+        {
+          "row": 8,
+          "col": 8,
+          "letter": "A",
           "id": "a4"
+        },
+        {
+          "row": 8,
+          "col": 9,
+          "letter": "S",
+          "id": "s2"
         },
         {
           "row": 11,
@@ -4332,9 +4308,21 @@ const LEVELS = [
           "exampleCn": "她竖琴弹得很动听。"
         },
         {
+          "word": "HAS",
+          "cellIds": [
+            "h2",
+            "a3",
+            "s1"
+          ],
+          "phonetic": "/hæz/",
+          "meaning": "v. 有（第三人称单数）",
+          "example": "She has a lovely cat.",
+          "exampleCn": "她有一只可爱的小猫。"
+        },
+        {
           "word": "ASH",
           "cellIds": [
-            "a3",
+            "a4",
             "s2",
             "h2"
           ],
@@ -4342,18 +4330,6 @@ const LEVELS = [
           "meaning": "n. 灰烬",
           "example": "The cigar fell into ash.",
           "exampleCn": "雪茄掉成了灰烬。"
-        },
-        {
-          "word": "HAS",
-          "cellIds": [
-            "h3",
-            "a4",
-            "s1"
-          ],
-          "phonetic": "/hæz/",
-          "meaning": "v. 有（第三人称单数）",
-          "example": "She has a lovely cat.",
-          "exampleCn": "她有一只可爱的小猫。"
         },
         {
           "word": "RAP",
@@ -5205,34 +5181,28 @@ const LEVELS = [
           "id": "t4"
         },
         {
-          "row": 13,
-          "col": 8,
-          "letter": "W",
-          "id": "w2"
-        },
-        {
-          "row": 13,
+          "row": 12,
           "col": 9,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 10,
-          "col": 18,
           "letter": "T",
           "id": "t5"
         },
         {
-          "row": 10,
-          "col": 19,
-          "letter": "I",
-          "id": "i3"
+          "row": 12,
+          "col": 11,
+          "letter": "E",
+          "id": "e4"
         },
         {
-          "row": 10,
-          "col": 20,
-          "letter": "E",
-          "id": "e5"
+          "row": 14,
+          "col": 9,
+          "letter": "W",
+          "id": "w2"
+        },
+        {
+          "row": 14,
+          "col": 11,
+          "letter": "T",
+          "id": "t6"
         }
       ],
       "words": [
@@ -5290,28 +5260,28 @@ const LEVELS = [
           "exampleCn": "球打在了网上。"
         },
         {
-          "word": "WET",
-          "cellIds": [
-            "w2",
-            "e4",
-            "t2"
-          ],
-          "phonetic": "/wet/",
-          "meaning": "adj. 湿的",
-          "example": "The grass is wet with dew.",
-          "exampleCn": "草被露水打湿了。"
-        },
-        {
           "word": "TIE",
           "cellIds": [
             "t5",
-            "i3",
-            "e5"
+            "i2",
+            "e4"
           ],
           "phonetic": "/taɪ/",
           "meaning": "v. 系；n. 领带",
           "example": "Tie your shoelaces tightly.",
           "exampleCn": "系紧你的鞋带。"
+        },
+        {
+          "word": "WET",
+          "cellIds": [
+            "w2",
+            "e2",
+            "t6"
+          ],
+          "phonetic": "/wet/",
+          "meaning": "adj. 湿的",
+          "example": "The grass is wet with dew.",
+          "exampleCn": "草被露水打湿了。"
         }
       ]
     }
@@ -5732,70 +5702,64 @@ const LEVELS = [
           "id": "d2"
         },
         {
-          "row": 9,
-          "col": 12,
+          "row": 8,
+          "col": 13,
           "letter": "R",
           "id": "r3"
         },
         {
+          "row": 9,
+          "col": 13,
+          "letter": "E",
+          "id": "e2"
+        },
+        {
+          "row": 9,
+          "col": 15,
+          "letter": "B",
+          "id": "b2"
+        },
+        {
           "row": 11,
-          "col": 12,
+          "col": 15,
           "letter": "D",
           "id": "d3"
         },
         {
           "row": 12,
-          "col": 12,
-          "letter": "E",
-          "id": "e2"
-        },
-        {
-          "row": 11,
-          "col": 14,
-          "letter": "R",
-          "id": "r4"
-        },
-        {
-          "row": 12,
-          "col": 14,
+          "col": 11,
           "letter": "I",
           "id": "i3"
         },
         {
-          "row": 13,
-          "col": 14,
+          "row": 12,
+          "col": 12,
           "letter": "D",
           "id": "d4"
+        },
+        {
+          "row": 12,
+          "col": 13,
+          "letter": "E",
+          "id": "e3"
+        },
+        {
+          "row": 13,
+          "col": 7,
+          "letter": "G",
+          "id": "g2"
         },
         {
           "row": 13,
           "col": 8,
           "letter": "R",
-          "id": "r5"
+          "id": "r4"
         },
         {
           "row": 13,
           "col": 9,
-          "letter": "E",
-          "id": "e3"
-        },
-        {
-          "row": 10,
-          "col": 18,
-          "letter": "B",
-          "id": "b2"
-        },
-        {
-          "row": 10,
-          "col": 19,
-          "letter": "E",
-          "id": "e4"
-        },
-        {
-          "row": 10,
-          "col": 20,
-          "letter": "D",
-          "id": "d5"
+          "letter": "I",
+          "id": "i4"
         }
       ],
       "words": [
@@ -5828,37 +5792,11 @@ const LEVELS = [
           "exampleCn": "小鸟唱起甜美的歌。"
         },
         {
-          "word": "RIDE",
-          "cellIds": [
-            "r3",
-            "i1",
-            "d3",
-            "e2"
-          ],
-          "phonetic": "",
-          "meaning": "n. ride",
-          "example": "Example sentence with ride.",
-          "exampleCn": "包含 ride 的例句。"
-        },
-        {
-          "word": "GRID",
-          "cellIds": [
-            "g1",
-            "r4",
-            "i3",
-            "d4"
-          ],
-          "phonetic": "",
-          "meaning": "n. grid",
-          "example": "Example sentence with grid.",
-          "exampleCn": "包含 grid 的例句。"
-        },
-        {
           "word": "RED",
           "cellIds": [
-            "r5",
-            "e3",
-            "d2"
+            "r3",
+            "e2",
+            "d1"
           ],
           "phonetic": "/red/",
           "meaning": "adj. 红色的",
@@ -5869,13 +5807,39 @@ const LEVELS = [
           "word": "BED",
           "cellIds": [
             "b2",
-            "e4",
-            "d5"
+            "e1",
+            "d3"
           ],
           "phonetic": "/bed/",
           "meaning": "n. 床",
           "example": "Go to bed early tonight.",
           "exampleCn": "早点上床睡觉。"
+        },
+        {
+          "word": "RIDE",
+          "cellIds": [
+            "r2",
+            "i3",
+            "d4",
+            "e3"
+          ],
+          "phonetic": "",
+          "meaning": "n. ride",
+          "example": "Example sentence with ride.",
+          "exampleCn": "包含 ride 的例句。"
+        },
+        {
+          "word": "GRID",
+          "cellIds": [
+            "g2",
+            "r4",
+            "i4",
+            "d2"
+          ],
+          "phonetic": "",
+          "meaning": "n. grid",
+          "example": "Example sentence with grid.",
+          "exampleCn": "包含 grid 的例句。"
         }
       ]
     }
