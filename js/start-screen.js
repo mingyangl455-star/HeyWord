@@ -13,6 +13,33 @@ const StartScreen = (() => {
 
   let onStartNew = null;
   let onContinue = null;
+  let listenersBound = false;
+
+  function _hideStartScreen() {
+    const screen = document.getElementById('start-screen');
+    if (!screen) return;
+    screen.classList.add('hide');
+    screen.style.pointerEvents = 'none';
+    screen.style.display = 'none';
+  }
+
+  function _closeNewGameConfirm() {
+    const modal = document.getElementById('new-game-confirm');
+    if (modal) modal.classList.remove('show');
+  }
+
+  function _openNewGameConfirm() {
+    const modal = document.getElementById('new-game-confirm');
+    if (modal) modal.classList.add('show');
+  }
+
+  function _beginNewGame() {
+    _closeNewGameConfirm();
+    _hideStartScreen();
+    if (typeof onStartNew === 'function') {
+      onStartNew();
+    }
+  }
 
   function init(handlers) {
     if (typeof handlers === 'function') {
@@ -23,18 +50,25 @@ const StartScreen = (() => {
       onContinue = handlers.onContinue;
     }
 
+    if (listenersBound) return;
+    listenersBound = true;
+
     const btn = document.getElementById('btn-start-game');
     const btnNew = document.getElementById('btn-new-game');
     const screen = document.getElementById('start-screen');
+    const newGameConfirm = document.getElementById('new-game-confirm');
+    const btnNewOk = document.getElementById('btn-new-game-ok');
+    const btnNewCancel = document.getElementById('btn-new-game-cancel');
+
+    if (!btn || !screen) return;
 
     btn.addEventListener('click', () => {
       if (typeof AudioHaptic !== 'undefined') {
         AudioHaptic.playClick();
       }
+      _closeNewGameConfirm();
       const useContinue = Progress.hasProgress();
-      screen.classList.add('hide');
-      screen.style.pointerEvents = 'none';
-      screen.style.display = 'none';
+      _hideStartScreen();
       if (useContinue && typeof onContinue === 'function') {
         onContinue();
       } else if (typeof onStartNew === 'function') {
@@ -43,17 +77,35 @@ const StartScreen = (() => {
     });
 
     if (btnNew) {
-      btnNew.addEventListener('click', () => {
+      btnNew.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (typeof AudioHaptic !== 'undefined') {
           AudioHaptic.playClick();
         }
-        if (!confirm('确定要重新开始新游戏吗？之前闯过的进度不会被删除。')) return;
-        screen.classList.add('hide');
-        screen.style.pointerEvents = 'none';
-        screen.style.display = 'none';
-        if (typeof onStartNew === 'function') {
-          onStartNew();
-        }
+        _openNewGameConfirm();
+      });
+    }
+
+    if (btnNewOk) {
+      btnNewOk.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
+        _beginNewGame();
+      });
+    }
+
+    if (btnNewCancel) {
+      btnNewCancel.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (typeof AudioHaptic !== 'undefined') AudioHaptic.playClick();
+        _closeNewGameConfirm();
+      });
+    }
+
+    if (newGameConfirm) {
+      newGameConfirm.addEventListener('click', (e) => {
+        if (e.target === newGameConfirm) _closeNewGameConfirm();
       });
     }
 
@@ -75,7 +127,7 @@ const StartScreen = (() => {
       const flags = ['🇬🇧', '🇫🇷', '🇯🇵', '🇧🇷', '🇺🇸'];
       const stationName = stations[Math.min(stationIdx, stations.length - 1)];
       const flag = flags[Math.min(stationIdx, flags.length - 1)];
-      
+
       levelEl.textContent = `Level ${nextLevelNum} · ${flag} ${stationName}`;
       levelEl.classList.remove('hidden');
       if (btnNew) btnNew.classList.remove('hidden');
@@ -123,6 +175,7 @@ const StartScreen = (() => {
 
   function show() {
     const screen = document.getElementById('start-screen');
+    _closeNewGameConfirm();
     updateStartButton();
     _renderLeaderboard();
     screen.style.display = '';

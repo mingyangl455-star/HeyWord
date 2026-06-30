@@ -31,6 +31,7 @@ const Wheel = (() => {
 
   let previewIsError = false;
   let toastTimer = null;
+  let previewSuccessTimer = null;
 
   // Pre-allocated particle pool for 60fps stutter-free trailing effects
   const PARTICLE_COUNT = 25;
@@ -350,10 +351,8 @@ const Wheel = (() => {
     if (idx === -1) return;
 
     if (toastTimer) {
-      clearTimeout(toastTimer);
-      toastTimer = null;
+      _dismissToast();
     }
-    previewBox.classList.remove('toast-message');
 
     isDragging = true;
     selectedIndices = [idx];
@@ -427,6 +426,23 @@ const Wheel = (() => {
     previewBox.classList.remove('error');
   }
 
+  function _clearPreviewSuccessTimer() {
+    if (previewSuccessTimer) {
+      clearTimeout(previewSuccessTimer);
+      previewSuccessTimer = null;
+    }
+  }
+
+  function _dismissToast() {
+    if (toastTimer) {
+      clearTimeout(toastTimer);
+      toastTimer = null;
+    }
+    previewBox.classList.remove('toast-message');
+    previewBox.textContent = '';
+    _hidePreview();
+  }
+
   function showError() {
     previewIsError = true;
     if (previewBox.textContent) {
@@ -443,14 +459,17 @@ const Wheel = (() => {
   function showPreviewSuccess() {
     previewIsError = false;
     previewBox.style.color = '';
-    // If a toast is showing, keep it visible.
     if (toastTimer) return;
-    setTimeout(() => {
+    _clearPreviewSuccessTimer();
+    previewSuccessTimer = setTimeout(() => {
+      previewSuccessTimer = null;
+      if (toastTimer) return;
       _hidePreview();
     }, 400);
   }
 
   function showToastMessage(message, durationMs = 1000) {
+    _clearPreviewSuccessTimer();
     if (toastTimer) clearTimeout(toastTimer);
     previewIsError = false;
     previewBox.textContent = message;

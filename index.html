@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Hey Word</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=33">
+  <link rel="stylesheet" href="css/style.css?v=42">
 </head>
 <body>
   <div id="app">
@@ -32,10 +32,22 @@
           </button>
         </div>
 
+        <!-- 新游戏确认（须高于 start-screen，避免 WebView 里 confirm 无响应） -->
+        <div id="new-game-confirm" class="confirm-overlay confirm-overlay--front" role="dialog" aria-modal="true" aria-labelledby="new-game-confirm-title">
+          <div class="confirm-card">
+            <h3 id="new-game-confirm-title">重新开始？</h3>
+            <p class="confirm-desc">将从第 1 关开始练习。已闯过的进度会保留，之后仍可「继续旅途」。</p>
+            <div class="confirm-actions">
+              <button type="button" id="btn-new-game-cancel" class="btn-confirm-cancel">取消</button>
+              <button type="button" id="btn-new-game-ok" class="btn-confirm-ok">开始新游戏</button>
+            </div>
+          </div>
+        </div>
+
         <section class="friend-leaderboard" aria-label="好友排行">
           <h2 class="lb-heading">
             <span>好友排行</span>
-            <span class="lb-sub">本周闯关</span>
+            <span class="lb-sub">累计通关</span>
           </h2>
           <ol id="leaderboard-list" class="lb-list"></ol>
         </section>
@@ -183,16 +195,17 @@
     <div id="extra-word-toast">+1 Extra Word</div>
   </div>
 
-  <script src="js/progress.js?v=33"></script>
-  <script src="js/start-screen.js?v=33"></script>
-  <script src="js/levels.js?v=33"></script>
-  <script src="js/dictionary.js?v=33"></script>
-  <script src="js/effects.js?v=33"></script>
-  <script src="js/grid.js?v=33"></script>
-  <script src="js/wheel.js?v=33"></script>
-  <script src="js/validator.js?v=33"></script>
-  <script src="js/ad-hint.js?v=33"></script>
-  <script src="js/audio-haptic.js?v=33"></script>
-  <script src="js/main.js?v=33"></script>
+  <script src="js/progress.js?v=42"></script>
+  <script src="js/start-screen.js?v=42"></script>
+  <script src="js/vocabulary.js?v=42"></script>
+  <script src="js/levels.js?v=42"></script>
+  <script src="js/dictionary.js?v=42"></script>
+  <script src="js/effects.js?v=42"></script>
+  <script src="js/grid.js?v=42"></script>
+  <script src="js/wheel.js?v=42"></script>
+  <script src="js/validator.js?v=42"></script>
+  <script src="js/ad-hint.js?v=42"></script>
+  <script src="js/audio-haptic.js?v=42"></script>
+  <script src="js/main.js?v=42"></script>
 </body>
 </html>

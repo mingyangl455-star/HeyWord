@@ -244,7 +244,7 @@ const LEVELS = [
             "b1"
           ],
           "phonetic": "/sʌb/",
-          "meaning": "n. 潜水艇；v. 替代",
+          "meaning": "n. 潜水艇；v. 替代（还有别的意思我不说）",
           "example": "The team used a sub.",
           "exampleCn": "这个团队使用了一个替补。"
         }
@@ -299,10 +299,10 @@ const LEVELS = [
             "r1",
             "m1"
           ],
-          "phonetic": "",
-          "meaning": "n. arm",
-          "example": "Example sentence with arm.",
-          "exampleCn": "包含 arm 的例句。"
+          "phonetic": "/ɑːm/",
+          "meaning": "n. 手臂",
+          "example": "He raised his arm to wave.",
+          "exampleCn": "他举起手臂挥手。"
         },
         {
           "word": "RAM",
@@ -367,10 +367,10 @@ const LEVELS = [
             "o1",
             "w1"
           ],
-          "phonetic": "",
-          "meaning": "n. now",
-          "example": "Example sentence with now.",
-          "exampleCn": "包含 now 的例句。"
+          "phonetic": "/naʊ/",
+          "meaning": "adv. 现在",
+          "example": "We need to leave now.",
+          "exampleCn": "我们现在就得走。"
         },
         {
           "word": "WON",
@@ -447,10 +447,10 @@ const LEVELS = [
             "a1",
             "r1"
           ],
-          "phonetic": "",
-          "meaning": "n. ear",
-          "example": "Example sentence with ear.",
-          "exampleCn": "包含 ear 的例句。"
+          "phonetic": "/ɪər/",
+          "meaning": "n. 耳朵",
+          "example": "She whispered in his ear.",
+          "exampleCn": "她在他耳边低语。"
         },
         {
           "word": "ARE",
@@ -459,10 +459,10 @@ const LEVELS = [
             "r2",
             "e1"
           ],
-          "phonetic": "",
-          "meaning": "n. are",
-          "example": "Example sentence with are.",
-          "exampleCn": "包含 are 的例句。"
+          "phonetic": "/ɑːr/",
+          "meaning": "v. 是（be 的复数）",
+          "example": "They are good friends.",
+          "exampleCn": "他们是好朋友。"
         },
         {
           "word": "ERA",
@@ -539,10 +539,10 @@ const LEVELS = [
             "a1",
             "t1"
           ],
-          "phonetic": "",
-          "meaning": "n. rat",
-          "example": "Example sentence with rat.",
-          "exampleCn": "包含 rat 的例句。"
+          "phonetic": "/ræt/",
+          "meaning": "n. 老鼠",
+          "example": "A rat ran across the floor.",
+          "exampleCn": "一只老鼠跑过地板。"
         },
         {
           "word": "ART",
@@ -1179,10 +1179,10 @@ const LEVELS = [
             "i2",
             "t1"
           ],
-          "phonetic": "",
-          "meaning": "n. lit",
-          "example": "Example sentence with lit.",
-          "exampleCn": "包含 lit 的例句。"
+          "phonetic": "/lɪt/",
+          "meaning": "v. 点亮（light 过去式）",
+          "example": "She lit the candles.",
+          "exampleCn": "她点燃了蜡烛。"
         }
       ]
     }
@@ -1985,10 +1985,10 @@ const LEVELS = [
             "s1",
             "y1"
           ],
-          "phonetic": "",
-          "meaning": "n. easy",
-          "example": "Example sentence with easy.",
-          "exampleCn": "包含 easy 的例句。"
+          "phonetic": "/ˈiːzi/",
+          "meaning": "adj. 容易的",
+          "example": "This question is easy.",
+          "exampleCn": "这道题很简单。"
         },
         {
           "word": "SAY",
@@ -2021,10 +2021,10 @@ const LEVELS = [
             "e3",
             "a2"
           ],
-          "phonetic": "",
-          "meaning": "n. sea",
-          "example": "Example sentence with sea.",
-          "exampleCn": "包含 sea 的例句。"
+          "phonetic": "/siː/",
+          "meaning": "n. 大海",
+          "example": "We walked along the sea.",
+          "exampleCn": "我们沿着海边散步。"
         }
       ]
     }
@@ -2115,10 +2115,10 @@ const LEVELS = [
             "t1",
             "e1"
           ],
-          "phonetic": "",
-          "meaning": "n. rate",
-          "example": "Example sentence with rate.",
-          "exampleCn": "包含 rate 的例句。"
+          "phonetic": "/reɪt/",
+          "meaning": "n. 比率；速度",
+          "example": "The heart rate is normal.",
+          "exampleCn": "心率正常。"
         },
         {
           "word": "TEAR",
@@ -2152,10 +2152,10 @@ const LEVELS = [
             "t4",
             "e1"
           ],
-          "phonetic": "",
-          "meaning": "n. ate",
-          "example": "Example sentence with ate.",
-          "exampleCn": "包含 ate 的例句。"
+          "phonetic": "/eɪt/",
+          "meaning": "v. 吃（eat 过去式）",
+          "example": "We ate lunch together.",
+          "exampleCn": "我们一起吃了午饭。"
         }
       ]
     }
@@ -2437,10 +2437,10 @@ const LEVELS = [
             "o4",
             "d2"
           ],
-          "phonetic": "",
-          "meaning": "n. cod",
-          "example": "Example sentence with cod.",
-          "exampleCn": "包含 cod 的例句。"
+          "phonetic": "/kɒd/",
+          "meaning": "n. 鳕鱼",
+          "example": "Fish and chips often use cod.",
+          "exampleCn": "炸鱼薯条常用鳕鱼。"
         }
       ]
     }
@@ -2962,10 +2962,10 @@ const LEVELS = [
             "a4",
             "t2"
           ],
-          "phonetic": "",
-          "meaning": "n. rat",
-          "example": "Example sentence with rat.",
-          "exampleCn": "包含 rat 的例句。"
+          "phonetic": "/ræt/",
+          "meaning": "n. 老鼠",
+          "example": "A rat ran across the floor.",
+          "exampleCn": "一只老鼠跑过地板。"
         }
       ]
     }
@@ -3535,10 +3535,10 @@ const LEVELS = [
             "i3",
             "e1"
           ],
-          "phonetic": "",
-          "meaning": "n. lie",
-          "example": "Example sentence with lie.",
-          "exampleCn": "包含 lie 的例句。"
+          "phonetic": "/laɪ/",
+          "meaning": "v. 躺；说谎",
+          "example": "Do not lie to your friends.",
+          "exampleCn": "不要对朋友撒谎。"
         }
       ]
     }
@@ -3698,10 +3698,10 @@ const LEVELS = [
             "a2",
             "w3"
           ],
-          "phonetic": "",
-          "meaning": "n. raw",
-          "example": "Example sentence with raw.",
-          "exampleCn": "包含 raw 的例句。"
+          "phonetic": "/rɔː/",
+          "meaning": "adj. 生的，未加工的",
+          "example": "The meat is still raw.",
+          "exampleCn": "肉还是生的。"
         }
       ]
     }
@@ -3849,10 +3849,10 @@ const LEVELS = [
             "a2",
             "n3"
           ],
-          "phonetic": "",
-          "meaning": "n. pan",
-          "example": "Example sentence with pan.",
-          "exampleCn": "包含 pan 的例句。"
+          "phonetic": "/pæn/",
+          "meaning": "n. 平底锅",
+          "example": "Heat oil in a pan.",
+          "exampleCn": "在平底锅里热油。"
         },
         {
           "word": "ANT",
@@ -4289,10 +4289,10 @@ const LEVELS = [
             "r1",
             "p1"
           ],
-          "phonetic": "",
-          "meaning": "n. sharp",
-          "example": "Example sentence with sharp.",
-          "exampleCn": "包含 sharp 的例句。"
+          "phonetic": "/ʃɑːp/",
+          "meaning": "adj. 锋利的；敏锐的",
+          "example": "Be careful with the sharp knife.",
+          "exampleCn": "小心那把锋利的刀。"
         },
         {
           "word": "HARP",
@@ -4549,10 +4549,10 @@ const LEVELS = [
             "l4",
             "e3"
           ],
-          "phonetic": "",
-          "meaning": "n. vile",
-          "example": "Example sentence with vile.",
-          "exampleCn": "包含 vile 的例句。"
+          "phonetic": "/vaɪl/",
+          "meaning": "adj. 卑鄙的，恶劣的",
+          "example": "That was a vile remark.",
+          "exampleCn": "那是句恶劣的话。"
         }
       ]
     }
@@ -4869,10 +4869,10 @@ const LEVELS = [
             "a4",
             "r2"
           ],
-          "phonetic": "",
-          "meaning": "n. ear",
-          "example": "Example sentence with ear.",
-          "exampleCn": "包含 ear 的例句。"
+          "phonetic": "/ɪər/",
+          "meaning": "n. 耳朵",
+          "example": "She whispered in his ear.",
+          "exampleCn": "她在他耳边低语。"
         },
         {
           "word": "ONE",
@@ -5076,10 +5076,10 @@ const LEVELS = [
             "e4",
             "t2"
           ],
-          "phonetic": "",
-          "meaning": "n. set",
-          "example": "Example sentence with set.",
-          "exampleCn": "包含 set 的例句。"
+          "phonetic": "/set/",
+          "meaning": "v. 放置；n. 一套",
+          "example": "Set the book on the table.",
+          "exampleCn": "把书放在桌上。"
         }
       ]
     }
@@ -5591,10 +5591,10 @@ const LEVELS = [
             "n3",
             "g3"
           ],
-          "phonetic": "",
-          "meaning": "n. sing",
-          "example": "Example sentence with sing.",
-          "exampleCn": "包含 sing 的例句。"
+          "phonetic": "/sɪŋ/",
+          "meaning": "v. 唱歌",
+          "example": "Birds sing in the morning.",
+          "exampleCn": "鸟儿在清晨歌唱。"
         },
         {
           "word": "PIG",
@@ -5615,10 +5615,10 @@ const LEVELS = [
             "i5",
             "n3"
           ],
-          "phonetic": "",
-          "meaning": "n. pin",
-          "example": "Example sentence with pin.",
-          "exampleCn": "包含 pin 的例句。"
+          "phonetic": "/pɪn/",
+          "meaning": "n. 别针；v. 钉住",
+          "example": "She used a pin on her dress.",
+          "exampleCn": "她在裙子上别了一枚别针。"
         },
         {
           "word": "GIN",
@@ -5823,10 +5823,10 @@ const LEVELS = [
             "d4",
             "e3"
           ],
-          "phonetic": "",
-          "meaning": "n. ride",
-          "example": "Example sentence with ride.",
-          "exampleCn": "包含 ride 的例句。"
+          "phonetic": "/raɪd/",
+          "meaning": "v. 骑；乘坐",
+          "example": "We ride bikes to school.",
+          "exampleCn": "我们骑自行车上学。"
         },
         {
           "word": "GRID",
@@ -5836,10 +5836,10 @@ const LEVELS = [
             "i4",
             "d2"
           ],
-          "phonetic": "",
-          "meaning": "n. grid",
-          "example": "Example sentence with grid.",
-          "exampleCn": "包含 grid 的例句。"
+          "phonetic": "/ɡrɪd/",
+          "meaning": "n. 网格",
+          "example": "Draw lines on a grid.",
+          "exampleCn": "在网格上画线。"
         }
       ]
     }
@@ -5958,10 +5958,10 @@ const LEVELS = [
             "l1",
             "y1"
           ],
-          "phonetic": "",
-          "meaning": "n. family",
-          "example": "Example sentence with family.",
-          "exampleCn": "包含 family 的例句。"
+          "phonetic": "/ˈfæməli/",
+          "meaning": "n. 家庭",
+          "example": "My family loves to travel.",
+          "exampleCn": "我的家人喜欢旅行。"
         },
         {
           "word": "MAIL",

@@ -195,6 +195,13 @@ const Game = (() => {
   }
 
   function startNew() {
+    if (homeConfirm) homeConfirm.classList.remove('show');
+    if (dictModal) dictModal.classList.remove('show');
+    if (clearedPanel) clearedPanel.classList.remove('show');
+    _clearIdleTimer();
+    if (typeof Wheel !== 'undefined' && Wheel.clearInteraction) {
+      Wheel.clearInteraction();
+    }
     _enterGame(0);
   }
 
@@ -282,7 +289,6 @@ const Game = (() => {
         break;
 
       case 'extra':
-        Wheel.showPreviewSuccess();
         if (typeof AudioHaptic !== 'undefined') AudioHaptic.playExtraSuccess();
         {
           const messages = ['猜到了隐藏单词', '好可惜，不是这个单词'];
@@ -404,10 +410,14 @@ const Game = (() => {
     `;
   }
 
+  function _wordForDisplay(w) {
+    return typeof Vocabulary !== 'undefined' ? Vocabulary.enrich(w) : w;
+  }
+
   function _appendWordCard(container, w, options = {}) {
     const card = document.createElement('div');
     card.className = 'word-card';
-    card.innerHTML = _wordCardHtml(w, options.showLevel);
+    card.innerHTML = _wordCardHtml(_wordForDisplay(w), options.showLevel);
     container.appendChild(card);
     return card;
   }

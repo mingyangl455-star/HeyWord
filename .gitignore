@@ -3,3 +3,6 @@
 node_modules/
 .venv-img/
 .venv/
+.http-server*.log
+HeyWord-demo.zip
+HeyWord-demo/

@@ -34,14 +34,16 @@ const Progress = (() => {
     _ensureLearnedWords(data);
     let orderBase = Object.keys(data.learnedWords).length;
     LEVELS[levelIndex].grid.words.forEach((w) => {
-      const key = w.word.toUpperCase();
+      const enriched =
+        typeof Vocabulary !== 'undefined' ? Vocabulary.enrich(w) : w;
+      const key = enriched.word.toUpperCase();
       if (data.learnedWords[key]) return;
       data.learnedWords[key] = {
-        word: w.word,
-        phonetic: w.phonetic,
-        meaning: w.meaning,
-        example: w.example,
-        exampleCn: w.exampleCn,
+        word: enriched.word,
+        phonetic: enriched.phonetic,
+        meaning: enriched.meaning,
+        example: enriched.example,
+        exampleCn: enriched.exampleCn,
         level: LEVELS[levelIndex].level,
         order: orderBase++,
       };
@@ -72,7 +74,9 @@ const Progress = (() => {
     if (Object.keys(data.learnedWords).length > 0) {
       _save(data);
     }
-    return Object.values(data.learnedWords).sort((a, b) => a.order - b.order);
+    const list = Object.values(data.learnedWords).sort((a, b) => a.order - b.order);
+    if (typeof Vocabulary === 'undefined') return list;
+    return list.map((w) => Vocabulary.enrich(w));
   }
 
   function hasProgress() {
